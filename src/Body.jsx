@@ -13,11 +13,24 @@ const Body = () => {
 
     const searchMovies = async (title) => {
 
-        const response1 = await fetch(`${API}&s=${title}&page=1`);
+        const response1 = await fetch(`${API}&s=${title}`);
+        const response2 = await fetch(`${API}&s=${title}&page=2`);
 
-        const data = await response1.json();
+        const data = await Promise.all([response1.json(), response2.json()]);
 
-        setMovies(data.Search);
+        const receivedData1 = data[0].Search
+        const receivedData2Check = data[1]
+        const receivedData2 = data[1].Search
+
+        const combinedData = receivedData1.concat(receivedData2)
+
+        if (receivedData2Check.Response === "False") {
+            setMovies(receivedData1);
+        }
+        else {
+
+            setMovies(combinedData);
+        }
 
     }
 
