@@ -1,6 +1,6 @@
 {
   "name": "movie",
-  "homepage": "https://akhilsworkshop.github.io/moviedb/",
+  "homepage": "https://moviedb.akhilkumar.ga",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
