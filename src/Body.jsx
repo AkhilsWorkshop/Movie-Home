@@ -5,7 +5,7 @@ import { HiOutlineEmojiSad } from "react-icons/hi";
 
 const Body = () => {
 
-    const API = "http://omdbapi.com?apikey=ac88eda5"
+    const API = "https://omdbapi.com?apikey=ac88eda5"
 
     const [movies, setMovies] = useState([])
 
