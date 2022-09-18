@@ -7,7 +7,7 @@ import "./styles.css";
 const App = () => {
 
     return (
-        <div>
+        <div className="relative min-h-screen">
             <Header />
             <Body />
             <Footer />
