@@ -7,7 +7,7 @@ const Card = ({ movie }) => {
             <img
                 src={movie.Poster !== 'N/A' ? movie.Poster : notFound}
                 alt={movie.Title}
-                className="object-fill h-60 rounded-md"
+                className="object-fill h-60 rounded-md fil duration-300 cursor-pointer hover:bg-gray-500 hover:opacity-25"
             />
             <p className="truncate sm:text-sm">{movie.Title}</p>
             <div className="flex justify-between">
