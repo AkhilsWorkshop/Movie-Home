@@ -1,25 +1,43 @@
-import CardAlt from "./CardAlt"
+import Card from "./Card"
 import { useEffect, useState } from "react";
 import { BiSearchAlt2 } from "react-icons/bi";
 import { HiOutlineEmojiSad } from "react-icons/hi";
+import DetailedCard from "./DetailedCard";
 
 const BodyAlt = () => {
 
-    const API = "https://api.themoviedb.org/3/movie/popular?api_key=ee67127aee04e49495754bf98fb61031"
-    const API_SEARCH = "https://api.themoviedb.org/3/search/multi?api_key=ee67127aee04e49495754bf98fb61031&query";
+    // API KEY
+    const API = "ee67127aee04e49495754bf98fb61031";
 
+    // List of API
+    const POPULAR = "https://api.themoviedb.org/3/movie/popular?api_key=" + API;
+    const API_SEARCH = "https://api.themoviedb.org/3/search/multi?api_key=" + API + "&query";
+    const TRENDING = "https://api.themoviedb.org/3/trending/all/day?api_key=" + API;
+
+    // useState Hooks
     const [movies, setMovies] = useState([]);
     const [query, setQuery] = useState("");
 
+    // Opening the cardTiles and closing detailedCard
+    const openCard = () => {
+
+        var open = document.querySelector("#cardDetails");
+        open.style.display = "none";
+        var close = document.querySelector("#card");
+        close.style.display = "flex";
+    }
+
+    // useEffect and fetching data for Home page with "Trending list"
     useEffect(() => {
-        fetch(API)
+        fetch(TRENDING)
             .then((response) => response.json())
             .then(data => {
-                console.log(data);
+                setMovies(data.results)
             })
     }, [])
 
 
+    // Fetching searched title data
     const searchMovie = async (e) => {
         e.preventDefault();
 
@@ -28,20 +46,47 @@ const BodyAlt = () => {
             const response = await fetch(url);
             const data = await response.json();
             setMovies(data.results);
-            console.log(data);
+            console.log(data.results)
+            openCard();
         }
+
         catch (e) {
             console.log(e);
         }
     }
 
+    // Send TO DetailedCard
+
+    const [singleMovie, setSingleMovie] = useState([]);
+    // console.log(singleMovie)
+
+    // Fetching searched title data
+    const getMovieDetails = async (e) => {
+        e.preventDefault();
+
+        try {
+            const url = `${API_SEARCH}=${query}`;
+            const response = await fetch(url);
+            const data = await response.json();
+            setSingleMovie(data.results);
+            openCard();
+        }
+
+        catch (e) {
+            console.log(e);
+        }
+    }
+
+    // Changing the query using onChange
     const changeHandler = (e) => {
         setQuery(e.target.value);
     }
 
+
     return (
         <div className="flex flex-col justify-center items-center bg-zinc-900 text-white">
-            <div className=" my-10">
+
+            <div className="my-10">
                 <form class="relative text-gray-600 focus-within:text-gray-400" onSubmit={searchMovie}>
 
                     <input
@@ -60,23 +105,26 @@ const BodyAlt = () => {
 
             </div>
 
+            <div className="flex flex-col bg-zinc-900 text-white">
 
-            <div className="flex flex-col min-h-screen-[30] bg-zinc-900 text-white">
+                <div id="cardDetails" className="hidden justify-center sm:flex-row gap-4 flex-wrap px-10 lg:px-48 mb-20">
+                    <DetailedCard data={"none"} />
+
+                </div>
 
                 {
                     movies.length > 0
                         ? (
 
-                            <div className="flex justify-center sm:flex-row gap-4 flex-wrap lg:px-20 mb-20">
+                            <div id="card" className="flex justify-center sm:flex-row gap-4 flex-wrap px-10 lg:px-48 mb-20">
+
                                 {movies.map((singleMovie) => (
 
                                     singleMovie.media_type === "person"
                                         ?
                                         <></>
                                         :
-                                        <CardAlt movie={singleMovie} />
-
-
+                                        <Card movie={singleMovie} />
 
                                 ))}
                             </div>

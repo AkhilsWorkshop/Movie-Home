@@ -5,12 +5,25 @@ const API_IMG = "https://image.tmdb.org/t/p/w500/";
 
 const CardAlt = ({ movie }) => {
 
+    const closeCard = (e) => {
+
+        var open = document.querySelector("#cardDetails");
+        open.style.display = "flex";
+        var close = document.querySelector("#card");
+        close.style.display = "none";
+
+        console.log("data")
+
+    }
+
     return (
         <div className="flex flex-col h-80 w-40 rounded-md gap-2">
             <img
                 src={movie.poster_path === null ? notFound : API_IMG + movie.poster_path}
                 alt={movie.title}
-                className="object-fill h-60 rounded-md fil duration-300 cursor-pointer hover:bg-gray-500 hover:opacity-25"
+                className="object-fill h-60 rounded-md duration-300 cursor-pointer hover:bg-gray-500 hover:opacity-25 shadow-xl shadow-black"
+                onClick={() => closeCard}
+                id={movie.id}
             />
             {
                 "original_name" in movie
