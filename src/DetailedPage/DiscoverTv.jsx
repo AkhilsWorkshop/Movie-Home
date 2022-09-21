@@ -28,7 +28,7 @@ const DiscoverTv = () => {
 
                     {content.map((singleMovie) => (
 
-                        <MediaCard movie={singleMovie} title={"Tv"} />
+                        <MediaCard movie={singleMovie} title={"tv"} />
 
                     ))}
 

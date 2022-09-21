@@ -6,8 +6,6 @@ const Search = () => {
     return (
         <>
 
-            <SearchBar />
-
 
         </>
 

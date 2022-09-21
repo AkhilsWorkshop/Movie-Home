@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import MediaCard from "../components/MediaCard";
+import { TRENDING } from "../config/config";
 
 
 const Trending = () => {
@@ -8,9 +9,7 @@ const Trending = () => {
     const [content, setContent] = useState([])
 
     const fetchTrending = async () => {
-        const { data } = await axios.get(`https://api.themoviedb.org/3/trending/all/week?api_key=${process.env.REACT_APP_API_KEY}`);
-
-        console.log(data);
+        const { data } = await axios.get(`${TRENDING}${process.env.REACT_APP_API_KEY}`);
         setContent(data.results);
     }
 
