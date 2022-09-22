@@ -1,5 +1,5 @@
 import SearchBar from "../components/SearchBar"
-import SearchResults from "../components/SearchResults"
+import SearchResults from "./SearchResults"
 
 
 const Search = () => {

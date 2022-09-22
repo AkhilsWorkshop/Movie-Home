@@ -1,13 +1,11 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
-import Search from "./Pages/Search";
 import Home from "./Pages/Home";
 import "./styles.css";
 import Testing from "./Pages/Testing";
-import Header from "./components/Main/Header";
-import Footer from "./components/Main/Footer";
 import DetailedCard from "./components/DetailedCard";
 import Error from "./Pages/Error";
-import SearchResults from "./components/SearchResults";
+import SearchResults from "./Pages/SearchResults";
+
 
 
 const App = () => {
@@ -15,7 +13,7 @@ const App = () => {
     return (
         <Router>
 
-            <Header />
+
 
             <Routes>
                 <Route path="/" element={<Home />} />
@@ -27,7 +25,7 @@ const App = () => {
                 <Route path="*" element={<Error />} />
             </Routes>
 
-            <Footer />
+
 
         </Router>
     )
