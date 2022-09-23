@@ -146,14 +146,12 @@ const Detailed = () => {
 
                                 </div>
 
-                                <div className="flex flex-col overflow-x-hidden gap-5" >
-                                    <h1 className="border-l-4 pl-2 border-yellow-500 text-lg md:text-2xl sm:text-4xl">Cast</h1>
-                                    <div className="flex flex-wrap">
+                                <>
 
-                                        <Cast mediaType={mediaType} searchID={searchID} />
+                                    <Cast mediaType={mediaType} searchID={searchID} />
 
-                                    </div>
-                                </div>
+                                </>
+
                                 <>
 
                                     <Production companies={data.production_companies} />
