@@ -28,7 +28,7 @@ const Recommendations = ({ id, mediaType }) => {
 
                         <div id="card" className="flex justify-center sm:flex-row gap-4 flex-wrap">
 
-                            {content.slice(0, 8).map((singleMovie) => (
+                            {content.slice(0, 6).map((singleMovie) => (
 
                                 <MediaCard movie={singleMovie} />
 
