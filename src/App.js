@@ -16,7 +16,7 @@ const App = () => {
 
             <Routes>
                 <Route path="/" element={<Home />} />
-                <Route exact path="search">
+                <Route path="search">
                     <Route path=":searchID" element={<SearchResults />} />
                     <Route path=":mediaType/:searchID" element={<Detailed />} />
                 </Route>

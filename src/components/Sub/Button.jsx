@@ -9,6 +9,10 @@ const Button = ({ children, media_type, id }) => {
     // Function to route ID as search URL
     const getMovieID = () => {
         navigate("/Search/" + media_type + "/" + id)
+        window.scroll(0, 0)
+
+        // Temporary fix for Component not reloading
+        window.location.reload(false);
         console.log("clicked" + id)
     }
 

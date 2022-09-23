@@ -53,11 +53,12 @@ const Detailed = () => {
                     <Loading />
                 )
                     :
-                    (<div className="flex flex-col-reverse md:flex-col">
+                    (<div className="flex flex-col md:flex-col">
+
 
                         <div className="text-white bg-cover" Style={`background-image: url(${fullSizeImg}${data.backdrop_path})`} >
 
-                            <div className="flex flex-col justify-center p-5 md:px-72 backdrop-blur-md backdrop-brightness-50 bg-gradient-to-t via-transparent from-transparent to-gray-900 gap-5">
+                            <div className="flex flex-col justify-center p-5 md:px-72 backdrop-blur-md backdrop-brightness-50 bg-gradient-to-b via-transparent from-transparent to-gray-900 gap-5">
 
                                 <div className="flex">
                                     <h1 className="border-l-4 pl-2 border-yellow-500 text-lg md:text-2xl sm:text-4xl">{data.title || data.name}
@@ -135,8 +136,6 @@ const Detailed = () => {
 
                                     <p className="text-white text-base">{data.overview}</p>
 
-
-
                                 </div>
 
                                 <div className="flex flex-col overflow-x-hidden gap-5" >
@@ -147,41 +146,39 @@ const Detailed = () => {
 
                                     </div>
                                 </div>
-
-                                <div className="flex flex-col overflow-x-hidden gap-5" >
-                                    <h1 className="border-l-4 pl-2 border-yellow-500 text-lg md:text-2xl sm:text-4xl">Production</h1>
+                                <>
 
                                     <Production companies={data.production_companies} />
 
-                                </div>
-
+                                </>
                             </div>
 
                         </div>
 
-                        <div>
-                            <div className="flex flex-col overflow-x-hidden gap-5" >
-                                <h1 className="border-l-4 pl-2 border-yellow-500 text-lg md:text-2xl sm:text-4xl">Recommended Movies</h1>
+                        <>
 
-                                <Recommendations id={data.id} />
-
-                            </div>
-                        </div>
-
-                        <div>
                             {video === undefined ?
                                 <></>
                                 :
-                                <div className="relative pt-[56.25%]">
-                                    <ReactPlayer
-                                        className="absolute top-0 left-0 "
-                                        url={videoURL}
-                                        width="100%"
-                                        height="100%"
-                                    />
+                                <div className="text-white flex flex-col justify-center p-5 md:px-72 backdrop-blur-md backdrop-brightness-50 bg-gradient-to-b from-gray-900 to-gray-900 gap-5">
+                                    <div className="flex flex-col gap-5 flex-nowrap">
+                                        <h1 className="border-l-4 pl-2 border-yellow-500 text-lg md:text-2xl sm:text-4xl">Videos</h1>
+                                        <div className="flex ">
+                                            <ReactPlayer className="" url={videoURL} />
+                                        </div>
+
+                                    </div>
                                 </div>
                             }
-                        </div>
+
+                        </>
+
+                        <>
+                            <Recommendations id={data.id} mediaType={mediaType} />
+                        </>
+
+
+
 
                     </div>)
             }

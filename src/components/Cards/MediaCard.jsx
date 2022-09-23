@@ -1,6 +1,5 @@
 import { halfSizeImg, imgNotAvailable } from "../../config/config";
 import Button from "../Sub/Button";
-import Results from "../Sub/Button";
 
 const MediaCard = ({ movie, title }) => {
 
@@ -14,25 +13,26 @@ const MediaCard = ({ movie, title }) => {
 
     return (
         <Button media_type={title || movie.media_type} id={movie.id}>
-            <div className="flex flex-col h-80 w-40 rounded-md gap-2">
+            <div className="flex flex-col h-80 w-40 rounded-md gap-2 text-white">
                 {
                     movie.poster_path ?
 
-
-                        <img
-                            src={movie.poster_path === undefined ? imgNotAvailable : halfSizeImg + movie.poster_path}
-                            alt={movie.original_name || movie.title || movie.name}
-                            className="object-fill h-60 rounded-md duration-300 cursor-pointer hover:bg-gray-500 sm:hover:opacity-50 shadow-xl shadow-black"
-                        />
+                        <div className="rounded-md overflow-hidden">
+                            <img
+                                src={movie.poster_path === undefined ? imgNotAvailable : halfSizeImg + movie.poster_path}
+                                alt={movie.original_name || movie.title || movie.name}
+                                className="object-fill h-60 rounded-md duration-300 cursor-pointer hover:scale-105 hover:bg-gray-500 sm:hover:opacity-70 shadow-xl shadow-black"
+                            />
+                        </div>
 
                         :
-
-                        <img
-                            src={(movie.profile_path == null) ? imgNotAvailable : (halfSizeImg + movie.profile_path)}
-                            alt={movie.original_name || movie.title || movie.name}
-                            className="object-fill h-60 rounded-md duration-300 cursor-pointer sm:hover:bg-gray-500 sm:hover:opacity-50 shadow-xl shadow-black"
-                        />
-
+                        <div className="rounded-md overflow-hidden">
+                            <img
+                                src={(movie.profile_path == null) ? imgNotAvailable : (halfSizeImg + movie.profile_path)}
+                                alt={movie.original_name || movie.title || movie.name}
+                                className="object-fill h-60 rounded-md duration-300 cursor-pointer hover:scale-105 sm:hover:bg-gray-500 sm:hover:opacity-50 shadow-xl shadow-black"
+                            />
+                        </div>
                 }
 
                 <p className="truncate sm:text-sm text-left">{movie.original_name || movie.title || movie.name}</p>

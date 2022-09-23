@@ -5,35 +5,42 @@ import MediaCard from "../MediaCard";
 
 
 
-const Recommendations = ({ id }) => {
+const Recommendations = ({ id, mediaType }) => {
     const [content, setContent] = useState([])
 
-    const fetchTrending = async () => {
-        const { data } = await axios.get(`https://api.themoviedb.org/3/movie/${id}/recommendations?api_key=${process.env.REACT_APP_API_KEY}`);
+    const fetch = async () => {
+        const { data } = await axios.get(`https://api.themoviedb.org/3/${mediaType}/${id}/recommendations?api_key=${process.env.REACT_APP_API_KEY}`);
         setContent(data.results);
-
     }
 
     useEffect(() => {
-        fetchTrending()
+        fetch()
     }, [])
 
 
     return (
-        <div className="text-white">
+        <>
+            {
+                content?.length > 0
+                    ?
+                    <div className="flex flex-col justify-center p-5 md:px-72 backdrop-blur-md backdrop-brightness-50 bg-gradient-to-t via-transparent from-transparent to-gray-900 gap-5" >
+                        <h1 className="border-l-4 pl-2 border-yellow-500 text-lg md:text-2xl sm:text-4xl text-white">Recommended for you</h1>
 
-            <div id="card" className="flex justify-center sm:flex-row gap-4 flex-wrap">
+                        <div id="card" className="flex justify-center sm:flex-row gap-4 flex-wrap">
 
-                {content.map((singleMovie) => (
+                            {content.slice(0, 8).map((singleMovie) => (
 
-                    <MediaCard movie={singleMovie} />
+                                <MediaCard movie={singleMovie} />
 
-                ))}
+                            ))}
 
-            </div>
+                        </div>
 
-
-        </div>
+                    </div>
+                    :
+                    <></>
+            }
+        </>
     )
 }
 
