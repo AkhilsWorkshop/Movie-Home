@@ -5,9 +5,9 @@ const Error = () => {
 
     return (
         <div>
-            <div className="flex flex-col justify-center items-center text-white my-20 gap-3">
-                <h1>Oops!</h1>
-                <p>Not configured yet!</p>
+            <div className="flex flex-col h-screen justify-center items-center text-white gap-10">
+                <h1 className="text-4xl">404</h1>
+                <p>Page not found</p>
                 <p>
                     <Link to="/" className="border rounded-md p-2">Go to home</Link>
                 </p>

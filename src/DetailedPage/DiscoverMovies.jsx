@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import MediaCard from "../components/MediaCard";
+import MediaCard from "../components/Cards/MediaCard";
+
 
 const DiscoverMovies = () => {
 

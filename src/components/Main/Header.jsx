@@ -1,9 +1,9 @@
 import { useState } from "react"
 import { Link } from "react-router-dom"
 import logo from "../../assets/logo.png"
-import SearchBar from "../SearchBar"
 import { CgClose, CgMenu } from "react-icons/cg"
 import { BsSearch } from "react-icons/bs"
+import SearchBar from "../Sub/SearchBar"
 
 
 const Header = () => {

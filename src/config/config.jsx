@@ -2,9 +2,10 @@
 // Image from API
 export const halfSizeImg = "https://image.tmdb.org/t/p/w500/";
 export const fullSizeImg = "https://image.tmdb.org/t/p/original/";
+export const personImg = "https://api.themoviedb.org/3/person/";
 
 // Custom Image
-export const imgNotAvailable = "../src/assets/NotFound.png";
+export const imgNotAvailable = "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png";
 
 // API
 export const SEARCH_URL = "https://api.themoviedb.org/3/search/multi?api_key=";

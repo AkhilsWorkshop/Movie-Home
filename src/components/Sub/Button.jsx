@@ -2,13 +2,14 @@
 import { useNavigate } from "react-router-dom";
 
 
-const Results = ({ children, media_type, id }) => {
+const Button = ({ children, media_type, id }) => {
 
     const navigate = useNavigate();
 
     // Function to route ID as search URL
     const getMovieID = () => {
         navigate("/Search/" + media_type + "/" + id)
+        console.log("clicked" + id)
     }
 
     return (
@@ -18,4 +19,4 @@ const Results = ({ children, media_type, id }) => {
     )
 }
 
-export default Results
+export default Button

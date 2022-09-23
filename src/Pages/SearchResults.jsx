@@ -3,39 +3,16 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import MediaCard from "../components/Cards/MediaCard";
 import Footer from "../components/Main/Footer";
 import Header from "../components/Main/Header";
 import Loading from "../components/Main/Loading";
-import MediaCard from "../components/MediaCard";
-import Pagination from "../components/Pagination";
+
+import Pagination from "../components/Sub/Pagination";
 import { SEARCH_URL } from "../config/config";
-import ReactPaginate from "react-paginate";
 
 
 const SearchResults = () => {
-
-    // const API = `${SEARCH_URL}${process.env.REACT_APP_API_KEY}&query=`
-
-    // const [content, setContent] = useState([])
-    // const [searchPages, setSearchpages] = useState("")
-    // const [loading, setLoading] = useState(false)
-
-    // // Getting the ID from URL
-    // const { searchID } = useParams()
-
-    // const fetchSearch = async () => {
-    //     setLoading(true)
-    //     const { data } = await axios.get(`${API}${searchID}`);
-    //     console.log(data)
-    //     setContent(data.results)
-    //     setSearchpages(data.total_results)
-    //     setLoading(false)
-    // }
-
-    // useEffect(() => {
-    //     fetchSearch()
-    // }, [])
-
 
     const API = `${SEARCH_URL}${process.env.REACT_APP_API_KEY}&query=`
 
@@ -56,7 +33,7 @@ const SearchResults = () => {
             setSearchpages(data.total_results)
             setTotalPages(data.total_pages)
             setLoading(false)
-            console.log("This is " + page)
+            console.log(data)
         }
         catch (err) {
             console.log(err)
@@ -68,13 +45,7 @@ const SearchResults = () => {
         fetchSearch()
     }, [])
 
-    // const pageChange = async (page) => {
-    //     let currentPage = page.selected + 1
-    //     console.log(currentPage)
-    //     console.log(page)
-
-    // }
-
+    // Pagination
     const handlePageChange = (page) => {
 
         window.scroll(0, 0)
@@ -105,10 +76,6 @@ const SearchResults = () => {
 
                                         {content.map((singleMovie, key) => (
 
-                                            // singleMovie.media_type === "person"
-                                            //     ?
-                                            //     <></>
-                                            //     :
                                             <MediaCard key={key} movie={singleMovie} />
 
                                         ))}
