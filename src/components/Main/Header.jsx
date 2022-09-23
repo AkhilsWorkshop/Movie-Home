@@ -43,7 +43,7 @@ const Header = () => {
                 </div>
 
                 {menu && (
-                    <div className="flex flex-col justify-center items-center absolute top-0 left-0 w-full h-screen bg-gradient-to-b from-[#272727] to-gray-800">
+                    <div className="flex flex-col justify-center items-center absolute z-10 top-0 left-0 w-full h-screen bg-gradient-to-b from-[#272727] to-gray-800">
                         <div className="flex flex-col items-center gap-8 text-neutral-400">
                             <Link onClick={() => setMenu(!menu)} to="/" className={linkStylesMobile}>Home</Link>
                             <Link to="/" className={linkStylesMobile}>Movies</Link>

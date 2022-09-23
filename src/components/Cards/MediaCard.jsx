@@ -21,7 +21,7 @@ const MediaCard = ({ movie, title }) => {
                             <img
                                 src={movie.poster_path === undefined ? imgNotAvailable : halfSizeImg + movie.poster_path}
                                 alt={movie.original_name || movie.title || movie.name}
-                                className="object-fill h-60 rounded-md duration-300 cursor-pointer hover:scale-105 hover:bg-gray-500 sm:hover:opacity-70 shadow-xl shadow-black"
+                                className="object-fill h-60 rounded-md duration-300 cursor-pointer sm:hover:scale-105 sm:hover:bg-gray-500 sm:hover:opacity-70 shadow-xl shadow-black"
                             />
                         </div>
 
@@ -29,13 +29,13 @@ const MediaCard = ({ movie, title }) => {
                         <div className="rounded-md overflow-hidden">
                             <img
                                 src={(movie.profile_path == null) ? imgNotAvailable : (halfSizeImg + movie.profile_path)}
-                                alt={movie.original_name || movie.title || movie.name}
-                                className="object-fill h-60 rounded-md duration-300 cursor-pointer hover:scale-105 sm:hover:bg-gray-500 sm:hover:opacity-50 shadow-xl shadow-black"
+                                alt={movie.title || movie.name}
+                                className="object-fill h-60 rounded-md duration-300 cursor-pointer sm:hover:scale-105 sm:hover:bg-gray-500 sm:hover:opacity-50 shadow-xl shadow-black"
                             />
                         </div>
                 }
 
-                <p className="truncate sm:text-sm text-left">{movie.original_name || movie.title || movie.name}</p>
+                <p className="truncate sm:text-sm text-left">{movie.title || movie.name}</p>
 
                 <div className="flex justify-between">
 

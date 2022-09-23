@@ -103,6 +103,14 @@ const Detailed = () => {
                                             ))}
                                         </p>
 
+                                        {
+                                            mediaType === "movie"
+                                            &&
+                                            <div className="flex items-center gap-1">
+                                                <h1 className="text-xl font-bold">{Math.round(data.runtime)}<span className="text-lg text-slate-400 font-normal"> min</span></h1>
+                                            </div>
+                                        }
+
                                         <div className="flex flex-col gap-1 items-start sm:items-end">
 
                                             <p className="text-slate-400 text-sm">Country:

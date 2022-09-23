@@ -22,8 +22,8 @@ const SearchBar = () => {
             <form class="relative text-gray-600 focus-within:text-gray-400" onSubmit={getSearchQuery}>
 
                 <input
-                    placeholder="Search movies, series & more"
-                    className="py-2 w-64 text-sm text-black bg-white rounded-md pl-4 focus:outline-none focus:bg-white focus:text-gray-900"
+                    placeholder="Search movies & more"
+                    className="py-2 w-64 text-base text-black bg-white rounded-md pl-4 focus:outline-none focus:bg-white focus:text-gray-900"
                     value={query}
                     onChange={changeHandler}
                     required
