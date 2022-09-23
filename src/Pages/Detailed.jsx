@@ -1,3 +1,4 @@
+import React, { Suspense } from 'react';
 import axios from "axios";
 import { fullSizeImg, halfSizeImg } from "../config/config";
 import { useEffect, useState } from "react";
@@ -9,8 +10,9 @@ import Footer from "../components/Main/Footer";
 import Loading from "../components/Main/Loading";
 import { FaExternalLinkAlt } from "react-icons/fa";
 import Recommendations from "../components/Cards/DetailedCard/Recommendations";
-import Cast from "../components/Cards/DetailedCard/Cast";
-import Production from "../components/Cards/DetailedCard/Production";
+const Production = React.lazy(() => import("../components/Cards/DetailedCard/Production"));
+const Cast = React.lazy(() => import("../components/Cards/DetailedCard/Cast"));
+
 
 
 const Detailed = () => {
@@ -146,17 +148,17 @@ const Detailed = () => {
 
                                 </div>
 
-                                <>
+                                <Suspense fallback={<div>Loading...</div>}>
 
                                     <Cast mediaType={mediaType} searchID={searchID} />
 
-                                </>
+                                </Suspense>
 
-                                <>
+                                <Suspense fallback={<div>Loading...</div>}>
 
                                     <Production companies={data.production_companies} />
 
-                                </>
+                                </Suspense>
                             </div>
 
                         </div>

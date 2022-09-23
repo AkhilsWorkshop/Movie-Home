@@ -2,6 +2,7 @@ import axios from "axios"
 import { useState, useEffect } from "react"
 import { halfSizeImg } from "../../../config/config"
 import ScrollContainer from 'react-indiana-drag-scroll'
+import Loading from "../../Main/Loading"
 
 const Cast = ({ mediaType, searchID }) => {
 
@@ -16,64 +17,77 @@ const Cast = ({ mediaType, searchID }) => {
     const [cast, setCast] = useState(null);
     const [crew, setCrew] = useState(null);
 
+    const [loading, setLoading] = useState(true);
+
     useEffect(() => {
+        setLoading(true)
         fetchCredits()
+        setTimeout(() => { setLoading(false) }, 1000)
     }, [])
 
 
 
 
     return (
+        <>
+            {
+                loading ? (
+                    <Loading />
+                )
+                    :
+                    (
+                        < div className="flex flex-col overflow-x-hidden gap-5" >
 
-        <div className="flex flex-col overflow-x-hidden gap-5" >
+                            <h1 className="border-l-4 pl-2 border-yellow-500 text-lg md:text-2xl sm:text-4xl">Cast</h1>
 
-            <h1 className="border-l-4 pl-2 border-yellow-500 text-lg md:text-2xl sm:text-4xl">Cast</h1>
+                            <ScrollContainer className="flex flex-wrap">
+                                <div className="flex gap-1">
+                                    {cast?.map((eachPerson) => {
+                                        return eachPerson.profile_path === null ?
+                                            <></>
+                                            :
+                                            <div className="flex flex-col h-auto w-28 rounded-md gap-2">
 
-            <ScrollContainer className="flex flex-wrap">
-                <div className="flex gap-1">
-                    {cast?.map((eachPerson) => {
-                        return eachPerson.profile_path === null ?
-                            <></>
-                            :
-                            <div className="flex flex-col h-auto w-28 rounded-md gap-2">
+                                                <img
+                                                    src={halfSizeImg + eachPerson.profile_path}
+                                                    alt={eachPerson.name}
+                                                    className="object-fill h-36 w-24 rounded-md shadow-lg shadow-black"
+                                                />
+                                                <p className="truncate sm:text-sm text-gray-400">{eachPerson?.character ? eachPerson.character : "Unknown"}</p>
+                                                <p className="truncate sm:text-base">{eachPerson.name}</p>
 
-                                <img
-                                    src={halfSizeImg + eachPerson.profile_path}
-                                    alt={eachPerson.name}
-                                    className="object-fill h-36 w-24 rounded-md shadow-lg shadow-black"
-                                />
-                                <p className="truncate sm:text-sm text-gray-400">{eachPerson?.character ? eachPerson.character : "Unknown"}</p>
-                                <p className="truncate sm:text-base">{eachPerson.name}</p>
+                                            </div>
+                                    })}
+                                </div>
+                            </ScrollContainer>
 
-                            </div>
-                    })}
-                </div>
-            </ScrollContainer>
+                            <h1 className="border-l-4 pl-2 border-yellow-500 text-lg md:text-2xl sm:text-4xl">Crew</h1>
 
-            <h1 className="border-l-4 pl-2 border-yellow-500 text-lg md:text-2xl sm:text-4xl">Crew</h1>
+                            <ScrollContainer className="flex flex-wrap overflow-x-auto">
+                                <div className="flex gap-1">
+                                    {crew?.map((eachPerson) => {
+                                        return eachPerson.profile_path === null ?
+                                            <></>
+                                            :
+                                            <div className="flex flex-col h-auto w-28 rounded-md gap-2">
 
-            <ScrollContainer className="flex flex-wrap overflow-x-auto">
-                <div className="flex gap-1">
-                    {crew?.map((eachPerson) => {
-                        return eachPerson.profile_path === null ?
-                            <></>
-                            :
-                            <div className="flex flex-col h-auto w-28 rounded-md gap-2">
+                                                <img
+                                                    src={halfSizeImg + eachPerson.profile_path}
+                                                    alt={eachPerson.name}
+                                                    className="object-fill h-36 w-24 rounded-md shadow-2xl shadow-black"
+                                                />
+                                                <p className="truncate sm:text-sm text-gray-400">{eachPerson?.job}</p>
+                                                <p className="truncate sm:text-base">{eachPerson.name}</p>
 
-                                <img
-                                    src={halfSizeImg + eachPerson.profile_path}
-                                    alt={eachPerson.name}
-                                    className="object-fill h-36 w-24 rounded-md shadow-2xl shadow-black"
-                                />
-                                <p className="truncate sm:text-sm text-gray-400">{eachPerson?.job}</p>
-                                <p className="truncate sm:text-base">{eachPerson.name}</p>
+                                            </div>
+                                    })}
+                                </div>
 
-                            </div>
-                    })}
-                </div>
-
-            </ScrollContainer>
-        </div>
+                            </ScrollContainer>
+                        </div >
+                    )
+            }
+        </>
     )
 }
 
