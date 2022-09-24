@@ -15,8 +15,7 @@ const About = () => {
 
 
                 <div className="bg-black bg-opacity-30 p-5 rounded-md flex flex-col items-center gap-5 shadow-2xl">
-                    <h1 className="text-3xl font-semibold">Hello, <span className="text-gray-400 text-xl">My name is <a href="https://akhilkumar.ga/" className="text-yellow-100 hover:text-yellow-400 hover:text-2xl duration-200 animate-pulse">Akhil.</a>
-                    </span></h1>
+
                     <img src={logo} alt="tmdb" />
                     <div className="rounded-md flex flex-col gap-5">
 
@@ -38,12 +37,16 @@ const About = () => {
                             <li className="flex gap-2 items-center">
                                 <HiChevronDoubleRight size={15} className="text-yellow-400" />
                                 <p className="text-gray-400"> Created using <span className="text-white"> React</span></p>
-                                <DiReact size={25} className="animate-spin duration-100 hover:animate-none" />
+                                <DiReact size={25} />
                             </li>
                             <li className="flex gap-2 items-center">
                                 <HiChevronDoubleRight size={15} className="text-yellow-400" />
                                 <p className="text-gray-400"> Deployed & hosted on <span className="text-white"> Github</span></p>
                                 <BsGithub size={22} />
+                            </li>
+                            <li className="flex gap-2 items-center">
+                                <HiChevronDoubleRight size={15} className="text-yellow-400" />
+                                <p className="text-gray-400"> Developed by <a href="https://akhilkumar.ga/" className="text-white hover:text-yellow-400 duration-200">Akhil.</a></p>
                             </li>
                         </ol>
 

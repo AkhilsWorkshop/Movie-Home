@@ -10,10 +10,10 @@ import Footer from "../components/Main/Footer";
 import Loading from "../components/Main/Loading";
 import { FaExternalLinkAlt } from "react-icons/fa";
 import Recommendations from "../components/Cards/DetailedCard/Recommendations";
+import LScrollCard from '../components/LazyLoading/LScrollCard';
 const Production = React.lazy(() => import("../components/Cards/DetailedCard/Production"));
-const Cast = React.lazy(() => import("../components/Cards/DetailedCard/Cast"));
-
-
+const ScrollCard1 = React.lazy(() => import("../components/Cards/DetailedCard/ScrollCard1"));
+const ScrollCard2 = React.lazy(() => import("../components/Cards/DetailedCard/ScrollCard2"));
 
 const Detailed = () => {
 
@@ -147,9 +147,10 @@ const Detailed = () => {
 
                                 </div>
 
-                                <Suspense fallback={<div>Loading...</div>}>
+                                <Suspense fallback={<LScrollCard />}>
 
-                                    <Cast mediaType={mediaType} searchID={searchID} />
+                                    <ScrollCard1 mediaType={mediaType} searchID={searchID} />
+                                    <ScrollCard2 mediaType={mediaType} searchID={searchID} />
 
                                 </Suspense>
 
