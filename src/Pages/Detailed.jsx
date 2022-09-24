@@ -25,7 +25,6 @@ const Detailed = () => {
 
     // Storing the data from API 
     const [video, setVideo] = useState();
-
     const videoURL = `https://www.youtube.com/watch?v=${video}`
     const [data, setData] = useState([])
     const [loading, setLoading] = useState(false)
@@ -60,7 +59,7 @@ const Detailed = () => {
 
                         <div className="text-white bg-cover" Style={`background-image: url(${fullSizeImg}${data.backdrop_path})`} >
 
-                            <div className="flex flex-col justify-center p-5 md:px-72 backdrop-blur-md backdrop-brightness-50 bg-gradient-to-b via-transparent from-transparent to-gray-900 gap-5">
+                            <div className="flex flex-col justify-center p-5 sm:px-20 xl:px-52 lg:px-32 backdrop-blur-md backdrop-brightness-50 bg-gradient-to-b via-transparent from-transparent to-gray-900 gap-5">
 
                                 <div className="flex">
                                     <h1 className="border-l-4 pl-2 border-yellow-500 text-lg md:text-2xl sm:text-4xl">{data.title || data.name}
@@ -168,7 +167,7 @@ const Detailed = () => {
                             {video === undefined ?
                                 <></>
                                 :
-                                <div className="text-white flex flex-col justify-center p-5 md:px-72 backdrop-blur-md backdrop-brightness-50 bg-gradient-to-b from-gray-900 to-gray-900 gap-5">
+                                <div className="text-white flex flex-col justify-center p-5 sm:px-20 xl:px-52 lg:px-32 backdrop-blur-md backdrop-brightness-50 bg-gradient-to-b from-gray-900 to-gray-900 gap-5">
                                     <div className="flex flex-col gap-5 flex-nowrap">
                                         <h1 className="border-l-4 pl-2 border-yellow-500 text-lg md:text-2xl sm:text-4xl">Videos</h1>
                                         <div className="flex ">

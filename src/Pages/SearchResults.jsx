@@ -55,7 +55,7 @@ const SearchResults = () => {
     }
 
     return (
-        <div>
+        <div className="h-screen flex flex-col">
             <Header />
             <div className="text-white">
                 <div className="flex flex-col justify-center items-center my-10">

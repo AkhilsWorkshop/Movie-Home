@@ -22,12 +22,12 @@ const Trending = () => {
             <div className="flex flex-col justify-center items-center my-10">
 
                 <div className="mb-5">
-                    <h1 className="text text-lg tracking-widest font-bold">Trending TV shows and movies</h1>
+                    <h1 className="border-l-4 pl-2 border-yellow-500 text-lg tracking-widest font-bold">Trending TV shows and movies</h1>
                 </div>
 
                 <div id="card" className="flex justify-center sm:flex-row gap-4 flex-wrap">
 
-                    {content.map((singleMovie) => (
+                    {content.slice(0, 16).map((singleMovie) => (
 
                         singleMovie.media_type === "person"
                             ?

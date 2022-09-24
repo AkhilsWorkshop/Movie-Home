@@ -8,7 +8,7 @@ import SearchBar from "../Sub/SearchBar"
 
 const Header = () => {
 
-    const linkStylesDesktop = "hover:border-white hover:text-white hover:scale-105 border-b-2 py-3 duration-200 border-black"
+    const linkStylesDesktop = "hover:border-yellow-500 hover:text-white hover:scale-105 border-b-2 py-3 duration-200 border-black"
     const linkStylesMobile = "px-4 cursor-pointer text-gray-300 py-6 text-4xl"
 
     const [menu, setMenu] = useState(false);
@@ -19,21 +19,22 @@ const Header = () => {
             <div className="flex items-center justify-between px-10 md:justify-around bg-black h-20 shadow-xl">
                 <div>
                     <a href="/">
-                        <img src={logo} alt="Movie DB" className="h-16 md:h-20 py-2" />
+                        <img src={logo} alt="Movie DB" className="h-14 md:h-16 py-2 sm:hover:animate-pulse" />
                     </a>
                 </div>
-                <div className="hidden md:flex items-center gap-8">
+                <div className="hidden lg:flex items-center gap-8">
                     <div className="flex gap-8 text-neutral-400">
                         <Link to="/" className={linkStylesDesktop}>Home</Link>
                         <Link to="/" className={linkStylesDesktop}>Movies</Link>
                         <Link to="/" className={linkStylesDesktop}>TV Shows</Link>
+                        <Link to="/about" className={linkStylesDesktop}>About</Link>
                     </div>
                     <div>
                         <SearchBar />
                     </div>
                 </div>
 
-                <div className="flex items-center gap-8 text-gray-300 md:hidden">
+                <div className="flex items-center gap-8 text-gray-300 lg:hidden">
                     <div onClick={() => setSearch(!search)} className="cursor-pointer">
                         {search ? <BsSearch size={21} className="text-white" /> : <BsSearch size={20} />}
                     </div>
@@ -48,6 +49,7 @@ const Header = () => {
                             <Link onClick={() => setMenu(!menu)} to="/" className={linkStylesMobile}>Home</Link>
                             <Link to="/" className={linkStylesMobile}>Movies</Link>
                             <Link to="/" className={linkStylesMobile}>TV Shows</Link>
+                            <Link to="/about" className={linkStylesMobile}>About</Link>
                         </div>
 
                     </div>

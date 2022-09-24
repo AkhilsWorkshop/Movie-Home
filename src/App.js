@@ -4,6 +4,8 @@ import "./styles.css";
 import Detailed from "./Pages/Detailed";
 import Error from "./Pages/Error";
 import SearchResults from "./Pages/SearchResults";
+import DetailedPerson from "./Pages/DetailedPerson";
+import About from "./Pages/About";
 
 
 
@@ -18,8 +20,10 @@ const App = () => {
                 <Route path="/" element={<Home />} />
                 <Route path="search">
                     <Route path=":searchID" element={<SearchResults />} />
+                    <Route path="person/:searchID" element={<DetailedPerson />} />
                     <Route path=":mediaType/:searchID" element={<Detailed />} />
                 </Route>
+                <Route path="about" element={<About />} />
                 <Route path="*" element={<Error />} />
             </Routes>
 

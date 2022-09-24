@@ -21,7 +21,7 @@ const MediaCard = ({ movie, title }) => {
                             <img
                                 src={movie.poster_path === undefined ? imgNotAvailable : halfSizeImg + movie.poster_path}
                                 alt={movie.original_name || movie.title || movie.name}
-                                className="object-fill h-60 rounded-md duration-300 cursor-pointer sm:hover:scale-105 sm:hover:bg-gray-500 sm:hover:opacity-70 shadow-xl shadow-black"
+                                className="object-fill h-60 rounded-md duration-300 cursor-pointer sm:hover:scale-105 sm:hover:saturate-150 shadow-xl shadow-black"
                             />
                         </div>
 
@@ -30,7 +30,8 @@ const MediaCard = ({ movie, title }) => {
                             <img
                                 src={(movie.profile_path == null) ? imgNotAvailable : (halfSizeImg + movie.profile_path)}
                                 alt={movie.title || movie.name}
-                                className="object-fill h-60 rounded-md duration-300 cursor-pointer sm:hover:scale-105 sm:hover:bg-gray-500 sm:hover:opacity-50 shadow-xl shadow-black"
+                                className="object-fill h-60 rounded-md duration-300 cursor-pointer
+                                 sm:hover:scale-105 sm:hover:saturate-150 shadow-xl shadow-black"
                             />
                         </div>
                 }

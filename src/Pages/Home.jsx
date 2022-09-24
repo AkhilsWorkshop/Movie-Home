@@ -7,7 +7,7 @@ import Trending from "../DetailedPage/Trending"
 const Home = () => {
     return (
 
-        <div>
+        <div className="bg-gradient-to-br from-[#141E30] via-[#232526] to-[#414345]">
             <Header />
             <Trending />
             <DiscoverMovies />
