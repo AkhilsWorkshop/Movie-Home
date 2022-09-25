@@ -43,6 +43,7 @@ const SearchResults = () => {
 
     useEffect(() => {
         fetchSearch()
+        document.title = searchID + " - Search Results"
     }, [])
 
     // Pagination

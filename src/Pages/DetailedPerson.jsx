@@ -3,8 +3,11 @@ import React, { Suspense, useEffect, useState } from "react";
 import { AiTwotoneStar } from "react-icons/ai";
 import { FaExternalLinkAlt } from "react-icons/fa";
 import { useParams } from "react-router-dom";
+import LOverview from "../components/LazyLoading/LOverview";
 import LPersonAbout from "../components/LazyLoading/LPersonAbout";
+import LPicture from "../components/LazyLoading/LPicture";
 import LScrollCard from "../components/LazyLoading/LScrollCard";
+import LTitle from "../components/LazyLoading/LTitle";
 import Footer from "../components/Main/Footer";
 import Header from "../components/Main/Header";
 import Loading from "../components/Main/Loading";
@@ -23,20 +26,17 @@ const DetailedPerson = () => {
 
     const fetchPerson = async () => {
         const { data } = await axios.get(`https://api.themoviedb.org/3/person/${searchID}?api_key=${process.env.REACT_APP_API_KEY}`)
-
         setContent(data)
-
     }
 
     useEffect(() => {
         setLoading(true)
         fetchPerson()
         setTimeout(() => { setLoading(false) }, 500)
-
     }, [])
 
     return (
-        <div>
+        <div className="h-screen">
             <Header />
             <div className="flex flex-col md:flex-col">
 
@@ -46,15 +46,25 @@ const DetailedPerson = () => {
                     <div className="flex flex-col justify-center p-5 sm:px-20 xl:px-52 lg:px-32 backdrop-blur-md backdrop-brightness-50 bg-gradient-to-b via-transparent from-transparent to-gray-900 gap-5">
 
                         <div className="flex">
-                            <h1 className="border-l-4 pl-2 border-yellow-500 text-lg md:text-2xl sm:text-4xl">{content.name}</h1>
+                            {loading ?
+                                <LTitle />
+                                :
+                                <h1 className="border-l-4 pl-2 border-yellow-500 text-lg md:text-2xl sm:text-4xl">{content.name}</h1>
+                            }
                         </div>
 
                         <div className="flex justify-between items-start gap-4">
-                            <img
-                                src={halfSizeImg + content.profile_path}
-                                alt={content.name}
-                                className="object-fill h-72 shadow-2xl shadow-black border border-gray-700"
-                            />
+                            {loading ?
+                                <LPicture />
+                                :
+
+                                <img
+                                    src={halfSizeImg + content.profile_path}
+                                    alt={content.name}
+                                    className="object-fill h-72 shadow-2xl shadow-black border border-gray-700"
+                                />
+                            }
+
 
                             {loading ?
                                 <LPersonAbout />
@@ -111,9 +121,11 @@ const DetailedPerson = () => {
                         </div>
 
                         <div className="flex flex-col">
-
-                            <p className="text-white text-base">{content.biography}</p>
-
+                            {loading ?
+                                <LOverview />
+                                :
+                                <p className="text-white text-base">{content.biography}</p>
+                            }
                         </div>
 
                         <Suspense fallback={<LScrollCard />}>

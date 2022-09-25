@@ -37,13 +37,13 @@ const Detailed = () => {
         setLoading(true)
         const { data } = await axios.get(`https://api.themoviedb.org/3/${mediaType}/${searchID}?api_key=${process.env.REACT_APP_API_KEY}`);
         setData(data)
-        setLoading(false)
-        console.log(data)
+
     }
 
     useEffect(() => {
         getMovieDetails()
         fetchVideoData()
+        setTimeout(() => { setLoading(false) }, 500)
     }, [])
 
     return (

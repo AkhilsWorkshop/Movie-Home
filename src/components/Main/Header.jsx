@@ -4,7 +4,7 @@ import logo from "../../assets/logo.png"
 import { CgClose, CgMenu } from "react-icons/cg"
 import { BsSearch } from "react-icons/bs"
 import SearchBar from "../Sub/SearchBar"
-
+import { Link as Linking } from 'react-scroll';
 
 const Header = () => {
 
@@ -25,8 +25,12 @@ const Header = () => {
                 <div className="hidden lg:flex items-center gap-8">
                     <div className="flex gap-8 text-neutral-400">
                         <Link to="/" className={linkStylesDesktop}>Home</Link>
-                        <Link to="/" className={linkStylesDesktop}>Movies</Link>
-                        <Link to="/" className={linkStylesDesktop}>TV Shows</Link>
+                        <Linking to="Movies" smooth duration={500} className={linkStylesDesktop}>
+                            <Link to="/">Movies</Link>
+                        </Linking>
+                        <Linking to="TV" smooth duration={500} className={linkStylesDesktop}>
+                            <Link to="/">TV Shows</Link>
+                        </Linking>
                         <Link to="/about" className={linkStylesDesktop}>About</Link>
                     </div>
                     <div>
@@ -47,8 +51,12 @@ const Header = () => {
                     <div className="flex flex-col justify-center items-center absolute z-10 top-0 left-0 w-full h-screen bg-gradient-to-b from-[#272727] to-gray-800">
                         <div className="flex flex-col items-center gap-8 text-neutral-400">
                             <Link onClick={() => setMenu(!menu)} to="/" className={linkStylesMobile}>Home</Link>
-                            <Link to="/" className={linkStylesMobile}>Movies</Link>
-                            <Link to="/" className={linkStylesMobile}>TV Shows</Link>
+                            <Linking to="Movies" smooth duration={500} className={linkStylesMobile}>
+                                <Link to="/">Movies</Link>
+                            </Linking>
+                            <Linking to="TV" smooth duration={500} className={linkStylesMobile}>
+                                <Link to="/">TV Shows</Link>
+                            </Linking>
                             <Link to="/about" className={linkStylesMobile}>About</Link>
                         </div>
 

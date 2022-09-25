@@ -1,12 +1,14 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import MediaCard from "../components/Cards/MediaCard";
+import Loading from "../components/Main/Loading";
 import { TRENDING } from "../config/config";
 
 
 const Trending = () => {
 
     const [content, setContent] = useState([])
+    const [loading, setLoading] = useState(false)
 
     const fetchTrending = async () => {
         const { data } = await axios.get(`${TRENDING}${process.env.REACT_APP_API_KEY}`);
@@ -14,7 +16,9 @@ const Trending = () => {
     }
 
     useEffect(() => {
+        setLoading(true)
         fetchTrending()
+        setLoading(false)
     }, [])
 
     return (
@@ -29,9 +33,10 @@ const Trending = () => {
 
                     {content.slice(0, 16).map((singleMovie) => (
 
-                        singleMovie.media_type === "person"
-                            ?
-                            <></>
+                        loading ?
+
+                            <Loading />
+
                             :
                             <MediaCard movie={singleMovie} />
 

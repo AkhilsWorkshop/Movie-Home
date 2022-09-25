@@ -17,7 +17,7 @@ const DiscoverMovies = () => {
     }, [])
 
     return (
-        <div className="text-white">
+        <div name="Movies" className="text-white">
             <div className="flex flex-col justify-center items-center">
 
                 <div className="mb-5">

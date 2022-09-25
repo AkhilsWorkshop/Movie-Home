@@ -18,7 +18,7 @@ const DiscoverTv = () => {
     }, [])
 
     return (
-        <div className="text-white">
+        <div name="TV" className="text-white">
             <div className="flex flex-col justify-center items-center my-10">
 
                 <div className="mb-5">
