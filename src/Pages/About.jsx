@@ -27,7 +27,7 @@ const About = () => {
                         <ol className="flex flex-col gap-3">
                             <li className="flex gap-2 items-center">
                                 <HiChevronDoubleRight size={15} className="text-yellow-400" />
-                                <p className="text-gray-400"> <span className="text-white">May not contain </span>correct information</p>
+                                <p className="text-gray-400"> <span className="text-white">May not contain </span>correct information & can fail to load images due to API limitation</p>
 
                             </li>
                             <li className="flex gap-2 items-center">
