@@ -1,8 +1,10 @@
 # MOVIE HOME
 
-1) May not contain correct information & can fail to load images due to API Limitation
+View live DEMO <a href="https://moviehome.akhilkumar.ga/">here</a>
 
-2) Fetches data from tmdb API
+1) May not contain correct information & can fail to load images due to API Limitation. Reloading the page can make it load
+
+2) Fetches data from <a href="https://www.themoviedb.org/">tmdb</a> API
 
 3) Created using React
 
