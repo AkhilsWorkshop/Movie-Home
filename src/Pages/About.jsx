@@ -49,10 +49,6 @@ const About = () => {
                             </li>
                             <li className="flex gap-2 items-center">
                                 <HiChevronDoubleRight size={15} className="text-yellow-400" />
-                                <p className="text-gray-400"> Developed by <a href="https://akhilkumar.ga/" className="text-white hover:text-yellow-400 duration-200">Akhil.</a></p>
-                            </li>
-                            <li className="flex gap-2 items-center">
-                                <HiChevronDoubleRight size={15} className="text-yellow-400" />
                                 <p className="text-gray-400"> Found any bugs or have suggestions? Feel free to reach me <a href="https://akhilkumar.ga/" className="text-white hover:text-yellow-400 duration-200">here</a></p>
                             </li>
                         </ol>
