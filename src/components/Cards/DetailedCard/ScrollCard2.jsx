@@ -1,8 +1,9 @@
 import axios from "axios"
 import { useState, useEffect } from "react"
-import { halfSizeImg } from "../../../config/config"
+import { halfSizeImg, responsive } from "../../../config/config"
 import Button from "../../Sub/Button"
 import LScrollCard from "../../LazyLoading/LScrollCard"
+import Carousel from "react-multi-carousel"
 
 const ScrollCard2 = ({ mediaType, searchID }) => {
 
@@ -44,38 +45,65 @@ const ScrollCard2 = ({ mediaType, searchID }) => {
 
                     </h1>
 
-                    <div className="flex flex-wrap">
-                        <div className="flex gap-1">
-                            {
+                    <Carousel
+                        additionalTransfrom={0}
+                        arrows
+                        autoPlay={false}
+                        centerMode={false}
+                        className="hover:cursor-grab active:cursor-grabbing"
+                        draggable
+                        focusOnSelect={false}
+                        infinite={false}
+                        itemClass=""
+                        minimumTouchDrag={80}
+                        pauseOnHover
+                        renderArrowsWhenDisabled={false}
+                        renderButtonGroupOutside={true}
+                        renderDotsOutside={false}
+                        responsive={responsive}
+                        rewind
+                        rewindWithAnimation={false}
+                        rtl={false}
+                        shouldResetAutoplay
+                        showDots={false}
+                        sliderClass=""
+                        slidesToSlide={2}
+                        swipeable
+                        transitionDuration={500}
+                    >
 
-                                uniqueSecondScroll?.map((eachPerson) => {
-                                    return (eachPerson.poster_path || eachPerson.profile_path) != null && (
+                        {uniqueSecondScroll?.map((eachPerson) => {
+                            return (eachPerson.poster_path || eachPerson.profile_path) != null && (
 
-                                        loading ?
 
-                                            <LScrollCard />
+                                loading ?
 
-                                            :
+                                    <LScrollCard />
 
-                                            <div className="flex flex-col h-auto w-24 rounded-md gap-2">
-                                                <Button media_type={eachPerson.media_type || "person"} id={eachPerson.id}>
-                                                    <img
-                                                        src={halfSizeImg + (eachPerson.poster_path || eachPerson.profile_path)}
-                                                        alt="Refresh Page"
-                                                        className="object-fill h-36 w-24 rounded-md shadow-2xl shadow-black duration-150 sm:hover:rounded-none sm:hover:scale-105 sm:hover:saturate-150"
-                                                        loading="lazy"
-                                                    />
-                                                </Button>
-                                                <p className="truncate sm:text-sm text-gray-400">{eachPerson?.job || eachPerson?.name}</p>
-                                                <p className="truncate sm:text-sm">{eachPerson.title || eachPerson?.original_name || eachPerson?.known_for_departmen}</p>
+                                    :
 
-                                            </div>
+                                    <div className="flex flex-col h-auto w-24 rounded-md gap-2">
+                                        <div className="h-36 w-24 rounded-md overflow-hidden">
+                                            <Button media_type={eachPerson.media_type || "person"} id={eachPerson.id}>
+                                                <img
+                                                    src={halfSizeImg + (eachPerson.poster_path || eachPerson.profile_path)}
+                                                    alt="Refresh Page"
+                                                    className="object-fill h-36 w-24 rounded-md shadow-2xl shadow-black duration-150 sm:hover:rounded-none sm:hover:scale-105 sm:hover:saturate-150"
+                                                    loading="lazy"
+                                                />
+                                            </Button>
+                                        </div>
+                                        <p className="truncate sm:text-sm text-gray-400">{eachPerson?.job || eachPerson?.name}</p>
+                                        <p className="truncate sm:text-sm">{eachPerson.title || eachPerson?.original_name || eachPerson?.known_for_departmen}</p>
 
-                                    )
-                                })}
-                        </div>
+                                    </div>
+                            )
+                        })}
 
-                    </div>
+
+
+                    </Carousel>
+
                 </>
             }
         </div >

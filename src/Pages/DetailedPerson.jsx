@@ -99,11 +99,16 @@ const DetailedPerson = () => {
                                         <p className="text-slate-400 text-sm">Known for:
                                             <span className="text-white font-bold"> {content.known_for_department}</span>
                                         </p>
+                                        {
+                                            content.birthday === null ?
+                                                <></>
+                                                :
+                                                <p className="text-slate-400 text-sm">Born:
+                                                    <span className="text-white font-bold"> {new Date(content.birthday).toDateString().slice(4)}</span> in
+                                                    <span className="text-white font-bold"> {content.place_of_birth}</span>
+                                                </p>
+                                        }
 
-                                        <p className="text-slate-400 text-sm">Born:
-                                            <span className="text-white font-bold"> {new Date(content.birthday).toDateString().slice(4)}</span> in
-                                            <span className="text-white font-bold"> {content.place_of_birth}</span>
-                                        </p>
                                         {
                                             content.deathday &&
                                             <p className="text-slate-400 text-sm">Died on:
@@ -111,10 +116,14 @@ const DetailedPerson = () => {
 
                                             </p>
                                         }
-                                        <p className="text-slate-400 text-sm">Age:
-                                            <span className="text-white font-bold"> {Math.floor((new Date() - new Date(content.birthday).getTime()) / 3.15576e+10)}</span>
-                                        </p>
-
+                                        {
+                                            content.birthday === null ?
+                                                <></>
+                                                :
+                                                <p className="text-slate-400 text-sm">Age:
+                                                    <span className="text-white font-bold"> {Math.floor((new Date() - new Date(content.birthday).getTime()) / 3.15576e+10)}</span>
+                                                </p>
+                                        }
                                     </div>
 
                                 </div>

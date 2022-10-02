@@ -49,7 +49,7 @@ const ScrollCard1 = ({ mediaType, searchID }) => {
                         autoPlay
                         autoPlaySpeed={5000}
                         centerMode={false}
-                        className=""
+                        className="hover:cursor-grab active:cursor-grabbing"
                         draggable
                         focusOnSelect={false}
                         infinite={false}
@@ -61,7 +61,7 @@ const ScrollCard1 = ({ mediaType, searchID }) => {
                         renderDotsOutside={false}
                         responsive={responsive}
                         rewind
-                        rewindWithAnimation={false}
+                        rewindWithAnimation={true}
                         rtl={false}
                         shouldResetAutoplay
                         showDots={false}
@@ -81,7 +81,7 @@ const ScrollCard1 = ({ mediaType, searchID }) => {
 
                                     :
 
-                                    <div className="flex flex-col h-56 w-24 rounded-md gap-2">
+                                    <div className="flex flex-col h-auto w-24 rounded-md gap-2">
                                         <div className="h-36 w-24 rounded-md overflow-hidden">
                                             <Button media_type={eachPerson.media_type || "person"} id={eachPerson.id}>
                                                 <img

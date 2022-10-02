@@ -11,6 +11,7 @@ import Loading from "../components/Main/Loading";
 import { FaExternalLinkAlt } from "react-icons/fa";
 import Recommendations from "../components/Cards/DetailedCard/Recommendations";
 import LScrollCard from '../components/LazyLoading/LScrollCard';
+import MoviePictures from '../components/Cards/DetailedCard/MoviePictures';
 const Production = React.lazy(() => import("../components/Cards/DetailedCard/Production"));
 const ScrollCard1 = React.lazy(() => import("../components/Cards/DetailedCard/ScrollCard1"));
 const ScrollCard2 = React.lazy(() => import("../components/Cards/DetailedCard/ScrollCard2"));
@@ -185,7 +186,9 @@ const Detailed = () => {
                             <Recommendations id={data.id} mediaType={mediaType} />
                         </>
 
-
+                        <>
+                            {/* <MoviePictures searchID={searchID} mediaType={mediaType} /> */}
+                        </>
 
 
                     </div>)
