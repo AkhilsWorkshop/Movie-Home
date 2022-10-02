@@ -1,7 +1,6 @@
 import axios from "axios"
 import { useState, useEffect } from "react"
 import { halfSizeImg } from "../../../config/config"
-import ScrollContainer from 'react-indiana-drag-scroll'
 import Button from "../../Sub/Button"
 import LScrollCard from "../../LazyLoading/LScrollCard"
 
@@ -28,6 +27,7 @@ const ScrollCard2 = ({ mediaType, searchID }) => {
         setLoading(true)
         fetchCredits2()
         setTimeout(() => { setLoading(false) }, 1000)
+        console.log(secondScroll)
     }, [])
 
     const uniqueSecondScroll = [...new Map(secondScroll?.map((m) => [m.name, m])).values()];
@@ -35,7 +35,8 @@ const ScrollCard2 = ({ mediaType, searchID }) => {
     return (
         < div className="flex flex-col overflow-x-hidden gap-5" >
 
-            {secondScroll.length > 0 &&
+            {uniqueSecondScroll.length > 0 &&
+
                 <>
                     <h1 className="border-l-4 pl-2 border-yellow-500 text-lg md:text-2xl sm:text-4xl">
 
@@ -43,7 +44,7 @@ const ScrollCard2 = ({ mediaType, searchID }) => {
 
                     </h1>
 
-                    <ScrollContainer className="flex flex-wrap">
+                    <div className="flex flex-wrap">
                         <div className="flex gap-1">
                             {
 
@@ -60,7 +61,7 @@ const ScrollCard2 = ({ mediaType, searchID }) => {
                                                 <Button media_type={eachPerson.media_type || "person"} id={eachPerson.id}>
                                                     <img
                                                         src={halfSizeImg + (eachPerson.poster_path || eachPerson.profile_path)}
-                                                        alt={(eachPerson.title) || (eachPerson.name)}
+                                                        alt="Refresh Page"
                                                         className="object-fill h-36 w-24 rounded-md shadow-2xl shadow-black duration-150 sm:hover:rounded-none sm:hover:scale-105 sm:hover:saturate-150"
                                                         loading="lazy"
                                                     />
@@ -74,7 +75,7 @@ const ScrollCard2 = ({ mediaType, searchID }) => {
                                 })}
                         </div>
 
-                    </ScrollContainer>
+                    </div>
                 </>
             }
         </div >

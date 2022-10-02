@@ -3,6 +3,7 @@ import React, { Suspense, useEffect, useState } from "react";
 import { AiTwotoneStar } from "react-icons/ai";
 import { FaExternalLinkAlt } from "react-icons/fa";
 import { useParams } from "react-router-dom";
+import Pictures from "../components/Cards/DetailedCard/Pictures";
 import LOverview from "../components/LazyLoading/LOverview";
 import LPersonAbout from "../components/LazyLoading/LPersonAbout";
 import LPicture from "../components/LazyLoading/LPicture";
@@ -134,6 +135,8 @@ const DetailedPerson = () => {
                             <ScrollCard2 mediaType={mediaType} searchID={searchID} />
 
                         </Suspense>
+
+                        {/* <Pictures searchID={searchID} /> */}
 
                     </div>
 

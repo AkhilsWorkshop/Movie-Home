@@ -30,8 +30,7 @@ const MediaCard = ({ movie, title }) => {
                             <img
                                 src={(movie.profile_path == null) ? imgNotAvailable : (halfSizeImg + movie.profile_path)}
                                 alt={movie.title || movie.name}
-                                className="object-fill h-60 rounded-md duration-300 cursor-pointer
-                                 sm:hover:scale-105 sm:hover:saturate-150 shadow-xl shadow-black"
+                                className="object-fill h-60 rounded-md duration-300 cursor-pointer sm:hover:scale-105 sm:hover:saturate-150 shadow-xl shadow-black"
                             />
                         </div>
                 }

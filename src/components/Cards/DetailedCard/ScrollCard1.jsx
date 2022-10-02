@@ -1,9 +1,11 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import ScrollContainer from 'react-indiana-drag-scroll'
-import { halfSizeImg } from '../../../config/config'
+import { halfSizeImg, responsive } from '../../../config/config'
 import LScrollCard from '../../LazyLoading/LScrollCard'
 import Button from '../../Sub/Button'
+import { BsFillArrowRightCircleFill } from "react-icons/bs"
+import Carousel from 'react-multi-carousel'
+import 'react-multi-carousel/lib/styles.css';
 
 const ScrollCard1 = ({ mediaType, searchID }) => {
 
@@ -31,7 +33,7 @@ const ScrollCard1 = ({ mediaType, searchID }) => {
     }, [])
 
     return (
-        <div className="flex flex-col overflow-x-hidden gap-5">
+        <div className="flex flex-col gap-5">
 
             {firstScroll.length > 0 &&
                 <>
@@ -41,38 +43,66 @@ const ScrollCard1 = ({ mediaType, searchID }) => {
 
                     </h1>
 
-                    <ScrollContainer className="flex flex-wrap">
-                        <div className="flex gap-1">
-                            {firstScroll?.map((eachPerson) => {
-                                return (eachPerson.poster_path || eachPerson.profile_path) != null && (
+                    <Carousel
+                        additionalTransfrom={0}
+                        arrows
+                        autoPlay
+                        autoPlaySpeed={5000}
+                        centerMode={false}
+                        className=""
+                        draggable
+                        focusOnSelect={false}
+                        infinite={false}
+                        itemClass=""
+                        minimumTouchDrag={80}
+                        pauseOnHover
+                        renderArrowsWhenDisabled={false}
+                        renderButtonGroupOutside={true}
+                        renderDotsOutside={false}
+                        responsive={responsive}
+                        rewind
+                        rewindWithAnimation={false}
+                        rtl={false}
+                        shouldResetAutoplay
+                        showDots={false}
+                        sliderClass=""
+                        slidesToSlide={2}
+                        swipeable
+                        transitionDuration={500}
+                    >
+
+                        {firstScroll?.map((eachPerson) => {
+                            return (eachPerson.poster_path || eachPerson.profile_path) != null && (
 
 
-                                    loading ?
+                                loading ?
 
-                                        <LScrollCard />
+                                    <LScrollCard />
 
-                                        :
+                                    :
 
-                                        <div className="flex flex-col h-auto w-24 rounded-md gap-2">
-
+                                    <div className="flex flex-col h-56 w-24 rounded-md gap-2">
+                                        <div className="h-36 w-24 rounded-md overflow-hidden">
                                             <Button media_type={eachPerson.media_type || "person"} id={eachPerson.id}>
                                                 <img
                                                     src={halfSizeImg + (eachPerson.poster_path || eachPerson.profile_path)}
-                                                    alt={(eachPerson.title) || (eachPerson.name)}
-                                                    className="object-fill h-36 w-24 rounded-md shadow-lg shadow-black duration-150 sm:hover:rounded-none sm:hover:scale-105 sm:hover:saturate-150"
+                                                    alt="Refresh Page"
+                                                    className="object-fill h-36 rounded-md shadow-lg shadow-black duration-150 sm:hover:rounded-none sm:hover:scale-105 sm:hover:saturate-150"
                                                     loading="lazy"
                                                 />
                                             </Button>
-                                            <p className="truncate sm:text-sm text-gray-400">{eachPerson?.character ? eachPerson.character : "Unknown"}</p>
-                                            <p className="truncate sm:text-sm">{(eachPerson.title) || (eachPerson.original_name) || (eachPerson.name)}</p>
-
                                         </div>
+                                        <p className="truncate sm:text-sm text-gray-400">{eachPerson?.character ? eachPerson.character : "Unknown"}</p>
+                                        <p className="truncate sm:text-sm">{(eachPerson.title) || (eachPerson.original_name) || (eachPerson.name)}</p>
 
-                                )
-                            })}
+                                    </div>
 
-                        </div>
-                    </ScrollContainer>
+                            )
+                        })}
+
+
+
+                    </Carousel>
                 </>
             }
         </div>
