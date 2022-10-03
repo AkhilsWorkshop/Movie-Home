@@ -3,7 +3,6 @@ import React, { useEffect, useState } from 'react'
 import { halfSizeImg, responsive } from '../../../config/config'
 import LScrollCard from '../../LazyLoading/LScrollCard'
 import Button from '../../Sub/Button'
-import { BsFillArrowRightCircleFill } from "react-icons/bs"
 import Carousel from 'react-multi-carousel'
 import 'react-multi-carousel/lib/styles.css';
 

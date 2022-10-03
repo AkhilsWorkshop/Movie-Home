@@ -19,7 +19,7 @@ const SearchBar = () => {
 
     return (
         <div>
-            <form class="relative text-gray-600 focus-within:text-gray-400" onSubmit={getSearchQuery}>
+            <form className="relative text-gray-600 focus-within:text-gray-400" onSubmit={getSearchQuery}>
 
                 <input
                     placeholder="Search movies & more"

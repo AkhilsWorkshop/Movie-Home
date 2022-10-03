@@ -145,7 +145,7 @@ const DetailedPerson = () => {
 
                         </Suspense>
 
-                        {/* <Pictures searchID={searchID} /> */}
+                        <Pictures searchID={searchID} />
 
                     </div>
 
