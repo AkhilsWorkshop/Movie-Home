@@ -1,10 +1,10 @@
 import { HashRouter as Router, Routes, Route } from "react-router-dom"
 import Home from "./Pages/Home";
 import "./styles.css";
-import Detailed from "./Pages/Detailed";
+import MovieDetails from "./Pages/MovieDetails";
 import Error from "./Pages/Error";
 import SearchResults from "./Pages/SearchResults";
-import DetailedPerson from "./Pages/DetailedPerson";
+import PersonDetails from "./Pages/PersonDetails";
 import About from "./Pages/About";
 
 
@@ -25,8 +25,8 @@ const App = () => {
                 <Route path="search">
 
                     <Route path=":searchID" element={<SearchResults />} />
-                    <Route path="person/:searchID" element={<DetailedPerson />} />
-                    <Route path=":mediaType/:searchID" element={<Detailed />} />
+                    <Route path="person/:searchID" element={<PersonDetails />} />
+                    <Route path=":mediaType/:searchID" element={<MovieDetails />} />
 
                 </Route>
                 <Route path="about" element={<About />} />

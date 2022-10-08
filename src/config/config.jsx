@@ -1,7 +1,7 @@
 
 // Image from API
-export const halfSizeImg = "https://image.tmdb.org/t/p/w500/";
-export const fullSizeImg = "https://image.tmdb.org/t/p/original/";
+export const halfSizeImg = "https://image.tmdb.org/t/p/w500";
+export const fullSizeImg = "https://image.tmdb.org/t/p/original";
 export const personImg = "https://api.themoviedb.org/3/person/";
 
 // Custom Image

@@ -3,7 +3,7 @@ import React, { Suspense, useEffect, useState } from "react";
 import { AiTwotoneStar } from "react-icons/ai";
 import { FaExternalLinkAlt } from "react-icons/fa";
 import { useParams } from "react-router-dom";
-import Pictures from "../components/Cards/DetailedCard/Pictures";
+import Pictures from "../components/PersonDetails/Pictures";
 import LOverview from "../components/LazyLoading/LOverview";
 import LPersonAbout from "../components/LazyLoading/LPersonAbout";
 import LPicture from "../components/LazyLoading/LPicture";
@@ -17,7 +17,7 @@ const ScrollCard1 = React.lazy(() => import("../components/Cards/DetailedCard/Sc
 const ScrollCard2 = React.lazy(() => import("../components/Cards/DetailedCard/ScrollCard2"));
 
 
-const DetailedPerson = () => {
+const PersonDetails = () => {
 
     const { searchID } = useParams()
     const mediaType = "person"
@@ -163,4 +163,4 @@ const DetailedPerson = () => {
     )
 }
 
-export default DetailedPerson
+export default PersonDetails
