@@ -16,7 +16,7 @@ const Home = () => {
 
         <div className="bg-gradient-to-br from-[#141E30] via-[#232526] to-[#414345]">
             <Header />
-            {/* <Trending /> */}
+            <Trending />
             <Suspense fallback={<Loading />}>
                 <DiscoverMovies />
                 {/* <DiscoverMovies /> */}

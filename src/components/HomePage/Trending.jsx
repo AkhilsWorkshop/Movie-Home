@@ -1,9 +1,8 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
 import { fullSizeImg, trending, TRENDING } from "../../config/config";
-import MediaCard from "../Cards/MediaCard";
-import Loading from "../Main/Loading";
 import Button from "../Sub/Button";
 
 
@@ -37,7 +36,7 @@ const Trending = () => {
                 additionalTransfrom={0}
                 arrows
                 autoPlay
-                autoPlaySpeed={50000}
+                autoPlaySpeed={5000}
                 centerMode={false}
                 className="hover:cursor-grab active:cursor-grabbing"
                 draggable
