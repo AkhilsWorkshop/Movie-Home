@@ -6,7 +6,8 @@ import Header from "../components/Main/Header"
 import React, { Suspense } from "react";
 import Loading from "../components/Main/Loading"
 import Trending from "../components/HomePage/Trending";
-const DiscoverMovies = React.lazy(() => import("../DetailedPage/DiscoverMovies"));
+import DiscoverMovies from "../components/HomePage/DiscoverMovies";
+// const DiscoverMovies = React.lazy(() => import("../DetailedPage/DiscoverMovies"));
 const DiscoverTv = React.lazy(() => import("../DetailedPage/DiscoverTv"));
 
 const Home = () => {
@@ -15,9 +16,10 @@ const Home = () => {
 
         <div className="bg-gradient-to-br from-[#141E30] via-[#232526] to-[#414345]">
             <Header />
-            <Trending />
+            {/* <Trending /> */}
             <Suspense fallback={<Loading />}>
                 <DiscoverMovies />
+                {/* <DiscoverMovies /> */}
                 <DiscoverTv />
             </Suspense>
 

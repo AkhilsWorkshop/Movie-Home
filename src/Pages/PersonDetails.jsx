@@ -11,7 +11,6 @@ import LScrollCard from "../components/LazyLoading/LScrollCard";
 import LTitle from "../components/LazyLoading/LTitle";
 import Footer from "../components/Main/Footer";
 import Header from "../components/Main/Header";
-import Loading from "../components/Main/Loading";
 import { halfSizeImg } from "../config/config";
 const ScrollCard1 = React.lazy(() => import("../components/Cards/DetailedCard/ScrollCard1"));
 const ScrollCard2 = React.lazy(() => import("../components/Cards/DetailedCard/ScrollCard2"));
