@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import MediaCard from "../components/Cards/MediaCard";
+import MediaCard from "../../components/Cards/MediaCard";
 
 
 

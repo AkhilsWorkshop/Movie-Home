@@ -7,8 +7,10 @@ import React, { Suspense } from "react";
 import Loading from "../components/Main/Loading"
 import Trending from "../components/HomePage/Trending";
 import DiscoverMovies from "../components/HomePage/DiscoverMovies";
+import DiscoverTV from "../components/HomePage/DiscoverTV";
+import PopularPeople from "../components/HomePage/PopularPeople";
 // const DiscoverMovies = React.lazy(() => import("../DetailedPage/DiscoverMovies"));
-const DiscoverTv = React.lazy(() => import("../DetailedPage/DiscoverTv"));
+// const DiscoverTv = React.lazy(() => import("../DetailedPage/DiscoverTv"));
 
 const Home = () => {
     document.title = "Movie Home"
@@ -20,7 +22,8 @@ const Home = () => {
             <Suspense fallback={<Loading />}>
                 <DiscoverMovies />
                 {/* <DiscoverMovies /> */}
-                <DiscoverTv />
+                <DiscoverTV />
+                <PopularPeople />
             </Suspense>
 
             <Footer />
