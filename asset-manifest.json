@@ -1,25 +1,24 @@
 {
   "files": {
-    "main.css": "/static/css/main.951afe23.css",
-    "main.js": "/static/js/main.3e3cd4c0.js",
-    "static/js/602.92a27901.chunk.js": "/static/js/602.92a27901.chunk.js",
-    "static/js/117.d86203ef.chunk.js": "/static/js/117.d86203ef.chunk.js",
+    "main.css": "/static/css/main.aa175515.css",
+    "main.js": "/static/js/main.b486bbef.js",
     "static/js/450.5b1fa5d0.chunk.js": "/static/js/450.5b1fa5d0.chunk.js",
-    "static/js/733.8ca65777.chunk.js": "/static/js/733.8ca65777.chunk.js",
-    "static/js/221.6290f418.chunk.js": "/static/js/221.6290f418.chunk.js",
+    "static/js/733.43319547.chunk.js": "/static/js/733.43319547.chunk.js",
+    "static/js/221.73d142da.chunk.js": "/static/js/221.73d142da.chunk.js",
     "static/media/load.png": "/static/media/load.a121ecbdc06c0a832ae4.png",
     "static/media/logo.png": "/static/media/logo.5a111f68378f2f85ba7c.png",
+    "static/media/revicons.eot": "/static/media/revicons.a77de540a38981833f9e.eot",
+    "static/media/revicons.ttf": "/static/media/revicons.57fd05d4ae650374c8de.ttf",
+    "static/media/revicons.woff": "/static/media/revicons.e8746a624ed098489406.woff",
     "index.html": "/index.html",
-    "main.951afe23.css.map": "/static/css/main.951afe23.css.map",
-    "main.3e3cd4c0.js.map": "/static/js/main.3e3cd4c0.js.map",
-    "602.92a27901.chunk.js.map": "/static/js/602.92a27901.chunk.js.map",
-    "117.d86203ef.chunk.js.map": "/static/js/117.d86203ef.chunk.js.map",
+    "main.aa175515.css.map": "/static/css/main.aa175515.css.map",
+    "main.b486bbef.js.map": "/static/js/main.b486bbef.js.map",
     "450.5b1fa5d0.chunk.js.map": "/static/js/450.5b1fa5d0.chunk.js.map",
-    "733.8ca65777.chunk.js.map": "/static/js/733.8ca65777.chunk.js.map",
-    "221.6290f418.chunk.js.map": "/static/js/221.6290f418.chunk.js.map"
+    "733.43319547.chunk.js.map": "/static/js/733.43319547.chunk.js.map",
+    "221.73d142da.chunk.js.map": "/static/js/221.73d142da.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.951afe23.css",
-    "static/js/main.3e3cd4c0.js"
+    "static/css/main.aa175515.css",
+    "static/js/main.b486bbef.js"
   ]
 }
