@@ -6,7 +6,7 @@ import Button from '../../Sub/Button';
 
 const Card = ({ content, media_type }) => {
     return (
-        <ScrollContainer className="px-4 sm:px-10 flex gap-3  overflow-hidden" id="container">
+        <ScrollContainer className="px-4 sm:px-10 flex gap-3 overflow-hidden">
 
             {content?.map((eachItem, index) => (
 
@@ -35,10 +35,7 @@ const Card = ({ content, media_type }) => {
                 </Button>
             ))}
 
-            {/* <div className="absolute w-[10%] h-[86%] bg-gradient-to-r from-transparent to-black/80 right-0 top-0 hover:duration-1000 hover:to-black hover:cursor-pointer"
-            >
-                <AiOutlineRight size={60} className="absolute top-[40%] left-[50%]" />
-            </div> */}
+
 
         </ScrollContainer>
     )

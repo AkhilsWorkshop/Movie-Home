@@ -16,7 +16,7 @@ const Home = () => {
     document.title = "Movie Home"
     return (
 
-        <div className="bg-gradient-to-br from-[#141E30] via-[#232526] to-[#414345]">
+        <div>
             <Header />
             <Trending />
             <Suspense fallback={<Loading />}>
