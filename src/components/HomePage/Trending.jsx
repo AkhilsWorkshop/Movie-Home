@@ -31,7 +31,7 @@ const Trending = () => {
 
             <Carousel
                 additionalTransfrom={0}
-                arrows
+                arrows={false}
                 autoPlay
                 autoPlaySpeed={5000}
                 centerMode={false}
