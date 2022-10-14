@@ -4,7 +4,7 @@ import { FaExternalLinkAlt } from 'react-icons/fa';
 
 const About = ({ data, mediaType }) => {
     return (
-        <div className="flex flex-col items-start sm:items-end gap-5">
+        <div className="flex flex-col items-start sm:items-end gap-5 font-title">
 
             <>
                 {
@@ -40,24 +40,31 @@ const About = ({ data, mediaType }) => {
             }
 
             <div className="flex flex-col gap-1 items-start sm:items-end">
+                <table className="table-auto">
+                    <tr>
+                        <td>
+                            <p className="text-slate-400 text-sm font-semibold uppercase">Country</p>
+                        </td>
+                        <td>
+                            {data.production_countries?.map(({ id, name }) => (
+                                <span key={id} className="text-white capitalize"> {name}</span>
+                            ))}
+                        </td>
+                    </tr>
+                </table>
 
-                <p className="text-slate-400 text-sm">Country:
-                    {data.production_countries?.map(({ id, name }) => (
-                        <span key={id} className="text-white font-bold"> {name}</span>
-                    ))}
-                </p>
 
-                <p className="text-slate-400 text-sm">Released: <span className="text-white font-bold">{data.first_air_date || data.release_date || "N/A"}</span></p>
+                <p className="text-slate-400 text-sm font-semibold uppercase">Release Date <span className="text-white capitalize">{data.first_air_date || data.release_date || "N/A"}</span></p>
 
-                <p className="text-slate-400 text-sm">Main Language:
+                <p className="text-slate-400 text-sm font-semibold uppercase">Language
                     {data.spoken_languages?.map(({ id, name, english_name }) => {
                         return english_name ?
                             (
-                                <span key={id} className="text-white font-bold"> {english_name}</span>
+                                <span key={id} className="text-white font-bold capitalize"> {english_name}</span>
                             )
                             :
                             (
-                                <span key={id} className="text-white font-bold"> {name}</span>
+                                <span key={id} className="text-white font-bold capitalize"> {name}</span>
                             )
                     }
                     )}

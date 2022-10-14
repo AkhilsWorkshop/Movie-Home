@@ -16,7 +16,7 @@ const Header = () => {
 
     return (
         <div>
-            <div className="flex items-center justify-between px-10 bg-black/20 md:justify-around h-20 shadow-xl">
+            <div className="flex items-center justify-between px-10 bg-black/20 md:justify-around h-20 shadow-xl border-b-slate-800 border-b">
                 <div>
                     <a href="/">
                         <img src={logo} alt="Movie DB" className="h-14 md:h-16 py-2 sm:hover:animate-pulse" />

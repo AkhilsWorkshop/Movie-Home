@@ -4,13 +4,14 @@ import { fullSizeImg, halfSizeImg } from "../config/config";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ReactPlayer from "react-player/youtube";
+import { AiTwotoneStar } from "react-icons/ai"
 import Header from "../components/Main/Header";
 import Footer from "../components/Main/Footer";
 import Loading from "../components/Main/Loading";
+import { FaExternalLinkAlt } from "react-icons/fa";
 import Recommendations from "../components/Cards/DetailedCard/Recommendations";
 import LScrollCard from '../components/LazyLoading/LScrollCard';
 import About from '../PageData/MovieDetails/About';
-import Trailer from '../PageData/MovieDetails/Trailer';
 
 
 const Production = React.lazy(() => import("../components/Cards/DetailedCard/Production"));
@@ -59,56 +60,47 @@ const MovieDetails = () => {
                     (<div className="flex flex-col md:flex-col">
 
 
-                        <div className="text-white bg-contain bg-no-repeat" Style={`background-image: url(${fullSizeImg}${data.backdrop_path})`} >
+                        <div className="text-white bg-cover" Style={`background-image: url(${fullSizeImg}${data.backdrop_path})`} >
 
-                            <div className="flex flex-col justify-center sm:px-20 xl:px-52 lg:px-32 backdrop-blur-[1px] backdrop-brightness-50 bg-gradient-to-b via-gray-900 from-transparent to-gray-900 ">
+                            <div className="flex flex-col justify-center p-5 sm:px-20 xl:px-52 lg:px-32 backdrop-blur-md backdrop-brightness-50 bg-gradient-to-b via-transparent from-transparent to-gray-900 gap-5">
 
-                                <Trailer video={video} videoURL={videoURL} />
+                                <div className="flex">
+                                    <h1 className="border-l-4 pl-2 border-yellow-500 text-lg md:text-2xl sm:text-4xl">{data.title || data.name}
+                                        {data.original_language !== "en" ?
+                                            <span className="text-base md:text-xl sm:text-2xl"> ({data.original_title || data.original_name})</span>
+                                            :
+                                            <></>
+                                        }
+                                    </h1>
+                                </div>
 
-                                <div className="flex gap-5 bg-gray-900 p-6 rounded-md">
+                                <div className="flex justify-between items-start gap-4">
+                                    <img
+                                        src={halfSizeImg + data.poster_path}
+                                        alt={data.original_title}
+                                        className="object-fill h-72 shadow-2xl shadow-black border border-gray-700"
+                                    />
+                                    <About data={data} mediaType={mediaType} />
+                                </div>
 
-                                    <div className="flex flex-col items-start gap-4">
+                                <div className="flex flex-col">
 
-                                        <h1 className="border-l-4 pl-2 border-yellow-500 text-lg md:text-2xl sm:text-4xl">{data.title || data.name}
-                                            {data.original_language !== "en" ?
-                                                <span className="text-base md:text-xl sm:text-2xl"> ({data.original_title || data.original_name})</span>
-                                                :
-                                                <></>
-                                            }
-                                        </h1>
-
-                                        <img
-                                            src={halfSizeImg + data.poster_path}
-                                            alt={data.original_title}
-                                            className="object-fill h-[30rem] shadow-xl shadow-black border border-gray-700"
-                                        />
-                                        <About data={data} mediaType={mediaType} />
-                                    </div>
-
-                                    <div className="flex flex-col">
-                                        <div className="flex flex-col">
-
-                                            <p className="text-white text-base">{data.overview}</p>
-
-                                        </div>
-
-                                        <Suspense fallback={<LScrollCard />}>
-
-                                            <ScrollCard1 mediaType={mediaType} searchID={searchID} />
-                                            <ScrollCard2 mediaType={mediaType} searchID={searchID} />
-
-                                        </Suspense>
-
-                                        <Suspense fallback={<div>Loading...</div>}>
-
-                                            <Production companies={data.production_companies} />
-
-                                        </Suspense>
-
-                                    </div>
-
+                                    <p className="text-white text-base">{data.overview}</p>
 
                                 </div>
+
+                                <Suspense fallback={<LScrollCard />}>
+
+                                    <ScrollCard1 mediaType={mediaType} searchID={searchID} />
+                                    <ScrollCard2 mediaType={mediaType} searchID={searchID} />
+
+                                </Suspense>
+
+                                <Suspense fallback={<div>Loading...</div>}>
+
+                                    <Production companies={data.production_companies} />
+
+                                </Suspense>
                             </div>
 
                         </div>

@@ -5,6 +5,7 @@ import LScrollCard from '../../LazyLoading/LScrollCard'
 import Button from '../../Sub/Button'
 import Carousel from 'react-multi-carousel'
 import 'react-multi-carousel/lib/styles.css';
+import ScrollContainer from 'react-indiana-drag-scroll'
 
 const ScrollCard1 = ({ mediaType, searchID }) => {
 
@@ -42,33 +43,7 @@ const ScrollCard1 = ({ mediaType, searchID }) => {
 
                     </h1>
 
-                    <Carousel
-                        additionalTransfrom={0}
-                        arrows
-                        autoPlay
-                        autoPlaySpeed={5000}
-                        centerMode={false}
-                        className="hover:cursor-grab active:cursor-grabbing"
-                        draggable
-                        focusOnSelect={false}
-                        infinite={false}
-                        itemClass=""
-                        minimumTouchDrag={80}
-                        pauseOnHover
-                        renderArrowsWhenDisabled={false}
-                        renderButtonGroupOutside={true}
-                        renderDotsOutside={false}
-                        responsive={responsive}
-                        rewind
-                        rewindWithAnimation={true}
-                        rtl={false}
-                        shouldResetAutoplay
-                        showDots={false}
-                        sliderClass=""
-                        slidesToSlide={2}
-                        swipeable
-                        transitionDuration={500}
-                    >
+                    <ScrollContainer className="px-4 sm:px-10 flex gap-3 overflow-hidden">
 
                         {firstScroll?.map((eachPerson) => {
                             return (eachPerson.poster_path || eachPerson.profile_path) != null && (
@@ -101,7 +76,7 @@ const ScrollCard1 = ({ mediaType, searchID }) => {
 
 
 
-                    </Carousel>
+                    </ScrollContainer>
                 </>
             }
         </div>

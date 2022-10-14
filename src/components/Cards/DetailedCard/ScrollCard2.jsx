@@ -4,6 +4,7 @@ import { halfSizeImg, responsive } from "../../../config/config"
 import Button from "../../Sub/Button"
 import LScrollCard from "../../LazyLoading/LScrollCard"
 import Carousel from "react-multi-carousel"
+import ScrollContainer from "react-indiana-drag-scroll"
 
 const ScrollCard2 = ({ mediaType, searchID }) => {
 
@@ -45,32 +46,7 @@ const ScrollCard2 = ({ mediaType, searchID }) => {
 
                     </h1>
 
-                    <Carousel
-                        additionalTransfrom={0}
-                        arrows
-                        autoPlay={false}
-                        centerMode={false}
-                        className="hover:cursor-grab active:cursor-grabbing"
-                        draggable
-                        focusOnSelect={false}
-                        infinite={false}
-                        itemClass=""
-                        minimumTouchDrag={80}
-                        pauseOnHover
-                        renderArrowsWhenDisabled={false}
-                        renderButtonGroupOutside={true}
-                        renderDotsOutside={false}
-                        responsive={responsive}
-                        rewind
-                        rewindWithAnimation={false}
-                        rtl={false}
-                        shouldResetAutoplay
-                        showDots={false}
-                        sliderClass=""
-                        slidesToSlide={2}
-                        swipeable
-                        transitionDuration={500}
-                    >
+                    <ScrollContainer className="px-4 sm:px-10 flex gap-3 overflow-hidden">
 
                         {uniqueSecondScroll?.map((eachPerson) => {
                             return (eachPerson.poster_path || eachPerson.profile_path) != null && (
@@ -82,7 +58,7 @@ const ScrollCard2 = ({ mediaType, searchID }) => {
 
                                     :
 
-                                    <div className="flex flex-col h-auto w-24 rounded-md gap-2">
+                                    <div className="flex flex-col h-auto w-24 rounded-md gap-2 overflow-hidden">
                                         <div className="h-36 w-24 rounded-md overflow-hidden">
                                             <Button media_type={eachPerson.media_type || "person"} id={eachPerson.id}>
                                                 <img
@@ -102,7 +78,7 @@ const ScrollCard2 = ({ mediaType, searchID }) => {
 
 
 
-                    </Carousel>
+                    </ScrollContainer>
 
                 </>
             }
