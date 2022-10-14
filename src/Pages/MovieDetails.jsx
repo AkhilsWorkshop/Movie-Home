@@ -65,7 +65,7 @@ const MovieDetails = () => {
 
                                 <Trailer video={video} videoURL={videoURL} />
 
-                                <div className="flex gap-5 bg-gray-900 p-6 rounded-md">
+                                <div className="flex bg-gray-900 p-6 rounded-md">
 
                                     <div className="flex flex-col items-start gap-4">
 
@@ -80,30 +80,34 @@ const MovieDetails = () => {
                                         <img
                                             src={halfSizeImg + data.poster_path}
                                             alt={data.original_title}
-                                            className="object-fill h-[30rem] shadow-xl shadow-black border border-gray-700"
+                                            className="object-fill h-[30rem] aspect-[2/3] shadow-xl shadow-black border border-gray-700"
                                         />
                                         <About data={data} mediaType={mediaType} />
                                     </div>
 
                                     <div className="flex flex-col">
-                                        <div className="flex flex-col">
 
-                                            <p className="text-white text-base">{data.overview}</p>
+                                        <div className="flex flex-col overflow-x-hidden">
+                                            <Suspense fallback={<LScrollCard />}>
 
+                                                <ScrollCard1 mediaType={mediaType} searchID={searchID} />
+                                                <ScrollCard2 mediaType={mediaType} searchID={searchID} />
+
+                                            </Suspense>
                                         </div>
 
-                                        <Suspense fallback={<LScrollCard />}>
-
-                                            <ScrollCard1 mediaType={mediaType} searchID={searchID} />
-                                            <ScrollCard2 mediaType={mediaType} searchID={searchID} />
-
-                                        </Suspense>
 
                                         <Suspense fallback={<div>Loading...</div>}>
 
                                             <Production companies={data.production_companies} />
 
                                         </Suspense>
+
+                                        <div className="flex flex-col">
+                                            <h1 className="border-l-4 pl-2 border-yellow-500 text-lg md:text-2xl sm:text-4xl">Overview</h1>
+                                            <p className="text-white text-base">{data.overview}</p>
+
+                                        </div>
 
                                     </div>
 

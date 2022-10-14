@@ -3,7 +3,7 @@ import { useState, useEffect } from "react"
 import { halfSizeImg, responsive } from "../../../config/config"
 import Button from "../../Sub/Button"
 import LScrollCard from "../../LazyLoading/LScrollCard"
-import Carousel from "react-multi-carousel"
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 import ScrollContainer from "react-indiana-drag-scroll"
 
 const ScrollCard2 = ({ mediaType, searchID }) => {
@@ -46,7 +46,7 @@ const ScrollCard2 = ({ mediaType, searchID }) => {
 
                     </h1>
 
-                    <ScrollContainer className="px-4 sm:px-10 flex gap-3 overflow-hidden">
+                    {/* <ScrollContainer className="px-4 sm:px-10 flex gap-3 overflow-hidden flex-wrap">
 
                         {uniqueSecondScroll?.map((eachPerson) => {
                             return (eachPerson.poster_path || eachPerson.profile_path) != null && (
@@ -78,7 +78,7 @@ const ScrollCard2 = ({ mediaType, searchID }) => {
 
 
 
-                    </ScrollContainer>
+                    </ScrollContainer> */}
 
                 </>
             }
