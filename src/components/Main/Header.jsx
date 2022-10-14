@@ -42,13 +42,13 @@ const Header = () => {
                     <div onClick={() => setSearch(!search)} className="cursor-pointer">
                         {search ? <BsSearch size={21} className="text-white" /> : <BsSearch size={20} />}
                     </div>
-                    <div onClick={() => setMenu(!menu)} className="z-20 cursor-pointer">
+                    <div onClick={() => setMenu(!menu)} className="z-50 cursor-pointer">
                         {menu ? <CgClose size={30} /> : <CgMenu size={30} />}
                     </div>
                 </div>
 
                 {menu && (
-                    <div className="flex flex-col justify-center items-center absolute z-10 top-0 left-0 w-full h-screen bg-gradient-to-b from-[#272727] to-gray-800">
+                    <div className="flex flex-col justify-center items-center absolute z-40 top-0 left-0 w-full h-screen bg-gradient-to-b from-[#272727] to-gray-800">
                         <div className="flex flex-col items-center gap-8 text-neutral-400">
                             <Link onClick={() => setMenu(!menu)} to="/" className={linkStylesMobile}>Home</Link>
                             <Linking to="Movies" smooth duration={500} className={linkStylesMobile}>

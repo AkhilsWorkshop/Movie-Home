@@ -62,10 +62,10 @@ const Trending = () => {
 
                         <div className="flex flex-col justify-center h-[30vh] sm:h-[60vh] backdrop-blur-[1px] backdrop-brightness-[70%] bg-gradient-to-b from-transparent to-[#18181b]">
                             <div className="flex flex-col gap-5 px-16 sm:px-[10rem]">
-                                <h1 className="text-2xl sm:text-[3rem] line font-bold text-blue-100">{each?.title || each?.name}</h1>
+                                <h1 className="text-2xl sm:text-[3rem] line font-bold text-blue-100 leading-tight">{each?.title || each?.name}</h1>
                                 <p className="hidden sm:block text-xl truncate">{each?.overview}</p>
                                 <Button media_type={each?.media_type} id={each?.id}>
-                                    <button className="py-3 px-2 font-semibold rounded-md w-fit bg-yellow-600 shadow-lg border-2 duration-300 hover:bg-yellow-600/80 border-yellow-600/80"> More Info</button>
+                                    <button className="p-2 px-3 font-semibold rounded-md w-fit bg-yellow-500/70 shadow-lg border-2 duration-300 hover:bg-yellow-600/80 border-yellow-600/80"> More Info</button>
                                 </Button>
 
                             </div>
