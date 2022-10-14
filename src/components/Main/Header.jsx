@@ -8,7 +8,7 @@ import { Link as Linking } from 'react-scroll';
 
 const Header = () => {
 
-    const linkStylesDesktop = "hover:border-yellow-500 hover:text-white hover:scale-105 border-b-2 py-3 duration-200 border-black"
+    const linkStylesDesktop = "hover:border-yellow-500 border-transparent hover:text-white hover:scale-105 border-b-2 py-3 duration-200 border-black"
     const linkStylesMobile = "px-4 cursor-pointer text-gray-300 py-6 text-4xl"
 
     const [menu, setMenu] = useState(false);
@@ -16,13 +16,13 @@ const Header = () => {
 
     return (
         <div>
-            <div className="flex items-center justify-between px-10 md:justify-around bg-black h-20 shadow-xl">
+            <div className="flex items-center justify-between px-10 bg-black/20 md:justify-around h-20 shadow-xl">
                 <div>
                     <a href="/">
                         <img src={logo} alt="Movie DB" className="h-14 md:h-16 py-2 sm:hover:animate-pulse" />
                     </a>
                 </div>
-                <div className="hidden lg:flex items-center gap-8">
+                <div className="hidden lg:flex items-center gap-8 font-slogan">
                     <div className="flex gap-8 text-neutral-400">
                         <Link to="/" className={linkStylesDesktop}>Home</Link>
                         <Linking to="Movies" smooth duration={500} className={linkStylesDesktop}>

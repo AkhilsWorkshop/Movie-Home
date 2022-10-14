@@ -7,6 +7,7 @@ module.exports = {
     extend: {},
     fontFamily: {
       slogan: ["Ubuntu"],
+      title: ["Sora"],
     }
   },
   plugins: [],
