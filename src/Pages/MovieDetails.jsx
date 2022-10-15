@@ -13,6 +13,8 @@ import About from '../PageData/MovieDetails/About';
 import Trailer from '../PageData/MovieDetails/Trailer';
 import Overview from '../PageData/MovieDetails/Overview';
 import Poster from '../PageData/MovieDetails/Poster';
+import Videos from '../PageData/MovieDetails/Videos';
+import Title from '../PageData/MovieDetails/Title';
 
 const ScrollCard1 = React.lazy(() => import("../components/Cards/DetailedCard/ScrollCard1"));
 const ScrollCard2 = React.lazy(() => import("../components/Cards/DetailedCard/ScrollCard2"));
@@ -29,6 +31,7 @@ const MovieDetails = () => {
     const [video, setVideo] = useState();
     const videoURL = `https://www.youtube.com/watch?v=${video}`
     const [data, setData] = useState([])
+    const [stream, setStream] = useState([])
     const [loading, setLoading] = useState(false)
 
     // Getting the ID from URL
@@ -42,9 +45,17 @@ const MovieDetails = () => {
         console.log(data)
     }
 
+    // Watch Providers API
+    const getWatchProviders = async () => {
+        const { data } = await axios.get(`https://api.themoviedb.org/3/${mediaType}/${searchID}/watch/providers?api_key=${process.env.REACT_APP_API_KEY}`)
+        setStream(data.results)
+        console.log(data.results)
+    }
+
     useEffect(() => {
         getMovieDetails()
         fetchVideoData()
+        getWatchProviders()
         setTimeout(() => { setLoading(false) }, 500)
     }, [])
 
@@ -65,59 +76,52 @@ const MovieDetails = () => {
 
                                 <Trailer video={video} videoURL={videoURL} />
 
-                                <div className="flex gap-5 bg-gray-900 p-6 rounded-md">
+                                <div className="flex flex-col gap-5 bg-gray-900 p-6 rounded-md">
 
-                                    <div className="flex flex-col items-start gap-4">
+                                    <Title data={data} />
 
-                                        <Poster data={data} />
-                                        <About data={data} mediaType={mediaType} />
+                                    <div className="flex gap-5">
 
-                                    </div>
+                                        <div className="flex flex-col items-start gap-4">
 
-                                    <div className="flex flex-col w-full gap-5 overflow-hidden sm:pt-12">
+                                            <Poster data={data} stream={stream} />
+                                            <About data={data} mediaType={mediaType} />
+
+                                        </div>
+
+                                        <div className="flex flex-col w-full gap-5 overflow-hidden">
 
 
-                                        <Suspense fallback={<LScrollCard />}>
+                                            <Suspense fallback={<LScrollCard />}>
 
-                                            <ScrollCard1 mediaType={mediaType} searchID={searchID} />
+                                                <ScrollCard1 mediaType={mediaType} searchID={searchID} />
 
-                                        </Suspense>
+                                            </Suspense>
 
-                                        <Suspense fallback={<LScrollCard />}>
+                                            <Suspense fallback={<LScrollCard />}>
 
-                                            <ScrollCard2 mediaType={mediaType} searchID={searchID} />
+                                                <ScrollCard2 mediaType={mediaType} searchID={searchID} />
 
-                                        </Suspense>
+                                            </Suspense>
 
-                                        <Overview data={data} />
+                                            <Overview data={data} />
+
+                                            <Videos video={video} videoURL={videoURL} />
+
+                                        </div>
 
                                     </div>
 
                                 </div>
+
+                                <Recommendations id={data.id} mediaType={mediaType} />
+
                             </div>
 
                         </div>
 
                         <>
 
-                            {video === undefined ?
-                                <></>
-                                :
-                                <div className="text-white flex flex-col justify-center p-5 sm:px-20 xl:px-52 lg:px-32 backdrop-blur-md backdrop-brightness-50 bg-gradient-to-b from-gray-900 to-gray-900 gap-5">
-                                    <div className="flex flex-col gap-5 flex-nowrap">
-                                        <h1 className="border-l-4 pl-2 border-yellow-500 text-lg md:text-2xl sm:text-4xl">Videos</h1>
-                                        <div className="flex ">
-                                            <ReactPlayer className="" url={videoURL} />
-                                        </div>
-
-                                    </div>
-                                </div>
-                            }
-
-                        </>
-
-                        <>
-                            <Recommendations id={data.id} mediaType={mediaType} />
                         </>
 
                         <>

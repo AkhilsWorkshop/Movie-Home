@@ -1,26 +1,9 @@
 import React from 'react'
 import { AiTwotoneStar } from 'react-icons/ai';
-import { FaExternalLinkAlt } from 'react-icons/fa';
-import Production from '../../components/Cards/DetailedCard/Production';
 
 const About = ({ data, mediaType }) => {
     return (
         <div className="flex flex-col items-start sm:items-end gap-5 font-title">
-
-            <>
-                {
-                    data.homepage === "" ?
-                        <></>
-                        :
-                        <div onClick={(e) => {
-                            e.preventDefault();
-                            window.location.href = data.homepage;
-                        }}>
-                            <FaExternalLinkAlt size={20} className=" text-gray-300 cursor-pointer hover:text-white" />
-                        </div>
-                }
-            </>
-
 
             <table className="border-separate border-spacing-3 align-top">
                 <tr>
@@ -77,7 +60,7 @@ const About = ({ data, mediaType }) => {
                         <span className="text-white text-xs capitalize">{data.first_air_date || data.release_date || "N/A"}</span>
                     </td>
                 </tr>
-                <tr className='align-top'>
+                <tr>
                     <td>
                         <p className="text-slate-400 text-sm font-semibold uppercase">Language</p>
                     </td>
@@ -95,14 +78,14 @@ const About = ({ data, mediaType }) => {
                         )}
                     </td>
                 </tr>
-                <tr className='align-top'>
+                {/* <tr className='align-top'>
                     <td>
                         <p className="text-slate-400 text-sm font-semibold uppercase">Production</p>
                     </td>
                     <td>
                         <Production companies={data.production_companies} />
                     </td>
-                </tr>
+                </tr> */}
             </table>
 
         </div>

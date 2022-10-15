@@ -21,7 +21,7 @@ const Production = ({ companies }) => {
                                     <img
                                         src={halfSizeImg + logo_path}
                                         alt={name}
-                                        className="object-fill h-8"
+                                        className="object-fill h-6"
                                     />
                                 </div>
                         })}

@@ -2,9 +2,6 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import MediaCard from "../MediaCard";
 
-
-
-
 const Recommendations = ({ id, mediaType }) => {
     const [content, setContent] = useState([])
 
@@ -23,8 +20,9 @@ const Recommendations = ({ id, mediaType }) => {
             {
                 content?.length > 0
                     ?
-                    <div className="flex flex-col justify-center p-5 sm:px-20 xl:px-52 lg:px-32 backdrop-blur-md backdrop-brightness-50 bg-gradient-to-t via-transparent from-transparent to-gray-900 gap-5" >
-                        <h1 className="border-l-4 pl-2 border-yellow-500 text-lg md:text-2xl sm:text-4xl text-white">Recommended for you</h1>
+                    <div className="flex flex-col gap-5 justify-center" >
+
+                        <h1 className="border-l-4 pl-2 border-yellow-500 text-slate-400 text-sm font-semibold uppercase">Recommended for you</h1>
 
                         <div id="card" className="flex justify-center sm:flex-row gap-4 flex-wrap">
 
