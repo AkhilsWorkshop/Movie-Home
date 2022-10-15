@@ -11,9 +11,9 @@ import Recommendations from "../components/Cards/DetailedCard/Recommendations";
 import LScrollCard from '../components/LazyLoading/LScrollCard';
 import About from '../PageData/MovieDetails/About';
 import Trailer from '../PageData/MovieDetails/Trailer';
+import Overview from '../PageData/MovieDetails/Overview';
+import Poster from '../PageData/MovieDetails/Poster';
 
-
-const Production = React.lazy(() => import("../components/Cards/DetailedCard/Production"));
 const ScrollCard1 = React.lazy(() => import("../components/Cards/DetailedCard/ScrollCard1"));
 const ScrollCard2 = React.lazy(() => import("../components/Cards/DetailedCard/ScrollCard2"));
 
@@ -65,52 +65,33 @@ const MovieDetails = () => {
 
                                 <Trailer video={video} videoURL={videoURL} />
 
-                                <div className="flex bg-gray-900 p-6 rounded-md">
+                                <div className="flex gap-5 bg-gray-900 p-6 rounded-md">
 
                                     <div className="flex flex-col items-start gap-4">
 
-                                        <h1 className="border-l-4 pl-2 border-yellow-500 text-lg md:text-2xl sm:text-4xl">{data.title || data.name}
-                                            {data.original_language !== "en" ?
-                                                <span className="text-base md:text-xl sm:text-2xl"> ({data.original_title || data.original_name})</span>
-                                                :
-                                                <></>
-                                            }
-                                        </h1>
-
-                                        <img
-                                            src={halfSizeImg + data.poster_path}
-                                            alt={data.original_title}
-                                            className="object-fill h-[30rem] aspect-[2/3] shadow-xl shadow-black border border-gray-700"
-                                        />
+                                        <Poster data={data} />
                                         <About data={data} mediaType={mediaType} />
+
                                     </div>
 
-                                    <div className="flex flex-col">
-
-                                        <div className="flex flex-col overflow-x-hidden">
-                                            <Suspense fallback={<LScrollCard />}>
-
-                                                <ScrollCard1 mediaType={mediaType} searchID={searchID} />
-                                                <ScrollCard2 mediaType={mediaType} searchID={searchID} />
-
-                                            </Suspense>
-                                        </div>
+                                    <div className="flex flex-col w-full gap-5 overflow-hidden sm:pt-12">
 
 
-                                        <Suspense fallback={<div>Loading...</div>}>
+                                        <Suspense fallback={<LScrollCard />}>
 
-                                            <Production companies={data.production_companies} />
+                                            <ScrollCard1 mediaType={mediaType} searchID={searchID} />
 
                                         </Suspense>
 
-                                        <div className="flex flex-col">
-                                            <h1 className="border-l-4 pl-2 border-yellow-500 text-lg md:text-2xl sm:text-4xl">Overview</h1>
-                                            <p className="text-white text-base">{data.overview}</p>
+                                        <Suspense fallback={<LScrollCard />}>
 
-                                        </div>
+                                            <ScrollCard2 mediaType={mediaType} searchID={searchID} />
+
+                                        </Suspense>
+
+                                        <Overview data={data} />
 
                                     </div>
-
 
                                 </div>
                             </div>

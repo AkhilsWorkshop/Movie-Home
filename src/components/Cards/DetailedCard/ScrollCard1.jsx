@@ -32,17 +32,17 @@ const ScrollCard1 = ({ mediaType, searchID }) => {
     }, [])
 
     return (
-        <div className="flex flex-col gap-5">
+        <div className="flex flex-col gap-5 w-full">
 
             {firstScroll.length > 0 &&
                 <>
-                    <h1 className="border-l-4 pl-2 border-yellow-500 text-lg md:text-2xl sm:text-4xl">
+                    <h1 className="border-l-4 pl-2 border-yellow-500 text-slate-400 text-sm font-semibold uppercase">
 
                         {mediaType === "person" ? <>Known for</> : <>Cast</>}
 
                     </h1>
 
-                    {/* <ScrollContainer className="px-4 sm:px-10 flex gap-3 flex-wrap">
+                    <ScrollContainer className="flex gap-3 w-full">
 
                         {firstScroll?.map((eachPerson) => {
                             return (eachPerson.poster_path || eachPerson.profile_path) != null && (
@@ -75,7 +75,7 @@ const ScrollCard1 = ({ mediaType, searchID }) => {
 
 
 
-                    </ScrollContainer> */}
+                    </ScrollContainer>
                 </>
             }
         </div>

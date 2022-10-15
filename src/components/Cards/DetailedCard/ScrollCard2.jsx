@@ -35,18 +35,18 @@ const ScrollCard2 = ({ mediaType, searchID }) => {
     const uniqueSecondScroll = [...new Map(secondScroll?.map((m) => [m.name, m])).values()];
 
     return (
-        < div className="flex flex-col overflow-x-hidden gap-5" >
+        < div className="flex flex-col gap-5 w-full" >
 
             {uniqueSecondScroll.length > 0 &&
 
                 <>
-                    <h1 className="border-l-4 pl-2 border-yellow-500 text-lg md:text-2xl sm:text-4xl">
+                    <h1 className="border-l-4 pl-2 border-yellow-500 text-slate-400 text-sm font-semibold uppercase">
 
                         {mediaType === "person" ? <>Worked as</> : <>Crew</>}
 
                     </h1>
 
-                    {/* <ScrollContainer className="px-4 sm:px-10 flex gap-3 overflow-hidden flex-wrap">
+                    <ScrollContainer className="flex gap-3 w-full overflow-hidden">
 
                         {uniqueSecondScroll?.map((eachPerson) => {
                             return (eachPerson.poster_path || eachPerson.profile_path) != null && (
@@ -58,7 +58,7 @@ const ScrollCard2 = ({ mediaType, searchID }) => {
 
                                     :
 
-                                    <div className="flex flex-col h-auto w-24 rounded-md gap-2 overflow-hidden">
+                                    <div className="flex flex-col h-auto w-24 rounded-md gap-2">
                                         <div className="h-36 w-24 rounded-md overflow-hidden">
                                             <Button media_type={eachPerson.media_type || "person"} id={eachPerson.id}>
                                                 <img
@@ -78,7 +78,7 @@ const ScrollCard2 = ({ mediaType, searchID }) => {
 
 
 
-                    </ScrollContainer> */}
+                    </ScrollContainer>
 
                 </>
             }
