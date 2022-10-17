@@ -16,7 +16,7 @@ const Card = ({ content, media_type }) => {
 
                         {eachItem.gender === undefined &&
 
-                            <div className="hidden sm:flex absolute bg-black/70 rounded-md px-2 mt-[0.5rem] ml-[3.5rem] sm:ml-[6.5rem] z-10">
+                            <div className="hidden sm:flex absolute text-sm bg-black/70 rounded-md p-1 mt-[0.5rem] ml-[3.5rem] sm:ml-[6.5rem] z-10">
                                 <p>{eachItem.first_air_date?.slice(0, 4) || eachItem.release_date?.slice(0, 4) || "N/A"}</p>
                             </div>
 

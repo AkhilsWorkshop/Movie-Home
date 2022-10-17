@@ -3,6 +3,8 @@ import Header from "../components/Main/Header"
 import React, { Suspense } from "react";
 import Loading from "../components/Main/Loading"
 import Trending from "../components/HomePage/Trending";
+import NowPlaying from "../components/HomePage/NowPlaying";
+import UpcomingMovies from "../components/HomePage/UpcomingMovies";
 // import DiscoverMovies from "../components/HomePage/DiscoverMovies";
 // import DiscoverTV from "../components/HomePage/DiscoverTV";
 // import PopularPeople from "../components/HomePage/PopularPeople";
@@ -18,6 +20,8 @@ const Home = () => {
             <Header />
             <Trending />
             <Suspense fallback={<Loading />}>
+                <NowPlaying />
+                <UpcomingMovies />
                 <DiscoverMovies />
                 <DiscoverTV />
                 <PopularPeople />
