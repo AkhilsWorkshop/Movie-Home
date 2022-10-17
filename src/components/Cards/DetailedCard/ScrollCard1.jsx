@@ -66,7 +66,7 @@ const ScrollCard1 = ({ mediaType, searchID }) => {
                                             </Button>
                                         </div>
                                         <p className="truncate sm:text-sm text-gray-400">{eachPerson?.character ? eachPerson.character : "Unknown"}</p>
-                                        <p className="truncate sm:text-sm">{(eachPerson.title) || (eachPerson.original_name) || (eachPerson.name)}</p>
+                                        <p className="truncate sm:text-xs">{(eachPerson.title) || (eachPerson.original_name) || (eachPerson.name)}</p>
 
                                     </div>
 

@@ -5,7 +5,7 @@ const About = ({ data, mediaType }) => {
     return (
         <div className="flex flex-col items-start sm:items-end gap-5 font-title">
 
-            <table className="border-separate border-spacing-3 align-top">
+            <table className="border-separate border-spacing-1">
                 <tr>
                     <td>
                         <p className="text-slate-400 text-sm font-semibold uppercase">Rating</p>
@@ -47,9 +47,12 @@ const About = ({ data, mediaType }) => {
                         <p className="text-slate-400 text-sm font-semibold uppercase">Country</p>
                     </td>
                     <td>
-                        {data.production_countries?.map(({ id, name }) => (
-                            <span key={id} className="text-white text-xs capitalize"> {name}</span>
-                        ))}
+                        <ul>
+                            {data.production_countries?.map(({ id, name }) => (
+                                <li key={id} className="text-white text-xs capitalize leading-6"> {name}</li>
+                            ))}
+                        </ul>
+
                     </td>
                 </tr>
                 <tr>

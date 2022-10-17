@@ -20,7 +20,7 @@ const Recommendations = ({ id, mediaType }) => {
             {
                 content?.length > 0
                     ?
-                    <div className="flex flex-col gap-5 justify-center" >
+                    <div className="flex flex-col gap-5 justify-center px-5" >
 
                         <h1 className="border-l-4 pl-2 border-yellow-500 text-slate-400 text-sm font-semibold uppercase">Recommended for you</h1>
 

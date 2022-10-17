@@ -80,9 +80,9 @@ const MovieDetails = () => {
 
                                     <Title data={data} />
 
-                                    <div className="flex gap-5">
+                                    <div className="flex flex-col md:flex-row gap-5">
 
-                                        <div className="flex flex-col items-start gap-4">
+                                        <div className="flex flex-col items-center gap-4">
 
                                             <Poster data={data} stream={stream} />
                                             <About data={data} mediaType={mediaType} />
