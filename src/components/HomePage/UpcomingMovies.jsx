@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import CardCorner from "./Common/CardCorner";
 import CardLandscape from "./Common/CardLandscape";
 
 const UpcomingMovies = () => {
@@ -31,8 +32,7 @@ const UpcomingMovies = () => {
 
             <CardLandscape content={content} media_type="movie" date={date} />
 
-            <div className="absolute w-[3%] h-full bg-gradient-to-r from-transparent via-[#17171b]/70 to-[#17171b] right-0 top-0 z-20"></div>
-            <div className="absolute w-[3%] h-full bg-gradient-to-l from-transparent via-[#17171b]/70 to-[#17171b] left-0 top-0 z-20"></div>
+            <CardCorner />
 
         </div>
     )

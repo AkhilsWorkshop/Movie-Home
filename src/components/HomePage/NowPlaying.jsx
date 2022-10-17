@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import Card from "./Common/Card";
+import CardCorner from "./Common/CardCorner";
 
 const NowPlaying = () => {
 
@@ -26,8 +27,7 @@ const NowPlaying = () => {
 
             <Card content={content} media_type="movie" />
 
-            <div className="absolute w-[3%] h-full bg-gradient-to-r from-transparent via-[#17171b]/70 to-[#17171b] right-0 top-0 z-20"></div>
-            <div className="absolute w-[3%] h-full bg-gradient-to-l from-transparent via-[#17171b]/70 to-[#17171b] left-0 top-0 z-20"></div>
+            <CardCorner />
 
         </div>
     )

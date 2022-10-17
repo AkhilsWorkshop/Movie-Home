@@ -3,9 +3,9 @@ import { AiTwotoneStar } from 'react-icons/ai';
 
 const About = ({ data, mediaType }) => {
     return (
-        <div className="flex flex-col items-start sm:items-end gap-5 font-title">
+        <div className="flex flex-col items-start sm:items-end gap-5 font-title w-full">
 
-            <table className="border-separate border-spacing-1">
+            <table className="border-separate border-spacing-1 w-full">
                 <tr>
                     <td>
                         <p className="text-slate-400 text-sm font-semibold uppercase">Rating</p>

@@ -22,9 +22,9 @@ const Home = () => {
             <Suspense fallback={<Loading />}>
                 <NowPlaying />
                 <UpcomingMovies />
-                <DiscoverMovies />
                 <DiscoverTV />
                 <PopularPeople />
+                <DiscoverMovies />
             </Suspense>
 
             <Footer />
