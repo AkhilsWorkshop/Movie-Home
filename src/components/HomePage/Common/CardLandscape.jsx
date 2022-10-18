@@ -3,59 +3,86 @@ import ScrollContainer from 'react-indiana-drag-scroll'
 import { halfSizeImg, imgNotAvailable } from '../../../config/config'
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import Button from '../../Sub/Button';
+import { useState } from 'react';
+import axios from 'axios';
+import { useEffect } from 'react';
+import CardCorner from './CardCorner';
 
-const CardLandscape = ({ content, media_type, date }) => {
+const CardLandscape = ({ first, second, title, media_type }) => {
 
+    const [content, setContent] = useState([])
 
+    const fetchTrending = async () => {
+        const { data } = await axios.get(`${first}${process.env.REACT_APP_API_KEY}${second}`);
+        setContent(data.results);
+    }
+
+    useEffect(() => {
+        fetchTrending()
+        console.log(content)
+    }, [])
+
+    var today = new Date();
+    var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
 
     return (
-        <ScrollContainer className="px-4 sm:px-10 flex gap-3 overflow-hidden">
+        <div className="text-white flex flex-col gap-5 my-10 relative">
 
-            {content?.filter(eachContent => eachContent.backdrop_path !== null).map((eachItem, index) => (
+            <div className="px-4 sm:px-10">
 
-                <Button media_type={media_type} id={eachItem.id} >
-                    <div key={index} className="flex flex-col gap-2 w-[15rem] sm:w-[20rem] relative">
+                <h1 className="border-l-4 pl-2 border-yellow-500 text-lg tracking-widest font-bold">{title}</h1>
 
-                        {eachItem.gender === undefined &&
+            </div>
 
-                            <div className="absolute text-xs sm:text-sm bg-black/70 rounded-md p-1 mt-[0.5rem] right-0 mr-[0.5rem] z-10">
-                                {(() => {
-                                    const date1 = new Date(date);
-                                    const date2 = new Date(eachItem.release_date);
+            <ScrollContainer className="px-4 sm:px-10 flex gap-3 overflow-hidden">
 
-                                    const TimeDif = date2.getTime() - date1.getTime();
+                {content?.filter(eachContent => eachContent.backdrop_path !== null).map((eachItem, index) => (
 
-                                    const releaseDays = TimeDif / (1000 * 3600 * 24);
+                    <Button media_type={media_type} id={eachItem.id} >
+                        <div key={index} className="flex flex-col gap-2 w-[15rem] sm:w-[20rem] relative">
 
-                                    if (releaseDays >= 1) {
-                                        return (<p>In {releaseDays} days</p>)
-                                    }
+                            {eachItem.gender === undefined &&
 
-                                    else {
-                                        return (<p>Released</p>)
-                                    }
+                                <div className="absolute text-xs sm:text-sm bg-black/70 rounded-md p-1 mt-[0.5rem] right-0 mr-[0.5rem] z-10">
+                                    {(() => {
+                                        const date1 = new Date(date);
+                                        const date2 = new Date(eachItem.release_date);
 
-                                })()}
+                                        const TimeDif = date2.getTime() - date1.getTime();
+
+                                        const releaseDays = TimeDif / (1000 * 3600 * 24);
+
+                                        if (releaseDays >= 1) {
+                                            return (<p>In {releaseDays} days</p>)
+                                        }
+
+                                        else {
+                                            return (<p>Released</p>)
+                                        }
+
+                                    })()}
+                                </div>
+
+                            }
+
+                            <div className="flex w-[15rem] sm:w-[20rem] overflow-hidden rounded-md hover:cursor-pointer">
+                                <img className="object-fill shadow-lg shadow-black duration-300 sm:hover:scale-105 sm:hover:saturate-150 aspect-auto"
+                                    src={`${halfSizeImg}${eachItem.backdrop_path}`}
+                                    alt="Reload Page"
+                                    loading="lazy">
+                                </img>
                             </div>
 
-                        }
-
-                        <div className="flex w-[15rem] sm:w-[20rem] overflow-hidden rounded-md hover:cursor-pointer">
-                            <img className="object-fill shadow-lg shadow-black duration-300 sm:hover:scale-105 sm:hover:saturate-150 aspect-auto"
-                                src={`${halfSizeImg}${eachItem.backdrop_path}`}
-                                alt="Reload Page"
-                                loading="lazy">
-                            </img>
+                            <p className="text-xs sm:text-base truncate">{eachItem.title || eachItem.name}</p>
                         </div>
+                    </Button>
+                ))}
 
-                        <p className="text-xs sm:text-base truncate">{eachItem.title || eachItem.name}</p>
-                    </div>
-                </Button>
-            ))}
+            </ScrollContainer>
 
+            <CardCorner />
 
-
-        </ScrollContainer>
+        </div>
     )
 }
 

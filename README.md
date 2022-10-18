@@ -23,3 +23,7 @@ View live DEMO <a href="https://moviehome.akhilkumar.ga/">here</a>
 * Update UI
 * Add Movies, Crew Pictures & Videos
 * Link Streaming platform
+
+<h3>Bugs to fix</h3>
+
+* Empty Genre

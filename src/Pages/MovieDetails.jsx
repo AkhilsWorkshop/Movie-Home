@@ -43,7 +43,7 @@ const MovieDetails = () => {
         setLoading(true)
         const { data } = await axios.get(`https://api.themoviedb.org/3/${mediaType}/${searchID}?api_key=${process.env.REACT_APP_API_KEY}`);
         setData(data)
-        console.log(data)
+        console.log(data, "Movie Details")
     }
 
     // Watch Providers API
