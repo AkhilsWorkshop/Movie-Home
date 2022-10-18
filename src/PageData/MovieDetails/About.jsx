@@ -81,14 +81,7 @@ const About = ({ data, mediaType }) => {
                         )}
                     </td>
                 </tr>
-                {/* <tr className='align-top'>
-                    <td>
-                        <p className="text-slate-400 text-sm font-semibold uppercase">Production</p>
-                    </td>
-                    <td>
-                        <Production companies={data.production_companies} />
-                    </td>
-                </tr> */}
+
             </table>
 
         </div>

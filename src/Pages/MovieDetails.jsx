@@ -3,7 +3,6 @@ import axios from "axios";
 import { fullSizeImg, halfSizeImg } from "../config/config";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import ReactPlayer from "react-player/youtube";
 import Header from "../components/Main/Header";
 import Footer from "../components/Main/Footer";
 import Loading from "../components/Main/Loading";
@@ -15,6 +14,7 @@ import Overview from '../PageData/MovieDetails/Overview';
 import Poster from '../PageData/MovieDetails/Poster';
 import Videos from '../PageData/MovieDetails/Videos';
 import Title from '../PageData/MovieDetails/Title';
+import Production from '../PageData/MovieDetails/Production';
 
 const ScrollCard1 = React.lazy(() => import("../components/Cards/DetailedCard/ScrollCard1"));
 const ScrollCard2 = React.lazy(() => import("../components/Cards/DetailedCard/ScrollCard2"));
@@ -25,6 +25,7 @@ const MovieDetails = () => {
     const fetchVideoData = async () => {
         const { data } = await axios.get(`https://api.themoviedb.org/3/${mediaType}/${searchID}/videos?api_key=${process.env.REACT_APP_API_KEY}`)
         setVideo(data.results[0]?.key)
+        console.log(data)
     }
 
     // Storing the data from API 
@@ -107,6 +108,8 @@ const MovieDetails = () => {
                                             <Overview data={data} />
 
                                             <Videos video={video} videoURL={videoURL} />
+
+                                            <Production companies={data.production_companies} />
 
                                         </div>
 
