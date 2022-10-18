@@ -4,10 +4,11 @@ import load from "../../assets/load.png"
 const Loading = () => {
     return (
         <div>
-            <div className="flex flex-col gap-3 justify-center items-center min-h-screen">
-                {/* <AiOutlineLoading3Quarters size={30} className="animate-spin text-white" /> */}
-                <img src={load} alt="Loading" className="animate-ping h-10" />
-                <h1 className="text-white font-bold animate-ping">Loading</h1>
+            <div className="relative flex flex-col gap-3 justify-center items-center min-h-screen">
+                <img src={load} alt="Loading" className="absolute h-10" />
+                <AiOutlineLoading3Quarters size={70} className="absolute animate-spin text-yellow-500" />
+
+                <h1 className="text-white font-bold mt-32">Loading</h1>
             </div>
         </div>
     )

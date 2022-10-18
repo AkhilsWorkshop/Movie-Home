@@ -2,9 +2,9 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import { fullSizeImg, trending, TRENDING } from "../../config/config";
-import Button from "../Sub/Button";
 import { BsFillPlayFill } from "react-icons/bs"
+import { fullSizeImg, trending, TRENDING } from "../../../config/config";
+import Button from "../../Sub/Button";
 
 
 const Trending = () => {

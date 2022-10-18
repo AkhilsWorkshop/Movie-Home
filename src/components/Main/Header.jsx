@@ -8,7 +8,7 @@ import { Link as Linking } from 'react-scroll';
 
 const Header = () => {
 
-    const linkStylesDesktop = "hover:border-yellow-500 border-transparent hover:text-white hover:scale-105 border-b-2 py-3 duration-200"
+    const linkStylesDesktop = " border-transparent border-yellow-500 hover:border-yellow-500 hover:text-white hover:scale-105 border-b-2 py-3 duration-200"
     const linkStylesMobile = "px-4 cursor-pointer text-gray-300 py-6 text-4xl"
 
     const [menu, setMenu] = useState(false);
