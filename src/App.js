@@ -6,6 +6,7 @@ import Error from "./Pages/Error";
 import SearchResults from "./Pages/SearchResults";
 import PersonDetails from "./Pages/PersonDetails";
 import About from "./Pages/About";
+import Movies from "./Pages/Movies";
 
 
 
@@ -29,6 +30,7 @@ const App = () => {
                     <Route path=":mediaType/:searchID" element={<MovieDetails />} />
 
                 </Route>
+                <Route path="movies" element={<Movies />} />
                 <Route path="about" element={<About />} />
                 <Route path="*" element={<Error />} />
 

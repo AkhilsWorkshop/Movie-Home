@@ -25,9 +25,7 @@ const Header = () => {
                 <div className="hidden lg:flex items-center gap-8 font-slogan">
                     <div className="flex gap-8 text-neutral-400">
                         <Link to="/" className={linkStylesDesktop}>Home</Link>
-                        <Linking to="Movies" smooth duration={500} className={linkStylesDesktop}>
-                            <Link to="/">Movies</Link>
-                        </Linking>
+                        <Link to="/movies" className={linkStylesDesktop}>Movies</Link>
                         <Linking to="TV" smooth duration={500} className={linkStylesDesktop}>
                             <Link to="/">TV Shows</Link>
                         </Linking>

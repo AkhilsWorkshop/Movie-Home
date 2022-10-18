@@ -6,19 +6,25 @@ const About = ({ data, mediaType }) => {
         <div className="flex flex-col items-start sm:items-end gap-5 font-title w-full">
 
             <table className="border-separate border-spacing-1 w-full">
-                <tr>
-                    <td>
-                        <p className="text-slate-400 text-sm font-semibold uppercase">Rating</p>
-                    </td>
-                    <td>
-                        <div className="flex items-center gap-1">
-                            <AiTwotoneStar size={20} className="text-yellow-400" />
-                            <h1 className="text-lg font-bold">{Math.round(data.vote_average)}<span className="text-sm text-slate-400 font-normal">/10</span></h1>
-                        </div>
-                    </td>
-                </tr>
+                {
+                    data.vote_average > 1
+                    &&
+                    <tr>
+                        <td>
+                            <p className="text-slate-400 text-sm font-semibold uppercase">Rating</p>
+                        </td>
+                        <td>
+                            <div className="flex items-center gap-1">
+                                <AiTwotoneStar size={20} className="text-yellow-400" />
+                                <h1 className="text-lg font-bold">{Math.round(data.vote_average)}<span className="text-sm text-slate-400 font-normal">/10</span></h1>
+                            </div>
+                        </td>
+                    </tr>
+                }
                 {
                     mediaType === "movie"
+                    &&
+                    data.runtime > 1
                     &&
                     <tr>
                         <td>
@@ -28,6 +34,7 @@ const About = ({ data, mediaType }) => {
                             <h1 className="text-lg font-bold">{Math.round(data.runtime)}<span className="text-sm text-slate-400 font-normal"> min</span></h1>
                         </td>
                     </tr>
+
                 }
                 <tr className='align-top'>
                     <td>
