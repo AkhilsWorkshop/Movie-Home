@@ -1,4 +1,5 @@
-import { halfSizeImg } from "../../config/config"
+import { halfSizeImg } from "../../../config/config"
+
 
 
 const Production = ({ companies }) => {

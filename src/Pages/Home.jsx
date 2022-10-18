@@ -5,9 +5,9 @@ import Loading from "../components/Main/Loading"
 import Trending from "../components/HomePage/Trending";
 import { DISCOVER_TV, NOW_PLAYING, POPULAR_PERSON, TOP_RATED, UPCOMING } from "../config/config";
 
-const Card = React.lazy(() => import("../components/HomePage/Common/Card"));
-const CardBig = React.lazy(() => import("../components/HomePage/Common/CardBig"));
-const CardLandscape = React.lazy(() => import("../components/HomePage/Common/CardLandscape"));
+const Card = React.lazy(() => import("../components/Cards/Card"));
+const CardBig = React.lazy(() => import("../components/Cards/CardBig"));
+const CardLandscape = React.lazy(() => import("../components/Cards/CardLandscape"));
 
 const Home = () => {
     document.title = "Movie Home"

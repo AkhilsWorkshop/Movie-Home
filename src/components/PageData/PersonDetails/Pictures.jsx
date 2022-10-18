@@ -2,7 +2,7 @@
 import axios from "axios"
 import { useState } from "react"
 import { useEffect } from "react"
-import { fullSizeImg, halfSizeImg } from "../../config/config"
+import { fullSizeImg, halfSizeImg } from "../../../config/config"
 import ImageGallery from 'react-image-gallery';
 
 

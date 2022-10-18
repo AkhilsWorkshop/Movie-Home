@@ -1,5 +1,5 @@
-import Card from "../components/HomePage/Common/Card"
-import CardLandscape from "../components/HomePage/Common/CardLandscape"
+import Card from "../components/Cards/Card"
+import CardLandscape from "../components/Cards/CardLandscape"
 import Footer from "../components/Main/Footer"
 import Header from "../components/Main/Header"
 import { DISCOVER, UPCOMING } from "../config/config"

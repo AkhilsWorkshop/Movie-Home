@@ -1,19 +1,19 @@
 import React from 'react'
 import ScrollContainer from 'react-indiana-drag-scroll'
-import { halfSizeImg, imgNotAvailable } from '../../../config/config'
+import { halfSizeImg, imgNotAvailable } from '../../config/config'
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import Button from '../../Sub/Button';
+import Button from '../Sub/Button';
 import { useState } from 'react';
 import axios from 'axios';
 import { useEffect } from 'react';
 import CardCorner from './CardCorner';
 
-const Card = ({ title, first, second, media_type }) => {
+const CardBig = ({ media_type }) => {
 
     const [content, setContent] = useState([])
 
     const fetchTrending = async () => {
-        const { data } = await axios.get(`${first}${process.env.REACT_APP_API_KEY}${second}`);
+        const { data } = await axios.get(`https://api.themoviedb.org/3/person/popular?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`);
         setContent(data.results);
     }
 
@@ -26,17 +26,17 @@ const Card = ({ title, first, second, media_type }) => {
 
             <div className="px-4 sm:px-10">
 
-                <h1 className="border-l-4 pl-2 border-yellow-500 text-lg tracking-widest font-bold">{title}</h1>
+                <h1 className="border-l-4 pl-2 border-yellow-500 text-lg tracking-widest font-bold">Explore Popular Artists</h1>
 
             </div>
 
             <ScrollContainer className="px-4 sm:px-10 flex gap-3 overflow-hidden">
 
-                {content?.map((eachItem, index) => (
+                {content?.filter(eachContent => eachContent.profile_path !== null).map((eachItem, index) => (
 
                     <Button media_type={media_type} id={eachItem.id} >
                         <div key={index}
-                            className="flex flex-col gap-2 w-[7rem] sm:w-[10rem] relative">
+                            className="flex flex-col gap-2 w-[11rem] sm:w-[15rem] relative">
 
                             {eachItem.gender === undefined &&
 
@@ -46,7 +46,7 @@ const Card = ({ title, first, second, media_type }) => {
 
                             }
 
-                            <div className="flex w-[7rem] sm:w-[10rem] overflow-hidden rounded-md hover:cursor-pointer">
+                            <div className="flex w-[11rem] sm:w-[15rem] overflow-hidden rounded-md hover:cursor-pointer">
                                 <img className="object-fill shadow-lg shadow-black duration-300 sm:hover:scale-105 sm:hover:saturate-150 aspect-[2/3]"
                                     src={eachItem.profile_path === null ? imgNotAvailable : `${halfSizeImg}${eachItem.poster_path || eachItem.profile_path}`}
                                     alt="Reload Page"
@@ -69,4 +69,4 @@ const Card = ({ title, first, second, media_type }) => {
     )
 }
 
-export default Card
+export default CardBig

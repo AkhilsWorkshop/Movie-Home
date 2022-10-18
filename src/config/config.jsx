@@ -7,23 +7,24 @@ export const personImg = "https://api.themoviedb.org/3/person/";
 // Custom Image
 export const imgNotAvailable = "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png";
 
-// API
+// Common URL
 export const SEARCH_URL = "https://api.themoviedb.org/3/search/multi?api_key=";
-export const MOVIE_DETAILS = "https://api.themoviedb.org/3/movie/";
-
 export const TRENDING = "https://api.themoviedb.org/3/trending/all/week?api_key=";
 
+// Movie URL
+export const MOVIE_DETAILS = "https://api.themoviedb.org/3/movie/";
 export const UPCOMING = "https://api.themoviedb.org/3/movie/upcoming?api_key=";
 export const DISCOVER = "https://api.themoviedb.org/3/discover/movie?api_key=";
 export const TOP_RATED = "https://api.themoviedb.org/3/movie/top_rated?api_key=";
 export const NOW_PLAYING = "https://api.themoviedb.org/3/movie/now_playing?api_key=";
 
-// TV API
+// TV URL
 export const DISCOVER_TV = "https://api.themoviedb.org/3/discover/tv?api_key=";
 
-// Person API
+// Person URL
 export const POPULAR_PERSON = "https://api.themoviedb.org/3/person/popular?api_key="
 
+// Trending carousal data
 export const trending =
 {
     xxl: {
