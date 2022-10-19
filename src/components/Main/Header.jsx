@@ -4,11 +4,11 @@ import logo from "../../assets/logo.png"
 import { CgClose, CgMenu } from "react-icons/cg"
 import { BsSearch } from "react-icons/bs"
 import SearchBar from "../Sub/SearchBar"
-import { Link as Linking } from 'react-scroll';
 
-const Header = () => {
 
-    const linkStylesDesktop = " border-transparent border-yellow-500 hover:border-yellow-500 hover:text-white hover:scale-105 border-b-2 py-3 duration-200"
+const Header = ({ home, movies, tv, about }) => {
+
+    const linkStylesDesktop = "hover:border-yellow-500 hover:border-b-2 hover:text-white hover:scale-105 py-3 duration-200"
     const linkStylesMobile = "px-4 cursor-pointer text-gray-300 py-6 text-4xl"
 
     const [menu, setMenu] = useState(false);
@@ -24,12 +24,9 @@ const Header = () => {
                 </div>
                 <div className="hidden lg:flex items-center gap-8 font-slogan">
                     <div className="flex gap-8 text-neutral-400">
-                        <Link to="/" className={linkStylesDesktop}>Home</Link>
-                        <Link to="/movies" className={linkStylesDesktop}>Movies</Link>
-                        <Linking to="TV" smooth duration={500} className={linkStylesDesktop}>
-                            <Link to="/">TV Shows</Link>
-                        </Linking>
-                        <Link to="/about" className={linkStylesDesktop}>About</Link>
+                        <Link to="/" className={linkStylesDesktop + home}>Home</Link>
+                        <Link to="/movies" className={linkStylesDesktop + movies}>Movies</Link>
+                        <Link to="/about" className={linkStylesDesktop + about}>About</Link>
                     </div>
                     <div>
                         <SearchBar />
@@ -46,15 +43,10 @@ const Header = () => {
                 </div>
 
                 {menu && (
-                    <div className="flex flex-col justify-center items-center absolute z-40 top-0 left-0 w-full h-screen bg-gradient-to-b from-[#272727] to-gray-800">
-                        <div className="flex flex-col items-center gap-8 text-neutral-400">
+                    <div className="flex flex-col justify-center items-center fixed z-40 top-0 left-0 w-full h-screen bg-gradient-to-b from-[#272727] to-gray-800">
+                        <div className="fixed flex flex-col items-center gap-8 text-neutral-400">
                             <Link onClick={() => setMenu(!menu)} to="/" className={linkStylesMobile}>Home</Link>
-                            <Linking to="Movies" smooth duration={500} className={linkStylesMobile}>
-                                <Link to="/">Movies</Link>
-                            </Linking>
-                            <Linking to="TV" smooth duration={500} className={linkStylesMobile}>
-                                <Link to="/">TV Shows</Link>
-                            </Linking>
+                            <Link to="/movies" className={linkStylesMobile}>Movies</Link>
                             <Link to="/about" className={linkStylesMobile}>About</Link>
                         </div>
 

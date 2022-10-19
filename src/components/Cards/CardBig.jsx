@@ -8,12 +8,12 @@ import axios from 'axios';
 import { useEffect } from 'react';
 import CardCorner from './CardCorner';
 
-const CardBig = ({ media_type }) => {
+const CardBig = ({ title, first, second, media_type }) => {
 
     const [content, setContent] = useState([])
 
     const fetchTrending = async () => {
-        const { data } = await axios.get(`https://api.themoviedb.org/3/person/popular?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`);
+        const { data } = await axios.get(`${first}${process.env.REACT_APP_API_KEY}${second}`);
         setContent(data.results);
     }
 
@@ -26,7 +26,7 @@ const CardBig = ({ media_type }) => {
 
             <div className="px-4 sm:px-10">
 
-                <h1 className="border-l-4 pl-2 border-yellow-500 text-lg tracking-widest font-bold">Explore Popular Artists</h1>
+                <h1 className="border-l-4 pl-2 border-yellow-500 text-lg tracking-widest font-bold">{title}</h1>
 
             </div>
 

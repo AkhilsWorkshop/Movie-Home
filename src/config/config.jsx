@@ -24,6 +24,9 @@ export const DISCOVER_TV = "https://api.themoviedb.org/3/discover/tv?api_key=";
 // Person URL
 export const POPULAR_PERSON = "https://api.themoviedb.org/3/person/popular?api_key="
 
+// Nav Active CSS
+export const navActive = " border-b-2 border-yellow-500 scale-105 text-white";
+
 // Trending carousal data
 export const trending =
 {
