@@ -8,6 +8,10 @@ const About = ({ data, mediaType }) => {
         <div className="flex flex-col items-start sm:items-end gap-5 font-title w-full">
 
             <table className="border-separate border-spacing-1 w-full">
+                <tr>
+                    <th className="w-[40%]"></th>
+                    <th></th>
+                </tr>
                 {
                     data.vote_average > 1
                     &&
@@ -66,7 +70,7 @@ const About = ({ data, mediaType }) => {
                 </tr>
                 <tr>
                     <td>
-                        <p className="text-slate-400 text-sm font-semibold uppercase">Released On</p>
+                        <p className="text-slate-400 text-sm font-semibold uppercase">Release Date</p>
                     </td>
                     <td>
                         <span className="text-white text-xs capitalize">{data.first_air_date || data.release_date || "N/A"}</span>

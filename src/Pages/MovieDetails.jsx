@@ -41,9 +41,9 @@ const MovieDetails = () => {
     // Movie Details API
     const getMovieDetails = async () => {
         setLoading(true)
-        const { data } = await tmdb.get(`${mediaType}/${searchID}`);
+        const { data } = await tmdb.get(`${mediaType}/${searchID}&language=en-US`);
         setData(data)
-        console.log(data, "Movie Detail")
+        console.log(data, "Movie Deta")
     }
 
     // Watch Providers API

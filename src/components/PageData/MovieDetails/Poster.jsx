@@ -3,10 +3,23 @@ import { halfSizeImg } from "../../../config/config"
 
 const Poster = ({ data, stream }) => {
 
+    var today = new Date();
+    var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+
     return (
-        <div className="flex flex-col gap-4 font-title">
+        <div className="flex flex-col gap-4 font-title relative">
 
             <div className="shadow-xl shadow-black border border-gray-700">
+
+                {date < (data.first_air_date || data.release_date)
+                    ?
+                    <div className="absolute text-xs sm:text-sm bg-black/70 rounded-md p-1 mt-[0.5rem] right-0 mr-[0.5rem] z-10">
+                        <p>Coming soon</p>
+                    </div>
+                    :
+                    <></>
+                }
+
 
                 <img
                     src={halfSizeImg + data?.poster_path}
