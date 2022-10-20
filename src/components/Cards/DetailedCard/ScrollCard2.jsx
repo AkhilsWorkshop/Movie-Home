@@ -29,7 +29,6 @@ const ScrollCard2 = ({ mediaType, searchID }) => {
         setLoading(true)
         fetchCredits2()
         setTimeout(() => { setLoading(false) }, 1000)
-        console.log(secondScroll)
     }, [])
 
     const uniqueSecondScroll = [...new Map(secondScroll?.map((m) => [m.name, m])).values()];

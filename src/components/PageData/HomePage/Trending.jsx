@@ -24,7 +24,7 @@ const Trending = () => {
     }, [])
 
     const viewData = () => {
-        console.log(content)
+
     }
 
     return (

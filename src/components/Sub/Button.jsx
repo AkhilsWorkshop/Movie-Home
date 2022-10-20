@@ -13,7 +13,6 @@ const Button = ({ children, media_type, id }) => {
 
         // Temporary fix for Component not reloading
         window.location.reload(false);
-        console.log("clicked" + id)
     }
 
     return (

@@ -9,8 +9,8 @@ const Poster = ({ data, stream }) => {
             <div className="shadow-xl shadow-black border border-gray-700">
 
                 <img
-                    src={halfSizeImg + data.poster_path}
-                    alt={data.original_title}
+                    src={halfSizeImg + data?.poster_path}
+                    alt={data?.original_title}
                     className="object-fill h-[30rem] max-w-[30rem] "
                 />
 

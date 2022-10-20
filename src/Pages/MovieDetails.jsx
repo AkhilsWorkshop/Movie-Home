@@ -15,6 +15,7 @@ import Poster from '../components/PageData/MovieDetails/Poster';
 import Overview from '../components/PageData/MovieDetails/Overview';
 import Videos from '../components/PageData/MovieDetails/Videos';
 import Production from '../components/PageData/MovieDetails/Production';
+import tmdb from '../config/tmdb';
 
 const ScrollCard1 = React.lazy(() => import("../components/Cards/DetailedCard/ScrollCard1"));
 const ScrollCard2 = React.lazy(() => import("../components/Cards/DetailedCard/ScrollCard2"));
@@ -24,8 +25,7 @@ const MovieDetails = () => {
     // Video API 
     const fetchVideoData = async () => {
         const { data } = await axios.get(`https://api.themoviedb.org/3/${mediaType}/${searchID}/videos?api_key=${process.env.REACT_APP_API_KEY}`)
-        setVideo(data.results[0]?.key)
-        console.log(data)
+        setVideo(data?.results[0]?.key)
     }
 
     // Storing the data from API 
@@ -41,7 +41,7 @@ const MovieDetails = () => {
     // Movie Details API
     const getMovieDetails = async () => {
         setLoading(true)
-        const { data } = await axios.get(`https://api.themoviedb.org/3/${mediaType}/${searchID}?api_key=${process.env.REACT_APP_API_KEY}`);
+        const { data } = await tmdb.get(`${mediaType}/${searchID}`);
         setData(data)
         console.log(data, "Movie Details")
     }
@@ -50,7 +50,6 @@ const MovieDetails = () => {
     const getWatchProviders = async () => {
         const { data } = await axios.get(`https://api.themoviedb.org/3/${mediaType}/${searchID}/watch/providers?api_key=${process.env.REACT_APP_API_KEY}`)
         setStream(data.results)
-        console.log(data.results)
     }
 
     useEffect(() => {
@@ -71,7 +70,7 @@ const MovieDetails = () => {
                     (<div className="flex flex-col md:flex-col">
 
 
-                        <div className="text-white bg-contain bg-no-repeat" Style={`background-image: url(${fullSizeImg}${data.backdrop_path})`} >
+                        <div className="text-white bg-contain bg-no-repeat" Style={`background-image: url(${fullSizeImg}${data?.backdrop_path})`} >
 
                             <div className="flex flex-col justify-center sm:px-20 xl:px-52 lg:px-32 backdrop-blur-[1px] backdrop-brightness-50 bg-gradient-to-b via-gray-900 from-transparent to-gray-900 ">
 

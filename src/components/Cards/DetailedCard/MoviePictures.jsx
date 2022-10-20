@@ -21,12 +21,12 @@ const MoviePictures = ({ mediaType, searchID }) => {
 
     const fetchImages = async () => {
         const data = await axios.get(`https://api.themoviedb.org/3/movie/718930/images?api_key=ee67127aee04e49495754bf98fb61031&language=en-US`)
-        console.log(data)
+
     }
 
     useEffect(() => {
         fetchImages()
-        console.log(mediaType, searchID)
+
     }, [])
 
     return (

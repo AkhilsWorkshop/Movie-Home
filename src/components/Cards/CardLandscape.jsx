@@ -20,7 +20,6 @@ const CardLandscape = ({ first, second, title, media_type }) => {
 
     useEffect(() => {
         fetchTrending()
-        console.log(content)
     }, [])
 
     var today = new Date();

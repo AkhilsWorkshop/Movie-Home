@@ -33,7 +33,6 @@ const SearchResults = () => {
             setSearchpages(data.total_results)
             setTotalPages(data.total_pages)
             setLoading(false)
-            console.log(data)
         }
         catch (err) {
             console.log(err)
