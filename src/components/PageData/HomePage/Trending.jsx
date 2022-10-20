@@ -59,7 +59,7 @@ const Trending = () => {
             >
 
                 {content?.map((each, index) => (
-                    <div key={index} className="text-white bg-cover bg-top font-title" Style={`background-image: url(${fullSizeImg}${each?.backdrop_path})`} >
+                    <div key={index} className="text-white bg-cover bg-top font-title" style={{ backgroundImage: `url(${fullSizeImg}${each?.backdrop_path})` }} >
 
                         <div className="flex flex-col justify-center h-[30vh] sm:h-[60vh] backdrop-blur-[1px] backdrop-brightness-[70%] bg-gradient-to-b from-transparent to-[#18181b]">
                             <div className="flex flex-col gap-5 px-16 sm:px-[10rem]">
@@ -78,12 +78,13 @@ const Trending = () => {
                         </div>
 
                     </div>
-                ))}
+                ))
+                }
 
-            </Carousel>
+            </Carousel >
 
 
-        </div>
+        </div >
     )
 }
 

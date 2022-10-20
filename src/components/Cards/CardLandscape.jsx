@@ -1,6 +1,5 @@
 import React from 'react'
 import ScrollContainer from 'react-indiana-drag-scroll'
-
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import Button from '../Sub/Button';
 import { useState } from 'react';
@@ -8,6 +7,7 @@ import axios from 'axios';
 import { useEffect } from 'react';
 import CardCorner from './CardCorner';
 import { halfSizeImg } from '../../config/config';
+import { v4 as uuidv4 } from 'uuid';
 
 const CardLandscape = ({ first, second, title, media_type }) => {
 
@@ -36,10 +36,10 @@ const CardLandscape = ({ first, second, title, media_type }) => {
 
             <ScrollContainer className="px-4 sm:px-10 flex gap-3 overflow-hidden">
 
-                {content?.filter(eachContent => eachContent.backdrop_path !== null).map((eachItem, index) => (
+                {content?.filter(eachContent => eachContent.backdrop_path !== null).map((eachItem) => (
 
-                    <Button media_type={media_type} id={eachItem.id} >
-                        <div key={index} className="flex flex-col gap-2 w-[15rem] sm:w-[20rem] relative">
+                    <Button media_type={media_type} id={eachItem.id} key={uuidv4()}>
+                        <div className="flex flex-col gap-2 w-[15rem] sm:w-[20rem] relative">
 
                             {eachItem.gender === undefined &&
 

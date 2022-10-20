@@ -7,6 +7,7 @@ import { useState } from 'react';
 import axios from 'axios';
 import { useEffect } from 'react';
 import CardCorner from './CardCorner';
+import { v4 as uuidv4 } from 'uuid';
 
 const CardBig = ({ title, first, second, media_type }) => {
 
@@ -32,10 +33,10 @@ const CardBig = ({ title, first, second, media_type }) => {
 
             <ScrollContainer className="px-4 sm:px-10 flex gap-3 overflow-hidden">
 
-                {content?.filter(eachContent => eachContent.profile_path !== null).map((eachItem, index) => (
+                {content?.filter(eachContent => eachContent.profile_path !== null).map((eachItem) => (
 
-                    <Button media_type={media_type} id={eachItem.id} >
-                        <div key={index}
+                    <Button media_type={media_type} id={eachItem.id} key={uuidv4()} >
+                        <div
                             className="flex flex-col gap-2 w-[11rem] sm:w-[15rem] relative">
 
                             {eachItem.gender === undefined &&
