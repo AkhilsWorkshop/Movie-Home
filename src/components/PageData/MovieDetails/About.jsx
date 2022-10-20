@@ -3,6 +3,7 @@ import { AiTwotoneStar } from 'react-icons/ai';
 import { v4 as uuidv4 } from 'uuid';
 
 const About = ({ data, mediaType }) => {
+
     return (
         <div className="flex flex-col items-start sm:items-end gap-5 font-title w-full">
 
@@ -32,7 +33,7 @@ const About = ({ data, mediaType }) => {
                             <p className="text-slate-400 text-sm font-semibold uppercase">Runtime</p>
                         </td>
                         <td>
-                            <h1 className="text-lg font-bold">{Math.round(data.runtime)}<span className="text-sm text-slate-400 font-normal"> min</span></h1>
+                            <h1 className="text-md font-bold">{Math.floor(data.runtime / 60)}<span className="text-sm text-slate-400 font-normal"> h</span> {data.runtime % 60}<span className="text-sm text-slate-400 font-normal"> min</span></h1>
                         </td>
                     </tr>
 

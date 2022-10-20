@@ -11,7 +11,7 @@ const Poster = ({ data, stream }) => {
                 <img
                     src={halfSizeImg + data?.poster_path}
                     alt={data?.original_title}
-                    className="object-fill h-[30rem] max-w-[30rem] "
+                    className="object-fill h-[30rem] max-w-[30rem]"
                 />
 
                 {stream?.US === undefined ?
