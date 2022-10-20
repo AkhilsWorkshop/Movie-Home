@@ -29,7 +29,7 @@ const SearchBar = () => {
                     required
                 />
 
-                <span class="absolute inset-y-0 right-0 flex items-center pr-2">
+                <span className="absolute inset-y-0 right-0 flex items-center pr-2">
                     <BiSearchAlt2 onClick={getSearchQuery} size={30} className=" p-1 focus:outline-none focus:shadow-outline cursor-pointer hover:text-black" />
                 </span>
 
