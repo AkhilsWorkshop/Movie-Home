@@ -5,6 +5,7 @@ import Button from "../../Sub/Button"
 import LScrollCard from "../../LazyLoading/LScrollCard"
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import ScrollContainer from "react-indiana-drag-scroll"
+import { v4 as uuidv4 } from 'uuid';
 
 const ScrollCard2 = ({ mediaType, searchID }) => {
 
@@ -53,11 +54,11 @@ const ScrollCard2 = ({ mediaType, searchID }) => {
 
                                 loading ?
 
-                                    <LScrollCard />
+                                    <LScrollCard key={uuidv4()} />
 
                                     :
 
-                                    <div className="flex flex-col h-auto w-24 rounded-md gap-2">
+                                    <div key={uuidv4()} className="flex flex-col h-auto w-24 rounded-md gap-2">
                                         <div className="h-36 w-24 rounded-md overflow-hidden">
                                             <Button media_type={eachPerson.media_type || "person"} id={eachPerson.id}>
                                                 <img

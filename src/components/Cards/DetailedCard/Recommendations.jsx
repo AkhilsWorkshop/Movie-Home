@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import MediaCard from "../MediaCard";
+import { v4 as uuidv4 } from 'uuid';
 
 const Recommendations = ({ id, mediaType }) => {
     const [content, setContent] = useState([])
@@ -28,7 +29,7 @@ const Recommendations = ({ id, mediaType }) => {
 
                             {content.slice(0, 6).map((singleMovie) => (
 
-                                <MediaCard movie={singleMovie} />
+                                <MediaCard movie={singleMovie} key={uuidv4()} />
 
                             ))}
 

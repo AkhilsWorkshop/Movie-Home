@@ -1,5 +1,6 @@
 import React from 'react'
 import { AiTwotoneStar } from 'react-icons/ai';
+import { v4 as uuidv4 } from 'uuid';
 
 const About = ({ data, mediaType }) => {
     return (
@@ -42,8 +43,8 @@ const About = ({ data, mediaType }) => {
                     </td>
                     <td>
                         <div className="flex flex-wrap gap-2">
-                            {data.genres?.map(({ id, name }) => (
-                                <span key={id} className="text-blue-100 border uppercase bg-black/70 text-[0.65rem] border-gray-400 px-1 rounded-sm"> {name}</span>
+                            {data.genres?.map(({ name }) => (
+                                <span key={uuidv4()} className="text-blue-100 border uppercase bg-black/70 text-[0.65rem] border-gray-400 px-1 rounded-sm"> {name}</span>
                             ))}
                         </div>
 
@@ -55,8 +56,8 @@ const About = ({ data, mediaType }) => {
                     </td>
                     <td>
                         <ul>
-                            {data.production_countries?.map(({ id, name }) => (
-                                <li key={id} className="text-white text-xs capitalize leading-6"> {name}</li>
+                            {data.production_countries?.map(({ name }) => (
+                                <li key={uuidv4()} className="text-white text-xs capitalize leading-6"> {name}</li>
                             ))}
                         </ul>
 
@@ -78,11 +79,11 @@ const About = ({ data, mediaType }) => {
                         {data.spoken_languages?.map(({ id, name, english_name }) => {
                             return english_name ?
                                 (
-                                    <span key={id} className="text-white text-xs capitalize"> {english_name}</span>
+                                    <span key={uuidv4()} className="text-white text-xs capitalize"> {english_name}</span>
                                 )
                                 :
                                 (
-                                    <span key={id} className="text-white text-xs capitalize"> {name}</span>
+                                    <span key={uuidv4()} className="text-white text-xs capitalize"> {name}</span>
                                 )
                         }
                         )}

@@ -1,8 +1,7 @@
-import { v4 as uuidv4 } from 'uuid';
 
 const LScrollCard = () => {
     return (
-        <div key={uuidv4()}>
+        <div>
             <div className="flex flex-col h-auto w-24 rounded-md gap-3">
 
                 <div className="h-36 w-24 rounded-md shadow-lg shadow-black bg-slate-700"></div>
