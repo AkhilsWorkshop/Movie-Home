@@ -11,6 +11,8 @@ export const imgNotAvailable = "https://upload.wikimedia.org/wikipedia/commons/t
 export const SEARCH_URL = "https://api.themoviedb.org/3/search/multi?api_key=";
 export const TRENDING = "https://api.themoviedb.org/3/trending/all/week?api_key=";
 
+export const baseURL = "https://api.themoviedb.org/3"
+
 // Movie URL
 export const MOVIE_DETAILS = "https://api.themoviedb.org/3/movie/";
 export const UPCOMING = "https://api.themoviedb.org/3/movie/upcoming?api_key=";
@@ -23,6 +25,9 @@ export const DISCOVER_TV = "https://api.themoviedb.org/3/discover/tv?api_key=";
 
 // Person URL
 export const POPULAR_PERSON = "https://api.themoviedb.org/3/person/popular?api_key="
+
+// Youtube URL
+export const youtubeURL = "https://www.youtube.com/watch?v="
 
 // Nav Active CSS
 export const navActive = " border-b-2 border-yellow-500 scale-105 text-white";

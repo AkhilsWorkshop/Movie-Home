@@ -1,6 +1,6 @@
 import React, { Suspense } from 'react';
 import axios from "axios";
-import { fullSizeImg, halfSizeImg } from "../config/config";
+import { baseURL, fullSizeImg, halfSizeImg } from "../config/config";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Header from "../components/Main/Header";
@@ -22,15 +22,7 @@ const ScrollCard2 = React.lazy(() => import("../components/Cards/DetailedCard/Sc
 
 const MovieDetails = () => {
 
-    // Video API 
-    const fetchVideoData = async () => {
-        const { data } = await axios.get(`https://api.themoviedb.org/3/${mediaType}/${searchID}/videos?api_key=${process.env.REACT_APP_API_KEY}`)
-        setVideo(data?.results[0]?.key)
-    }
-
     // Storing the data from API 
-    const [video, setVideo] = useState();
-    const videoURL = `https://www.youtube.com/watch?v=${video}`
     const [data, setData] = useState([])
     const [stream, setStream] = useState([])
     const [loading, setLoading] = useState(false)
@@ -41,9 +33,9 @@ const MovieDetails = () => {
     // Movie Details API
     const getMovieDetails = async () => {
         setLoading(true)
-        const { data } = await tmdb.get(`${mediaType}/${searchID}&language=en-US`);
+        const { data } = await axios.get(`${baseURL}/${mediaType}/${searchID}?api_key=${process.env.REACT_APP_API_KEY}&append_to_response=videos,images`);
         setData(data)
-        console.log(data, "Movie Deta")
+        console.log(data, "Movie Dets")
     }
 
     // Watch Providers API
@@ -54,10 +46,10 @@ const MovieDetails = () => {
 
     useEffect(() => {
         getMovieDetails()
-        fetchVideoData()
         getWatchProviders()
         setTimeout(() => { setLoading(false) }, 500)
     }, [])
+
 
     return (
         <div>
@@ -74,7 +66,7 @@ const MovieDetails = () => {
 
                             <div className="flex flex-col justify-center sm:px-20 xl:px-52 lg:px-32 backdrop-blur-[1px] backdrop-brightness-50 bg-gradient-to-b via-gray-900 from-transparent to-gray-900 ">
 
-                                <Trailer video={video} videoURL={videoURL} />
+                                <Trailer data={data} />
 
                                 <div className="flex flex-col gap-5 bg-gray-900 p-6 rounded-md">
 
@@ -106,7 +98,7 @@ const MovieDetails = () => {
 
                                             <Overview data={data} />
 
-                                            <Videos video={video} videoURL={videoURL} />
+                                            <Videos data={data} />
 
                                             <Production companies={data.production_companies} />
 

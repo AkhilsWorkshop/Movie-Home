@@ -2,14 +2,17 @@ import React from 'react'
 import { useState } from 'react'
 import { AiFillPlayCircle } from 'react-icons/ai'
 import ReactPlayer from 'react-player'
+import { youtubeURL } from '../../../config/config'
 
-const Trailer = ({ video, videoURL }) => {
+const Trailer = ({ data }) => {
 
     const [play, setPlay] = useState(false)
 
+    const trailer = (data?.videos?.results.filter(search => search.type === "Trailer"))
+    console.log(trailer)
 
     return (
-        <>{video === undefined ?
+        <>{trailer === undefined ?
             <></>
             :
             play === false ?
@@ -21,7 +24,7 @@ const Trailer = ({ video, videoURL }) => {
                 <div className="flex justify-center w-full h-[30vh] sm:h-[50vh]">
 
 
-                    <ReactPlayer url={videoURL} playing={true} height="100%" width="100%" />
+                    <ReactPlayer url={youtubeURL + trailer[0]?.key} playing={true} height="100%" width="100%" />
 
 
                 </div>
