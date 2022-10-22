@@ -60,12 +60,7 @@ const About = ({ data, mediaType }) => {
                         <p className="text-slate-400 text-sm font-semibold uppercase">Country</p>
                     </td>
                     <td>
-                        <ul>
-                            {data.production_countries?.map(({ name }) => (
-                                <li key={uuidv4()} className="text-white text-xs capitalize leading-6"> {name}</li>
-                            ))}
-                        </ul>
-
+                        <p className="text-white text-xs capitalize leading-6"> {data.production_countries?.map((item) => item.name).join(', ')}</p>
                     </td>
                 </tr>
                 <tr>
@@ -81,17 +76,7 @@ const About = ({ data, mediaType }) => {
                         <p className="text-slate-400 text-sm font-semibold uppercase">Language</p>
                     </td>
                     <td>
-                        {data.spoken_languages?.map(({ id, name, english_name }) => {
-                            return english_name ?
-                                (
-                                    <span key={uuidv4()} className="text-white text-xs capitalize"> {english_name}</span>
-                                )
-                                :
-                                (
-                                    <span key={uuidv4()} className="text-white text-xs capitalize"> {name}</span>
-                                )
-                        }
-                        )}
+                        <p className="text-white text-xs capitalize"> {data.spoken_languages?.map((item) => item.english_name).join(', ')}</p>
                     </td>
                 </tr>
 
