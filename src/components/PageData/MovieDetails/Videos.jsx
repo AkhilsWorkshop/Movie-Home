@@ -4,6 +4,7 @@ import ScrollContainer from "react-indiana-drag-scroll"
 import { youtubeURL } from "../../../config/config"
 import { useState } from "react"
 import { v4 as uuidv4 } from 'uuid';
+import DialogPanel from "../../Sub/DialogPanel"
 
 const Videos = ({ data }) => {
 
@@ -40,7 +41,7 @@ const Videos = ({ data }) => {
 
         <>
             {data?.videos?.results?.length > 0 &&
-                <div className="flex flex-col gap-5 w-full">
+                <div className="relative flex flex-col gap-5 w-full">
                     <h1 className="border-l-4 pl-2 border-yellow-500 text-slate-400 text-sm font-semibold uppercase">Videos</h1>
 
                     <Tab.Group>
@@ -106,6 +107,8 @@ const Videos = ({ data }) => {
 
 
             }
+
+
         </>
 
     )
