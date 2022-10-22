@@ -45,9 +45,9 @@ const Videos = ({ data }) => {
                     <h1 className="border-l-4 pl-2 border-yellow-500 text-slate-400 text-sm font-semibold uppercase">Videos</h1>
 
                     <Tab.Group>
-                        <Tab.List className="text-sm text-slate-200 bg-slate-700 shadow-md shadow-black rounded-sm">
+                        <Tab.List className="text-sm text-slate-200 ">
                             {items.map((eachItem) => (
-                                <Tab key={uuidv4()} className={isActive === eachItem.id ? "bg-slate-800 duration-150 p-2 px-4" : "hover:bg-slate-800 duration-150 p-2 px-4"}
+                                <Tab key={uuidv4()} className={isActive === eachItem.id ? "bg-slate-800 duration-150 p-2 px-4" : "hover:bg-slate-800 duration-150 p-2 px-4 bg-slate-700 shadow-sm shadow-black "}
                                     onClick={() => switchTab(eachItem.id)}>{eachItem.name}</Tab>
                             ))}
                         </Tab.List>

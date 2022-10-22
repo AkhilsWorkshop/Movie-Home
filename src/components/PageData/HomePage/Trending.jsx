@@ -5,8 +5,6 @@ import "react-multi-carousel/lib/styles.css";
 import { BsFillPlayFill } from "react-icons/bs"
 import { baseURL, fullSizeImg, trending, TRENDING, youtubeURL } from "../../../config/config";
 import Button from "../../Sub/Button";
-import DialogPanel from "../../Sub/DialogPanel";
-
 import { Dialog } from '@headlessui/react'
 import ReactPlayer from "react-player";
 

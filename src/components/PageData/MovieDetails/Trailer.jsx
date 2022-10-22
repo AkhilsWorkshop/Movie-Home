@@ -1,3 +1,4 @@
+import { Dialog } from '@headlessui/react'
 import React from 'react'
 import { useState } from 'react'
 import { AiFillPlayCircle } from 'react-icons/ai'
@@ -6,28 +7,38 @@ import { youtubeURL } from '../../../config/config'
 
 const Trailer = ({ data }) => {
 
-    const [play, setPlay] = useState(false)
+    const [isOpen, setIsOpen] = useState(false)
 
     const trailer = (data?.videos?.results.filter(search => search.type === "Trailer"))
-    console.log(trailer)
 
     return (
         <>{trailer === undefined ?
             <></>
             :
-            play === false ?
+            <>
                 <div className="flex flex-col justify-center items-center w-full h-[30vh] sm:h-[50vh] gap-2">
-                    <AiFillPlayCircle onClick={() => setPlay(!play)} className="text-yellow-500 hover:text-yellow-600 duration-300 cursor-pointer" size={60} />
+                    <AiFillPlayCircle onClick={() => { setIsOpen(true) }} className="text-yellow-500 hover:text-yellow-600 duration-300 cursor-pointer" size={60} />
                     <p className="font-title text-blue-100">Watch Trailer</p>
                 </div>
-                :
-                <div className="flex justify-center w-full h-[30vh] sm:h-[50vh]">
 
+                <Dialog
+                    open={isOpen}
+                    onClose={() => { setIsOpen(false); }}
+                    className="relative z-50"
+                >
+                    <div className="fixed inset-0 bg-black/80 backdrop-blur-sm" aria-hidden="true" />
+                    <div className="fixed inset-0 flex items-center justify-center p-4">
+                        <Dialog.Panel className="w-full max-w-4xl rounded bg-[#18181b]">
 
-                    <ReactPlayer url={youtubeURL + trailer[0]?.key} playing={true} height="100%" width="100%" />
+                            <div className="aspect-video">
+                                <ReactPlayer url={youtubeURL + trailer[0]?.key} playing={true} height="100%" width="100%" />
+                            </div>
 
+                        </Dialog.Panel>
+                    </div>
+                </Dialog>
 
-                </div>
+            </>
         }
         </>
     )
