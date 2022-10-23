@@ -35,7 +35,7 @@ const MovieDetails = () => {
         setLoading(true)
         const { data } = await axios.get(`${baseURL}/${mediaType}/${searchID}?api_key=${process.env.REACT_APP_API_KEY}&append_to_response=videos,images`);
         setData(data)
-        console.log(data, "Movie Dets")
+        console.log(data, "Movie Det")
     }
 
     // Watch Providers API

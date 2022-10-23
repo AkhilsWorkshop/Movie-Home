@@ -6,6 +6,7 @@ import Button from '../../Sub/Button'
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import ScrollContainer from 'react-indiana-drag-scroll'
 import { v4 as uuidv4 } from 'uuid';
+import { AiFillRightCircle } from 'react-icons/ai'
 
 const ScrollCard1 = ({ mediaType, searchID }) => {
 
@@ -43,7 +44,7 @@ const ScrollCard1 = ({ mediaType, searchID }) => {
 
                     </h1>
 
-                    <ScrollContainer className="flex gap-3 w-full">
+                    <ScrollContainer className="flex gap-3 w-full" id="scroll">
 
                         {firstScroll?.map((eachPerson) => {
                             return (eachPerson.poster_path || eachPerson.profile_path) != null && (

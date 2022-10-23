@@ -12,9 +12,7 @@ const Trailer = ({ data }) => {
     const trailer = (data?.videos?.results.filter(search => search.type === "Trailer"))
 
     return (
-        <>{trailer === undefined ?
-            <></>
-            :
+        <>{data?.videos?.results?.length > 0 ?
             <>
                 <div className="flex flex-col justify-center items-center w-full h-[30vh] sm:h-[50vh] gap-2">
                     <AiFillPlayCircle onClick={() => { setIsOpen(true) }} className="text-yellow-500 hover:text-yellow-600 duration-300 cursor-pointer" size={60} />
@@ -39,6 +37,9 @@ const Trailer = ({ data }) => {
                 </Dialog>
 
             </>
+            :
+            <></>
+
         }
         </>
     )
