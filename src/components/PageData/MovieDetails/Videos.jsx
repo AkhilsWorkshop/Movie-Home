@@ -38,7 +38,7 @@ const Videos = ({ data }) => {
 
                         <Tab.Panels>
                             {combinedVideoType.map((eachItem) => (
-                                <Tab.Panel>
+                                <Tab.Panel key={uuidv4()}>
 
                                     <ScrollContainer className="flex gap-3 w-full">
                                         <div className="flex h-[10rem] gap-2">
