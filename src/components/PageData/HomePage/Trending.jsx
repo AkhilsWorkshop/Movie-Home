@@ -41,7 +41,6 @@ const Trending = () => {
     }, [])
 
     const viewData = () => {
-
     }
 
     const [isOpen, setIsOpen] = useState(false)
@@ -78,7 +77,7 @@ const Trending = () => {
             >
 
                 {content?.map((each, index) => (
-                    <div key={index} className="text-white bg-cover bg-top font-title" style={{ backgroundImage: `url(${fullSizeImg}${each?.backdrop_path})` }} >
+                    <div id="background" key={index} className="text-white bg-cover bg-top font-title" style={{ backgroundImage: `url(${fullSizeImg}${each?.backdrop_path})` }} >
 
                         <div className="flex flex-col justify-center h-[30vh] sm:h-[60vh] backdrop-blur-[1px] backdrop-brightness-[70%] bg-gradient-to-b from-transparent to-[#18181b]">
                             <div className="flex flex-col gap-5 px-16 sm:px-[10rem]">
@@ -112,7 +111,7 @@ const Trending = () => {
                     <Dialog.Panel className="w-full max-w-4xl rounded bg-[#18181b]">
 
                         <div className="aspect-video">
-                            <ReactPlayer url={youtubeURL + trailerLink.key} playing={false} height="100%" width="100%" />
+                            <ReactPlayer url={youtubeURL + trailerLink.key} playing={true} height="100%" width="100%" />
                         </div>
 
                     </Dialog.Panel>

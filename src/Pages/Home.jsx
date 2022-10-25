@@ -7,6 +7,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import Trending from "../components/PageData/HomePage/Trending";
 import InfiniteScroll from 'react-infinite-scroll-component';
+import TrendingVideo from "../components/PageData/HomePage/TrendingVideo";
 
 const Card = React.lazy(() => import("../components/Cards/Card"));
 const CardBig = React.lazy(() => import("../components/Cards/CardBig"));
@@ -30,9 +31,9 @@ const Home = () => {
 
                 <div>
 
-
                     <Header home={navActive} />
-                    <Trending />
+                    <TrendingVideo />
+                    {/* <Trending /> */}
                     <Suspense fallback={<Loading />}>
                         <InfiniteScroll dataLength={2}>
                             <Card title="Now Playing (In Theatres)" first={NOW_PLAYING} second="" media_type="movie" />

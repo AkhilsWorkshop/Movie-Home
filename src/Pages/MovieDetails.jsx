@@ -16,6 +16,7 @@ import Overview from '../components/PageData/MovieDetails/Overview';
 import Videos from '../components/PageData/MovieDetails/Videos';
 import Production from '../components/PageData/MovieDetails/Production';
 import tmdb from '../config/tmdb';
+import Stream from '../components/PageData/MovieDetails/Stream';
 
 const ScrollCard1 = React.lazy(() => import("../components/Cards/DetailedCard/ScrollCard1"));
 const ScrollCard2 = React.lazy(() => import("../components/Cards/DetailedCard/ScrollCard2"));
@@ -24,7 +25,7 @@ const MovieDetails = () => {
 
     // Storing the data from API 
     const [data, setData] = useState([])
-    const [stream, setStream] = useState([])
+    const [watchProv, setWatchProv] = useState([])
     const [loading, setLoading] = useState(false)
 
     // Getting the ID from URL
@@ -41,7 +42,7 @@ const MovieDetails = () => {
     // Watch Providers API
     const getWatchProviders = async () => {
         const { data } = await axios.get(`https://api.themoviedb.org/3/${mediaType}/${searchID}/watch/providers?api_key=${process.env.REACT_APP_API_KEY}`)
-        setStream(data.results)
+        setWatchProv(data)
     }
 
     useEffect(() => {
@@ -76,8 +77,9 @@ const MovieDetails = () => {
 
                                         <div className="flex flex-col items-center gap-4">
 
-                                            <Poster data={data} stream={stream} />
+                                            <Poster data={data} stream={watchProv} />
                                             <About data={data} mediaType={mediaType} />
+                                            {/* <Stream stream={watchProv} /> */}
 
                                         </div>
 

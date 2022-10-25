@@ -23,7 +23,7 @@ const Card = ({ title, first, second, media_type }) => {
     }, [])
 
     return (
-        <div className="text-white flex flex-col gap-5 my-10 relative">
+        <div className="text-white flex flex-col gap-5 py-10 relative bg-[#18181b]">
 
             <div className="px-4 sm:px-10">
 
