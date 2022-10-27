@@ -17,6 +17,7 @@ import Videos from '../components/PageData/MovieDetails/Videos';
 import Production from '../components/PageData/MovieDetails/Production';
 import tmdb from '../config/tmdb';
 import Stream from '../components/PageData/MovieDetails/Stream';
+import ReactPlayer from 'react-player';
 
 const ScrollCard1 = React.lazy(() => import("../components/Cards/DetailedCard/ScrollCard1"));
 const ScrollCard2 = React.lazy(() => import("../components/Cards/DetailedCard/ScrollCard2"));
@@ -60,7 +61,11 @@ const MovieDetails = () => {
                     <Loading />
                 )
                     :
-                    (<div className="flex flex-col md:flex-col">
+                    (<div className="flex flex-col md:flex-col relative">
+
+                        {/* <div id="video" className="absolute aspect-video w-full top-[-2rem] z-0">
+                            <ReactPlayer url="https://youtu.be/7uYk7yLNLi0" playing={true} muted={false} height="100%" width="100%" onEnded={() => setLoading(true)} />
+                        </div> */}
 
 
                         <div className="text-white bg-contain bg-no-repeat" Style={`background-image: url(${fullSizeImg}${data?.backdrop_path})`} >

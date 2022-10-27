@@ -26,7 +26,7 @@ const CardLandscape = ({ first, second, title, media_type }) => {
     var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
 
     return (
-        <div className="text-white flex flex-col gap-5 my-10 relative">
+        <div className="text-white flex flex-col gap-5 relative">
 
             <div className="px-4 sm:px-10">
 

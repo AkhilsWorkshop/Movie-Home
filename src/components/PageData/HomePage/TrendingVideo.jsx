@@ -7,10 +7,12 @@ import ReactPlayer from "react-player";
 import { baseURL, fullSizeImg, TRENDING, youtubeURL } from "../../../config/config";
 import Button from "../../Sub/Button";
 import { FaVolumeMute, FaVolumeUp } from "react-icons/fa"
+import { useRef } from "react";
 
 const TrendingVideo = () => {
 
     // Trending Data
+    const contentRef = useRef([]);
     const [content, setContent] = useState([])
 
     // Trailer Data
@@ -20,7 +22,7 @@ const TrendingVideo = () => {
     const [loading, setLoading] = useState(true)
 
     // Pause / Play Function
-    const [isPlaying, setIsPlaying] = useState(true)
+    const [isPlaying, setIsPlaying] = useState(null)
 
     // Mute / Unmute Function
     const [isMute, setIsMute] = useState(false)
@@ -33,16 +35,18 @@ const TrendingVideo = () => {
 
     // Fetching Trailer Data (trailerLink)
     const getTrailer = async (media_type, id) => {
-        const { data } = await axios.get(`${baseURL}/${media_type}/${id}/videos?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`)
+        const { data } = await axios.get(`${baseURL}/${media_type}/${id}/videos?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`, { timeout: 5000 })
         const filteredData = data.results.filter(search => search.type === "Trailer")
         setTrailerLink(filteredData[0])
     }
 
-    setTimeout(() => { getTrailer(content[0]?.media_type, content[0]?.id); setLoading(false) }, 1500)
+
 
     useEffect(() => {
         fetchTrending()
-
+        getTrailer(content[0]?.media_type, content[0]?.id)
+        setTimeout(() => { setLoading(!loading); }, 1500)
+        setTimeout(() => { setIsPlaying(true) }, 2000)
     }, [])
 
 
@@ -84,7 +88,7 @@ const TrendingVideo = () => {
                                 <p className="hidden sm:block text-xl truncate">{content[0]?.overview}</p>
                                 <div className="flex justify-between flex-wrap">
                                     <div className="flex gap-2 flex-wrap">
-                                        <button onClick={() => { setIsOpen(true); getTrailer(content[0]?.media_type, content[0]?.id); setIsPlaying(false) }} className="p-2 px-3 font-semibold rounded-md w-fit bg-yellow-500 shadow-md border h-12 duration-300 text-black hover:bg-yellow-600 border-yellow-500/70 flex items-center"><BsFillPlayFill size={25} /> Watch Trailer</button>
+                                        <button onClick={() => { setIsOpen(true); getTrailer(content[0]?.media_type, content[0]?.id); setIsPlaying(false) }} className="p-2 px-3 font-semibold rounded-md w-fit bg-yellow-500 shadow-md border h-12 duration-300 text-black hover:bg-yellow-600 border-yellow-500/70 flex items-center"><BsFillPlayFill size={25} /> Watch Trailer {trailerLink.toString()}</button>
                                         <Button media_type={content[0]?.media_type} id={content[0]?.id}>
                                             <input type="submit" value="More Info" className="p-2 px-3 font-semibold rounded-md bg-[#0d0d0d] shadow-md border duration-200 h-12 w-28 hover:border-2 hover:cursor-pointer text-yellow-500 hover:border-yellow-600 border-yellow-500/70" />
                                         </Button>
@@ -117,7 +121,7 @@ const TrendingVideo = () => {
                     <Dialog.Panel className="w-full max-w-4xl rounded bg-[#18181b]">
 
                         <div className="aspect-video">
-                            <ReactPlayer url={youtubeURL + trailerLink.key} playing={true} height="100%" width="100%" />
+                            <ReactPlayer url={youtubeURL + trailerLink.key} playing={true} controls={true} height="100%" width="100%" />
                         </div>
 
                     </Dialog.Panel>

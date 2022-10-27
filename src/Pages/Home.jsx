@@ -33,17 +33,17 @@ const Home = () => {
 
                     <Header home={navActive} />
                     <TrendingVideo />
-                    {/* <Trending /> */}
-                    <Suspense fallback={<Loading />}>
-                        <InfiniteScroll dataLength={2}>
+                    <div className="flex flex-col gap-10 pb-10">
+
+                        {/* <Trending /> */}
+                        <Suspense fallback={<Loading />}>
                             <Card title="Now Playing (In Theatres)" first={NOW_PLAYING} second="" media_type="movie" />
                             <CardLandscape title="Upcoming Movies" first={UPCOMING} second="&region=US" media_type="movie" />
                             <Card title="Discover Top TV Shows" first={DISCOVER_TV} second="" media_type="tv" />
                             <CardBig title="Explore Popular Artists" first={POPULAR_PERSON} second="" media_type="person" />
                             <Card title="Discover Top Rated Movies" first={TOP_RATED} second="&sort_by=popularity.desc" media_type="movie" />
-                        </InfiniteScroll>
-                    </Suspense>
-
+                        </Suspense>
+                    </div>
                     <Footer />
 
                 </div>

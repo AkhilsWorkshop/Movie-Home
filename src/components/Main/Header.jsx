@@ -16,7 +16,7 @@ const Header = ({ home, movies, tv, about }) => {
 
     return (
         <div>
-            <div className="absolute z-50 w-full flex items-center justify-between px-10 bg-slate-900 md:justify-around h-20 shadow-xl border-b-slate-800 border-b">
+            <div className="absolute z-50 w-full flex items-center justify-between px-10 bg-[#121216] md:justify-around h-20 shadow-xl border-b-slate-800 border-b">
                 <div>
                     <a href="/">
                         <img src={logo} alt="Movie DB" className="h-14 md:h-16 py-2 sm:hover:animate-pulse" />
