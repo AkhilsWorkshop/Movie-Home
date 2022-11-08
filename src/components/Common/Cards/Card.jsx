@@ -22,6 +22,9 @@ const Card = ({ title, first, second, media_type }) => {
         fetchTrending()
     }, [])
 
+
+    console.log(content)
+
     return (
         <div className="text-white flex flex-col gap-5 relative bg-[#18181b]">
 

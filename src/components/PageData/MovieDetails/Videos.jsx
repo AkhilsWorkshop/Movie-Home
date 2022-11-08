@@ -5,6 +5,7 @@ import { youtubeURL } from "../../../config/config"
 import { useState } from "react"
 import { v4 as uuidv4 } from 'uuid';
 import { AiFillCaretDown } from "react-icons/ai"
+import MediumTitle from "../../Common/Title/MediumTitle"
 
 const Videos = ({ data }) => {
 
@@ -26,7 +27,7 @@ const Videos = ({ data }) => {
         <>
             {data?.videos?.results?.length > 0 &&
                 <div className="relative flex flex-col gap-5 w-full">
-                    <h1 className="border-l-4 pl-2 border-yellow-500 text-slate-400 text-sm font-semibold uppercase">Videos</h1>
+                    <MediumTitle title="videos" />
 
                     <Tab.Group>
                         <Tab.List className="text-sm text-slate-200 ">

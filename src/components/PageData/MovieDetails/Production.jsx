@@ -1,5 +1,6 @@
 import { halfSizeImg } from "../../../config/config"
 import { v4 as uuidv4 } from 'uuid';
+import MediumTitle from "../../Common/Title/MediumTitle";
 
 
 const Production = ({ companies }) => {
@@ -11,7 +12,7 @@ const Production = ({ companies }) => {
                     ?
                     <div className="flex flex-col gap-5">
 
-                        <h1 className="border-l-4 pl-2 border-yellow-500 text-slate-400 text-sm font-semibold uppercase">Production</h1>
+                        <MediumTitle title="production" />
 
                         <div className="flex gap-2 flex-wrap">
 

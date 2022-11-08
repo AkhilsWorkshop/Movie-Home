@@ -1,5 +1,4 @@
 import React, { Suspense } from "react"
-import Recommendations from "../../Cards/DetailedCard/Recommendations"
 import LScrollCard from "../../LazyLoading/LScrollCard"
 import About from "./About"
 import Overview from "./Overview"
@@ -9,6 +8,7 @@ import Title from "./Title"
 import Trailer from "./Trailer"
 import Videos from "./Videos"
 import ForYou from "./_tests_/ForYou"
+import Stream from "./_tests_/Stream"
 
 const ScrollCard1 = React.lazy(() => import("../../Cards/DetailedCard/ScrollCard1"));
 const ScrollCard2 = React.lazy(() => import("../../Cards/DetailedCard/ScrollCard2"));
@@ -31,6 +31,7 @@ const Body = ({ data, watchProv, mediaType, searchID }) => {
 
                         <Poster data={data} stream={watchProv} />
                         <About data={data} mediaType={mediaType} />
+                        <Stream stream={watchProv} />
 
                     </div>
 
@@ -62,8 +63,6 @@ const Body = ({ data, watchProv, mediaType, searchID }) => {
                 </div>
 
             </div>
-
-            <Recommendations id={data.id} mediaType={mediaType} />
 
         </div>
     )
