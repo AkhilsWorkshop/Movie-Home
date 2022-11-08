@@ -3,10 +3,10 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import MediaCard from "../components/Cards/MediaCard";
-import Footer from "../components/Main/Footer";
-import Header from "../components/Main/Header";
-import Loading from "../components/Main/Loading";
+import MediaCard from "../components/Common/Cards/MediaCard";
+import Footer from "../layouts/Footer";
+import Header from "../layouts/Header";
+import Loading from "../layouts/Loading";
 
 import Pagination from "../components/Sub/Pagination";
 import { SEARCH_URL } from "../config/config";

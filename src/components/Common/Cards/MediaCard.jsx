@@ -1,5 +1,5 @@
-import { halfSizeImg, imgNotAvailable } from "../../config/config";
-import Button from "../Sub/Button";
+import { halfSizeImg, imgNotAvailable } from "../../../config/config";
+import Button from "../../Sub/Button";
 
 const MediaCard = ({ movie, title }) => {
 

@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import MediaCard from "../MediaCard";
+import MediaCard from "../../Common/Cards/MediaCard";
 import { v4 as uuidv4 } from 'uuid';
 import { Button } from "react-scroll";
 import { halfSizeImg, imgNotAvailable } from "../../../config/config";

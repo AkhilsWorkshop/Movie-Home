@@ -1,17 +1,15 @@
-import Footer from "../components/Main/Footer"
-import Header from "../components/Main/Header"
+import Footer from "../layouts/Footer"
+import Header from "../layouts/Header"
 import React, { Suspense } from "react";
-import Loading from "../components/Main/Loading"
+import Loading from "../layouts/Loading"
 import { DISCOVER_TV, navActive, NOW_PLAYING, POPULAR_PERSON, TOP_RATED, UPCOMING } from "../config/config";
 import { useState } from "react";
 import { useEffect } from "react";
 import Trending from "../components/PageData/HomePage/Trending";
-import InfiniteScroll from 'react-infinite-scroll-component';
-import TrendingVideo from "../components/PageData/HomePage/TrendingVideo";
 
-const Card = React.lazy(() => import("../components/Cards/Card"));
-const CardBig = React.lazy(() => import("../components/Cards/CardBig"));
-const CardLandscape = React.lazy(() => import("../components/Cards/CardLandscape"));
+const Card = React.lazy(() => import("../components/Common/Cards/Card"));
+const CardBig = React.lazy(() => import("../components/Common/Cards/CardBig"));
+const CardLandscape = React.lazy(() => import("../components/Common/Cards/CardLandscape"));
 
 const Home = () => {
 
@@ -32,10 +30,9 @@ const Home = () => {
                 <div>
 
                     <Header home={navActive} />
-                    <TrendingVideo />
                     <div className="flex flex-col gap-10 pb-10">
 
-                        {/* <Trending /> */}
+                        <Trending />
                         <Suspense fallback={<Loading />}>
                             <Card title="Now Playing (In Theatres)" first={NOW_PLAYING} second="" media_type="movie" />
                             <CardLandscape title="Upcoming Movies" first={UPCOMING} second="&region=US" media_type="movie" />

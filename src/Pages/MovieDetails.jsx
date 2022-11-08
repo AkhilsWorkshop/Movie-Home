@@ -3,24 +3,11 @@ import axios from "axios";
 import { baseURL, fullSizeImg, halfSizeImg } from "../config/config";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import Header from "../components/Main/Header";
-import Footer from "../components/Main/Footer";
-import Loading from "../components/Main/Loading";
-import Recommendations from "../components/Cards/DetailedCard/Recommendations";
-import LScrollCard from '../components/LazyLoading/LScrollCard';
-import Trailer from '../components/PageData/MovieDetails/Trailer';
-import Title from '../components/PageData/MovieDetails/Title';
-import About from '../components/PageData/MovieDetails/About';
-import Poster from '../components/PageData/MovieDetails/Poster';
-import Overview from '../components/PageData/MovieDetails/Overview';
-import Videos from '../components/PageData/MovieDetails/Videos';
-import Production from '../components/PageData/MovieDetails/Production';
-import tmdb from '../config/tmdb';
-import Stream from '../components/PageData/MovieDetails/Stream';
-import ReactPlayer from 'react-player';
-
-const ScrollCard1 = React.lazy(() => import("../components/Cards/DetailedCard/ScrollCard1"));
-const ScrollCard2 = React.lazy(() => import("../components/Cards/DetailedCard/ScrollCard2"));
+import Header from "../layouts/Header";
+import Footer from "../layouts/Footer";
+import Loading from "../layouts/Loading";
+import Body from '../components/PageData/MovieDetails/Body';
+import ImageBg from '../components/Cards/ImageBg';
 
 const MovieDetails = () => {
 
@@ -61,74 +48,12 @@ const MovieDetails = () => {
                     <Loading />
                 )
                     :
-                    (<div className="flex flex-col md:flex-col relative">
 
-                        {/* <div id="video" className="absolute aspect-video w-full top-[-2rem] z-0">
-                            <ReactPlayer url="https://youtu.be/7uYk7yLNLi0" playing={true} muted={false} height="100%" width="100%" onEnded={() => setLoading(true)} />
-                        </div> */}
+                    (<div className="flex flex-col md:flex-col">
 
+                        <ImageBg data={data} />
 
-                        <div className="text-white bg-contain bg-no-repeat" Style={`background-image: url(${fullSizeImg}${data?.backdrop_path})`} >
-
-                            <div className="flex flex-col justify-center sm:px-20 xl:px-52 lg:px-32 backdrop-blur-[1px] backdrop-brightness-50 bg-gradient-to-b via-gray-900 from-transparent to-gray-900 ">
-
-                                <Trailer data={data} />
-
-                                <div className="flex flex-col gap-5 bg-gray-900 p-6 rounded-md">
-
-                                    <Title data={data} />
-
-                                    <div className="flex flex-col md:flex-row gap-5">
-
-                                        <div className="flex flex-col items-center gap-4">
-
-                                            <Poster data={data} stream={watchProv} />
-                                            <About data={data} mediaType={mediaType} />
-                                            {/* <Stream stream={watchProv} /> */}
-
-                                        </div>
-
-                                        <div className="flex flex-col w-full gap-5 overflow-hidden">
-
-
-                                            <Suspense fallback={<LScrollCard />}>
-
-                                                <ScrollCard1 mediaType={mediaType} searchID={searchID} />
-
-                                            </Suspense>
-
-                                            <Suspense fallback={<LScrollCard />}>
-
-                                                <ScrollCard2 mediaType={mediaType} searchID={searchID} />
-
-                                            </Suspense>
-
-                                            <Overview data={data} />
-
-                                            <Videos data={data} />
-
-                                            <Production companies={data.production_companies} />
-
-                                        </div>
-
-                                    </div>
-
-                                </div>
-
-                                <Recommendations id={data.id} mediaType={mediaType} />
-
-                            </div>
-
-                        </div>
-
-                        <>
-
-                        </>
-
-                        <>
-                            {/* <MoviePictures searchID={searchID} mediaType={mediaType} /> */}
-                        </>
-
+                        <Body data={data} watchProv={watchProv} mediaType={mediaType} searchID={searchID} />
 
                     </div>)
             }

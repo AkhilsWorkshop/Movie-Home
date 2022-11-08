@@ -8,8 +8,9 @@ import LPersonAbout from "../components/LazyLoading/LPersonAbout";
 import LPicture from "../components/LazyLoading/LPicture";
 import LScrollCard from "../components/LazyLoading/LScrollCard";
 import LTitle from "../components/LazyLoading/LTitle";
-import Footer from "../components/Main/Footer";
-import Header from "../components/Main/Header";
+import Footer from "../layouts/Footer";
+import Header from "../layouts/Header";
+import PictureGrid from "../components/PageData/PersonDetails/PictureGrid";
 import Pictures from "../components/PageData/PersonDetails/Pictures";
 import { halfSizeImg } from "../config/config";
 const ScrollCard1 = React.lazy(() => import("../components/Cards/DetailedCard/ScrollCard1"));
@@ -145,6 +146,8 @@ const PersonDetails = () => {
                         </Suspense>
 
                         <Pictures searchID={searchID} />
+
+                        {/* <PictureGrid searchID={searchID} /> */}
 
                     </div>
 

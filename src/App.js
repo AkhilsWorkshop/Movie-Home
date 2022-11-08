@@ -1,14 +1,12 @@
 import { HashRouter as Router, Routes, Route } from "react-router-dom"
 import Home from "./Pages/Home";
-import "./styles.css";
+import "./assets/styles.css";
 import MovieDetails from "./Pages/MovieDetails";
 import Error from "./Pages/Error";
 import SearchResults from "./Pages/SearchResults";
 import PersonDetails from "./Pages/PersonDetails";
 import About from "./Pages/About";
 import Movies from "./Pages/Movies";
-
-
 
 const App = () => {
 

@@ -1,5 +1,5 @@
-import Footer from "../components/Main/Footer"
-import Header from "../components/Main/Header"
+import Footer from "../layouts/Footer"
+import Header from "../layouts/Header"
 import logo from "../assets/logo.png"
 import { BsGithub } from "react-icons/bs"
 import { DiReact } from "react-icons/di"

@@ -10,8 +10,8 @@ export const imgNotAvailable = "https://upload.wikimedia.org/wikipedia/commons/t
 // Common URL
 export const SEARCH_URL = "https://api.themoviedb.org/3/search/multi?api_key=";
 export const TRENDING = "https://api.themoviedb.org/3/trending/all/week?api_key=";
-
-export const baseURL = "https://api.themoviedb.org/3"
+export const RECOMMENDATIONS = "recommendations?api_key=";
+export const baseURL = "https://api.themoviedb.org/3";
 
 // Movie URL
 export const MOVIE_DETAILS = "https://api.themoviedb.org/3/movie/";

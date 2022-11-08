@@ -1,5 +1,5 @@
 import { AiOutlineLoading3Quarters } from "react-icons/ai"
-import load from "../../assets/load.png"
+import load from "../assets/load.png"
 
 const Loading = () => {
     return (

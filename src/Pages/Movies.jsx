@@ -1,13 +1,13 @@
 import React, { Suspense } from "react";
 import { useEffect } from "react";
 import { useState } from "react";
-import Footer from "../components/Main/Footer"
-import Header from "../components/Main/Header"
-import Loading from "../components/Main/Loading";
+import Footer from "../layouts/Footer"
+import Header from "../layouts/Header"
+import Loading from "../layouts/Loading";
 import { DISCOVER, navActive, UPCOMING } from "../config/config"
-const Card = React.lazy(() => import("../components/Cards/Card"));
-const CardLandscape = React.lazy(() => import("../components/Cards/CardLandscape"));
-const CardBig = React.lazy(() => import("../components/Cards/CardBig"));
+const Card = React.lazy(() => import("../components/Common/Cards/Card"));
+const CardLandscape = React.lazy(() => import("../components/Common/Cards/CardLandscape"));
+const CardBig = React.lazy(() => import("../components/Common/Cards/CardBig"));
 
 const Movies = () => {
 
