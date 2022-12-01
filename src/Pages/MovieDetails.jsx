@@ -1,10 +1,7 @@
-import React, { Suspense } from 'react';
 import axios from "axios";
-import { baseURL, fullSizeImg, halfSizeImg } from "../config/config";
+import { baseURL } from "../config/config";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import Header from "../layouts/Header";
-import Footer from "../layouts/Footer";
 import Loading from "../layouts/Loading";
 import Body from '../components/PageData/MovieDetails/Body';
 import ImageBg from '../components/Cards/ImageBg';
@@ -48,15 +45,14 @@ const MovieDetails = () => {
 
 
     return (
-        <div>
-            <Header />
+        <>
             {
                 loading ? (
                     <Loading />
                 )
                     :
 
-                    (<div className="flex flex-col md:flex-col">
+                    (<div className="flex flex-col md:flex-col pb-12">
 
                         <ImageBg data={data} />
 
@@ -64,8 +60,7 @@ const MovieDetails = () => {
 
                     </div>)
             }
-            <Footer />
-        </div>
+        </>
     )
 }
 

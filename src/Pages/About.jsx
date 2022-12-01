@@ -1,5 +1,3 @@
-import Footer from "../layouts/Footer"
-import Header from "../layouts/Header"
 import logo from "../assets/logo.png"
 import { BsGithub } from "react-icons/bs"
 import { DiReact } from "react-icons/di"
@@ -12,7 +10,6 @@ const About = () => {
 
     return (
         <div className="h-screen flex flex-col bg-gradient-to-bl from-[#141E30] via-[#1D4350] to-[#A43931]">
-            <Header about={navActive} />
 
             <div className="flex flex-col items-center justify-center h-full p-5 lg:px-72 gap-5 text-white">
 
@@ -61,9 +58,6 @@ const About = () => {
 
 
             </div>
-
-
-            <Footer />
 
         </div >
     )

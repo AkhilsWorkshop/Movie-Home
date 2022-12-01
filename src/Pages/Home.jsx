@@ -29,8 +29,7 @@ const Home = () => {
 
                 <div>
 
-                    <Header home={navActive} />
-                    <div className="flex flex-col gap-10 pb-10">
+                    <div className="flex flex-col gap-10 pb-20">
 
                         <Trending />
                         <Suspense fallback={<Loading />}>
@@ -41,7 +40,6 @@ const Home = () => {
                             <Card title="Discover Top Rated Movies" first={TOP_RATED} second="&sort_by=popularity.desc" media_type="movie" />
                         </Suspense>
                     </div>
-                    <Footer />
 
                 </div>
             }
