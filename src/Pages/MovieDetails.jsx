@@ -14,6 +14,7 @@ const MovieDetails = () => {
     // Storing the data from API 
     const [data, setData] = useState([])
     const [watchProv, setWatchProv] = useState([])
+    const [credits, setCredits] = useState([])
     const [loading, setLoading] = useState(false)
 
     // Getting the ID from URL
@@ -29,12 +30,18 @@ const MovieDetails = () => {
 
     // Watch Providers API
     const getWatchProviders = async () => {
-        const { data } = await axios.get(`https://api.themoviedb.org/3/${mediaType}/${searchID}/watch/providers?api_key=${process.env.REACT_APP_API_KEY}`)
+        const { data } = await axios.get(`${baseURL}/${mediaType}/${searchID}/watch/providers?api_key=${process.env.REACT_APP_API_KEY}`)
         setWatchProv(data)
+    }
+
+    const getCredits = async () => {
+        const { data } = await axios.get(`${baseURL}/${mediaType}/${searchID}/credits?api_key=${process.env.REACT_APP_API_KEY}`);
+        setCredits(data);
     }
 
     useEffect(() => {
         getMovieDetails()
+        getCredits()
         getWatchProviders()
         setTimeout(() => { setLoading(false) }, 500)
     }, [])
@@ -53,7 +60,7 @@ const MovieDetails = () => {
 
                         <ImageBg data={data} />
 
-                        <Body data={data} watchProv={watchProv} mediaType={mediaType} searchID={searchID} />
+                        <Body data={data} credits={credits} watchProv={watchProv} mediaType={mediaType} searchID={searchID} />
 
                     </div>)
             }

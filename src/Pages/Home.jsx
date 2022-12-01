@@ -37,7 +37,7 @@ const Home = () => {
                             <Card title="Now Playing (In Theatres)" first={NOW_PLAYING} second="" media_type="movie" />
                             <CardLandscape title="Upcoming Movies" first={UPCOMING} second="&region=US" media_type="movie" />
                             <Card title="Discover Top TV Shows" first={DISCOVER_TV} second="" media_type="tv" />
-                            <CardBig title="Explore Popular Artists" first={POPULAR_PERSON} second="" media_type="person" />
+                            <CardBig title="Explore Popular Artists" first={POPULAR_PERSON} second="&language=en-US" media_type="person" />
                             <Card title="Discover Top Rated Movies" first={TOP_RATED} second="&sort_by=popularity.desc" media_type="movie" />
                         </Suspense>
                     </div>

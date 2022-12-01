@@ -1,4 +1,5 @@
 import React, { Suspense } from "react"
+import CardSmall from "../../Common/Cards/CardSmall"
 import LScrollCard from "../../LazyLoading/LScrollCard"
 import About from "./About"
 import Overview from "./Overview"
@@ -10,12 +11,7 @@ import Videos from "./Videos"
 import ForYou from "./_tests_/ForYou"
 import Stream from "./_tests_/Stream"
 
-const ScrollCard1 = React.lazy(() => import("../../Cards/DetailedCard/ScrollCard1"));
-const ScrollCard2 = React.lazy(() => import("../../Cards/DetailedCard/ScrollCard2"));
-
-const Body = ({ data, watchProv, mediaType, searchID }) => {
-
-
+const Body = ({ credits, data, watchProv, mediaType, searchID }) => {
     return (
         <div className="flex flex-col justify-center sm:px-20 xl:px-52 lg:px-32 backdrop-brightness-[100%] bg-gradient-to-b via-gray-900 from-transparent to-gray-900 text-white">
 
@@ -40,13 +36,13 @@ const Body = ({ data, watchProv, mediaType, searchID }) => {
 
                         <Suspense fallback={<LScrollCard />}>
 
-                            <ScrollCard1 mediaType={mediaType} searchID={searchID} />
+                            <CardSmall credits={credits?.cast} mediaType={mediaType} searchID={searchID} title="cast" />
 
                         </Suspense>
 
                         <Suspense fallback={<LScrollCard />}>
 
-                            <ScrollCard2 mediaType={mediaType} searchID={searchID} />
+                            <CardSmall credits={credits?.crew} mediaType={mediaType} searchID={searchID} title="crew" />
 
                         </Suspense>
 
