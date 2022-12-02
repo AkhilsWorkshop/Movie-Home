@@ -1,9 +1,9 @@
 import { useState } from 'react'
 import { Listbox } from '@headlessui/react'
 import { useEffect } from 'react'
-import MediumTitle from '../../../Common/Title/MediumTitle'
 import { AiOutlineDown } from "react-icons/ai"
-import { halfSizeImg } from '../../../../config/config'
+import MediumTitle from '../Common/Title/MediumTitle'
+import { halfSizeImg } from '../../config/config'
 
 const Stream = ({ stream }) => {
 

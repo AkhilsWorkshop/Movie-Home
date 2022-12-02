@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { BsFillPauseFill, BsFillPlayFill } from "react-icons/bs";
 import { FaVolumeMute, FaVolumeUp } from "react-icons/fa";
 import ReactPlayer from "react-player";
-import { youtubeURL } from "../../../config/config";
+import { youtubeURL } from "../../config/config";
 import ImageBg from "../ImageBg";
 
 const VideoBg = ({ data }) => {

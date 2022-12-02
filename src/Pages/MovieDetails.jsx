@@ -8,12 +8,12 @@ import Trailer from "../components/PageData/MovieDetails/Trailer";
 import Title from "../components/PageData/MovieDetails/Title";
 import Poster from "../components/PageData/MovieDetails/Poster";
 import About from "../components/PageData/MovieDetails/About";
-import Stream from "../components/PageData/MovieDetails/_tests_/Stream";
 import CardSmall from "../components/Common/Cards/CardSmall";
 import Overview from "../components/PageData/MovieDetails/Overview";
 import Videos from "../components/PageData/MovieDetails/Videos";
 import Production from "../components/PageData/MovieDetails/Production";
-import ForYou from "../components/PageData/MovieDetails/_tests_/ForYou";
+import Stream from "../components/_tests_/Stream";
+import ForYou from "../components/PageData/MovieDetails/ForYou";
 
 const MovieDetails = () => {
 

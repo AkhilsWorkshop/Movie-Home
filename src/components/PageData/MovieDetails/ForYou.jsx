@@ -1,12 +1,11 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+import { useState } from "react";
 import ScrollContainer from "react-indiana-drag-scroll";
-import { baseURL, halfSizeImg, imgNotAvailable, RECOMMENDATIONS } from "../../../../config/config";
-import Card from "../../../Common/Cards/Card"
-import Button from "../../../Sub/Button";
+import { halfSizeImg, imgNotAvailable } from "../../../config/config";
+import MediumTitle from "../../Common/Title/MediumTitle";
+import Button from "../../Sub/Button";
 import { v4 as uuidv4 } from 'uuid';
-import CardCorner from "../../../Common/Cards/CardCorner";
-import MediumTitle from "../../../Common/Title/MediumTitle";
 
 
 const ForYou = ({ id, mediaType }) => {
