@@ -37,7 +37,7 @@ const SearchBar = () => {
     }, [query])
 
     return (
-        <>
+        <div className="max-h-[50%] p-5">
 
             <div className="flex items-center text-gray-600 focus-within:text-gray-400 w-full">
 
@@ -53,7 +53,7 @@ const SearchBar = () => {
 
             </div>
 
-            <div className="mt-2 flex flex-col h-[70%] overflow-auto overflow-x-hidden w-auto rounded-md z-50">
+            <div className="mt-2 flex flex-col max-h-[90%] overflow-auto overflow-x-hidden w-auto rounded-md z-50">
                 {autocompleteData?.results?.length > 0 ?
 
                     autocompleteData?.results.map((eachItem) => (
@@ -86,7 +86,7 @@ const SearchBar = () => {
                     <></>
                 }
             </div>
-        </>
+        </div>
     )
 }
 
