@@ -6,7 +6,7 @@ const VideoPanel = ({ trailerLink, content }) => {
     return (
         <>
             <div id="video" className="absolute aspect-video w-full top-[-2rem] z-0">
-                <ReactPlayer url={youtubeURL + trailerLink?.key} playing={true} height="100%" width="100%" />
+                <ReactPlayer url={youtubeURL + trailerLink?.key} playing={true} controls={true} height="100%" width="100%" />
             </div>
             <div className="flex flex-col justify-center pt-20 h-[30vh] sm:h-[80vh] backdrop-brightness-[100%] bg-gradient-to-b from-transparent to-[#18181b] text-white">
                 <div className="flex flex-col gap-5 px-16 sm:px-[10rem]">

@@ -39,6 +39,7 @@ const MovieDetails = () => {
         setWatchProv(data)
     }
 
+    // Movie Credits API
     const getCredits = async () => {
         const { data } = await axios.get(`${baseURL}/${mediaType}/${searchID}/credits?api_key=${process.env.REACT_APP_API_KEY}`);
         setCredits(data);
@@ -78,7 +79,7 @@ const MovieDetails = () => {
 
                                         <Poster data={data} stream={watchProv} />
                                         <About data={data} mediaType={mediaType} />
-                                        <Stream stream={watchProv} />
+                                        {/* <Stream stream={watchProv} /> */}
 
                                     </div>
 

@@ -111,7 +111,7 @@ const Trending = () => {
                     <Dialog.Panel className="w-full max-w-4xl rounded bg-[#18181b]">
 
                         <div className="aspect-video">
-                            <ReactPlayer url={youtubeURL + trailerLink.key} playing={true} height="100%" width="100%" />
+                            <ReactPlayer url={youtubeURL + trailerLink.key} playing={true} controls={true} height="100%" width="100%" />
                         </div>
 
                     </Dialog.Panel>
