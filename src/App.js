@@ -26,8 +26,8 @@ const App = () => {
                     <Route path="search">
 
                         <Route path=":searchID" element={<SearchResults />} />
-                        {/* <Route path="person/:searchID" element={<PersonDetails />} /> */}
-                        <Route path="person/:searchID" element={<Disabled />} />
+                        <Route path="person/:searchID" element={<PersonDetails />} />
+                        {/* <Route path="person/:searchID" element={<Disabled />} /> */}
                         <Route path=":mediaType/:searchID" element={<MovieDetails />} />
 
                     </Route>

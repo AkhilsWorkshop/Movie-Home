@@ -46,12 +46,9 @@ const TrendingVideo = () => {
 
     useEffect(() => {
         getTrailer(content[0]?.media_type, content[0]?.id);
-        console.log(content)
     }, [content])
 
     useEffect(() => {
-        console.log(trailerLink?.key)
-
         setTimeout(() => { setLoading(false) }, 1500)
         setTimeout(() => { setIsPlaying(true) }, 2500)
     }, [trailerLink])

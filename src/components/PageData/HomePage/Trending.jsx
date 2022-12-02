@@ -26,8 +26,6 @@ const Trending = () => {
         const { data } = await axios.get(`${baseURL}/${media_type}/${id}/videos?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`)
         const filteredData = data.results.filter(search => search.type === "Trailer")
         setTrailerLink(filteredData[0])
-        console.log("clickesd", media_type, id)
-        console.log(trailerLink)
     }
 
     // For Carousel SlideShow

@@ -61,7 +61,7 @@ const MovieDetails = () => {
                 )
                     :
 
-                    (<div className="flex flex-col md:flex-col pb-12">
+                    (<div className="flex flex-col md:flex-col pb-16">
 
                         <ImageBg data={data} />
 

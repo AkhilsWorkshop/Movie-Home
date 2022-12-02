@@ -24,7 +24,6 @@ const CardSmall = ({ credits, title, mediaType, searchID }) => {
         return a < b ? -1 : 1;
     });
 
-    console.log(sortedAsc)
     return (
         <div className="text-white flex flex-col gap-5 relative">
 

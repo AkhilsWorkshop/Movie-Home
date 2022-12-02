@@ -2,7 +2,7 @@ import { useState } from "react"
 import { Link } from "react-router-dom"
 import logo from "../assets/logo.png"
 import { CgClose, CgMenu } from "react-icons/cg"
-import { BsSearch } from "react-icons/bs"
+import { BsArrowLeft, BsSearch } from "react-icons/bs"
 import SearchBar from "../components/Sub/SearchBar"
 import SearchBarMobile from "../components/Sub/SearchBarMobile"
 import { Sling as Hamburger } from 'hamburger-react'
@@ -35,13 +35,16 @@ const Header = ({ home, movies, tv, about }) => {
                 </div>
 
                 {/* Mobile Version */}
-                <div className="cursor-pointer z-40 lg:hidden">
+                <div className={`cursor-pointer lg:hidden ${menu ? "invisible" : "visible"}`}>
                     <Hamburger toggled={menu} toggle={setMenu} color={menu ? "#ffffff" : "#ffffff"} />
                 </div>
 
+                <div className={`lg:hidden flex fixed left-0 top-0 w-full h-full transition-all ease-linear duration-300 z-[25] ${menu ? ' visible bg-black/10 backdrop-blur-sm' : ' invisible'}`}>
+                    <div className={`absolute bg-[#121216] h-full w-[80%] transition-all ease-linear duration-300 flex flex-col justify-between ${menu ? 'left-0' : '-left-[40rem]'}`}>
+                        <div className="flex justify-end p-5">
+                            <BsArrowLeft onClick={() => setMenu(!menu)} size={30} className="text-white" />
+                        </div>
 
-                <div className={`lg:hidden flex fixed left-0 top-20 w-full h-full transition-all ease-linear duration-300 z-[25] ${menu ? ' visible bg-black/10 backdrop-blur-sm' : ' invisible'}`}>
-                    <div className={`absolute bg-[#121216] h-[calc(100%_-_5rem)] w-[80%] transition-all ease-linear duration-300 flex flex-col justify-between ${menu ? 'left-0' : '-left-[40rem]'}`}>
                         <SearchBarMobile />
                         <div className="flex flex-col justify-between grow">
                             <div className="flex flex-col gap-5 text-neutral-400 p-5 text-lg">

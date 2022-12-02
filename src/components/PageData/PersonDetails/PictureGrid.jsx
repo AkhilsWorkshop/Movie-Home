@@ -16,9 +16,6 @@ const PictureGrid = ({ searchID }) => {
     useEffect(() => {
         fetchPictures()
     }, [])
-
-    console.log(pics)
-
     return (
         <div className="grid grid-cols-4 gap-3">
 
