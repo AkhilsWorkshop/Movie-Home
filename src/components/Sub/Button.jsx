@@ -16,9 +16,9 @@ const Button = ({ children, media_type, id }) => {
     }
 
     return (
-        <div>
+        <>
             <button onClick={getMovieID}>{children}</button>
-        </div>
+        </>
     )
 }
 

@@ -17,12 +17,12 @@ const Header = ({ home, movies, tv, about }) => {
     return (
         <div>
             <div className="z-50 w-full flex items-center justify-between px-10 bg-[#121216] md:justify-around h-20 shadow-xl border-b-slate-800 border-b">
-                <div>
+                <div className="flex flex-1 justify-center">
                     <a href="/">
                         <img src={logo} alt="Movie DB" className="h-14 md:h-16 py-2 sm:hover:animate-pulse" />
                     </a>
                 </div>
-                <div className="hidden lg:flex items-center gap-8 font-slogan">
+                <div className="hidden lg:flex flex-1 justify-center items-center gap-8 font-slogan">
                     <div className="flex gap-8 text-neutral-400">
                         <Link to="/" className={linkStylesDesktop + home}>Home</Link>
                         <Link to="/movies" className={linkStylesDesktop + movies}>Movies</Link>
