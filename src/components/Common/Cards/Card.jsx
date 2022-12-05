@@ -16,7 +16,6 @@ const Card = ({ title, first, second, media_type }) => {
     const fetchTrending = async () => {
         const { data } = await axios.get(`${first}${process.env.REACT_APP_API_KEY}${second}`);
         setContent(data.results);
-        console.log(data.results)
     }
 
     useEffect(() => {
