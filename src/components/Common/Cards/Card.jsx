@@ -16,6 +16,7 @@ const Card = ({ title, first, second, media_type }) => {
     const fetchTrending = async () => {
         const { data } = await axios.get(`${first}${process.env.REACT_APP_API_KEY}${second}`);
         setContent(data.results);
+        console.log(data.results)
     }
 
     useEffect(() => {
@@ -49,7 +50,7 @@ const Card = ({ title, first, second, media_type }) => {
 
                             <div className="flex w-[7rem] sm:w-[10rem] overflow-hidden rounded-md hover:cursor-pointer">
                                 <img className="object-fill shadow-lg shadow-black duration-300 sm:hover:scale-105 sm:hover:saturate-150 aspect-[2/3]"
-                                    src={eachItem.profile_path === null ? imgNotAvailable : `${halfSizeImg}${eachItem.poster_path || eachItem.profile_path}`}
+                                    src={((eachItem.profile_path === null) || (eachItem.poster_path === null)) ? imgNotAvailable : `${halfSizeImg}${eachItem.poster_path || eachItem.profile_path}`}
                                     alt="Reload Page"
                                     loading="lazy">
                                 </img>

@@ -62,7 +62,6 @@ const SearchBar = () => {
                         className={`py-2 text-base text-black bg-white rounded-md focus:outline-none focus:bg-white focus:text-gray-900 duration-300 transition-all ${searchState ? "w-64 visible pl-4 " : "w-0 invisible"}`}
                         value={query}
                         onChange={changeHandler}
-                        on
                         required
                     />
 
