@@ -13,6 +13,7 @@ import { AuthContextProvider } from "./context/AuthContext";
 import Login from "./Pages/Login";
 import Register from "./Pages/Register";
 import Dashboard from "./Pages/Dashboard";
+import ProtectedRoute from "./Routes/ProtectedRoute";
 
 const App = () => {
 
@@ -30,7 +31,7 @@ const App = () => {
                         </Route>
                         <Route path="login" element={<Login />} />
                         <Route path="register" element={<Register />} />
-                        <Route path="myaccount" element={<Dashboard />} />
+                        <Route path="myaccount" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
                         <Route path="movies" element={<Movies />} />
                         <Route path="about" element={<About />} />
                         <Route path="*" element={<Error />} />
