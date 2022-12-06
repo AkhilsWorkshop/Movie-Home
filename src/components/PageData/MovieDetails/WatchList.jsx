@@ -1,8 +1,8 @@
 import { arrayUnion, doc, updateDoc } from 'firebase/firestore'
 import React from 'react'
 import { RiMenuAddLine } from 'react-icons/ri'
-import { db } from '../config/firebase'
-import { UserAuth } from '../context/AuthContext'
+import { db } from '../../../config/firebase'
+import { UserAuth } from '../../../context/AuthContext'
 
 const WatchList = ({ data, mediaType }) => {
 
@@ -19,7 +19,7 @@ const WatchList = ({ data, mediaType }) => {
                     savedMovies: arrayUnion({
                         id: data.id,
                         title: data.title,
-                        img: data.backdrop_path
+                        img: data.poster_path
                     })
                 })
             }
@@ -29,7 +29,7 @@ const WatchList = ({ data, mediaType }) => {
                     savedShows: arrayUnion({
                         id: data.id,
                         title: data.name,
-                        img: data.backdrop_path
+                        img: data.poster_path
                     })
                 })
             }
