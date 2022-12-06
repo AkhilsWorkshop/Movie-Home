@@ -14,6 +14,7 @@ import Videos from "../components/PageData/MovieDetails/Videos";
 import Production from "../components/PageData/MovieDetails/Production";
 import Stream from "../components/_tests_/Stream";
 import ForYou from "../components/PageData/MovieDetails/ForYou";
+import WatchList from "./WatchList";
 
 const MovieDetails = () => {
 
@@ -78,6 +79,8 @@ const MovieDetails = () => {
                                     <div className="flex flex-col items-center gap-4">
 
                                         <Poster data={data} stream={watchProv} />
+                                        <WatchList data={data} mediaType={mediaType} />
+
                                         <About data={data} mediaType={mediaType} />
                                         {/* <Stream stream={watchProv} /> */}
 
