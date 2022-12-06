@@ -1,23 +1,24 @@
 import { useState } from "react"
 import { Link } from "react-router-dom"
 import logo from "../assets/logo.png"
-import { CgClose, CgMenu } from "react-icons/cg"
-import { BsArrowLeft, BsSearch } from "react-icons/bs"
+import { BsArrowLeft } from "react-icons/bs"
 import SearchBar from "../components/Sub/SearchBar"
 import SearchBarMobile from "../components/Sub/SearchBarMobile"
 import { Sling as Hamburger } from 'hamburger-react'
 
-const Header = ({ home, movies, tv, about }) => {
-
-    const linkStylesDesktop = "hover:border-yellow-500 hover:border-b-2 hover:text-white hover:scale-105 py-3 duration-200"
-    const linkStylesMobile = "px-4 cursor-pointer text-gray-300 py-6 text-4xl"
+const Header = () => {
 
     const [menu, setMenu] = useState(false);
-    const [search, setSearch] = useState(false);
 
     return (
         <>
             <div className={`z-50 w-full flex items-center justify-between px-10 bg-[#121216] md:justify-around h-20 shadow-xl border-b-slate-800 border-b ${menu ? '' : ' '}`}>
+
+                {/* Mobile Version */}
+                <div className={`cursor-pointer lg:hidden ${menu ? "invisible" : "visible"}`}>
+                    <Hamburger size={30} toggled={menu} toggle={setMenu} color={menu ? "#ffffff" : "#ffffff"} />
+                </div>
+
                 <div className="flex flex-1 justify-center">
                     <a href="/">
                         <img src={logo} alt="Movie DB" className="h-14 md:h-16 py-2 sm:hover:animate-pulse" />
@@ -25,19 +26,19 @@ const Header = ({ home, movies, tv, about }) => {
                 </div>
                 <div className="hidden lg:flex flex-1 justify-center items-center gap-8 font-slogan">
                     <div className="flex gap-8 text-neutral-400">
-                        <Link to="/" className={linkStylesDesktop + home}>Home</Link>
-                        <Link to="/movies" className={linkStylesDesktop + movies}>Movies</Link>
-                        <Link to="/about" className={linkStylesDesktop + about}>About</Link>
+                        <Link to="/">Home</Link>
+                        <Link to="/movies">Movies</Link>
+                        <Link to="/about">About</Link>
                     </div>
                     <div>
                         <SearchBar />
                     </div>
+                    <Link to="/login">
+                        <button className="bg-[#EAB308] hover:bg-[#EAB308]/80 duration-300 text-black font-bold py-2 px-4 rounded-full">Sign In</button>
+                    </Link>
                 </div>
 
-                {/* Mobile Version */}
-                <div className={`cursor-pointer lg:hidden ${menu ? "invisible" : "visible"}`}>
-                    <Hamburger toggled={menu} toggle={setMenu} color={menu ? "#ffffff" : "#ffffff"} />
-                </div>
+
 
                 <div className={`lg:hidden flex fixed left-0 top-0 w-full h-full transition-all ease-linear duration-300 z-[25] ${menu ? ' visible bg-black/10 backdrop-blur-sm' : ' invisible'}`}>
                     <div className={`absolute bg-[#121216] h-full w-[80%] transition-all ease-linear duration-300 flex flex-col justify-between ${menu ? 'left-0' : '-left-[40rem]'}`}>

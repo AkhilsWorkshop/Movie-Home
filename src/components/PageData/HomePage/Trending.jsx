@@ -3,7 +3,8 @@ import { useEffect, useState } from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { BsFillPlayFill } from "react-icons/bs"
-import { baseURL, fullSizeImg, trending, TRENDING, youtubeURL } from "../../../config/config";
+import { baseURL, fullSizeImg, TRENDING, youtubeURL } from "../../../config/config";
+import { trendingSize } from "../../../config/carousal";
 import Button from "../../Sub/Button";
 import { Dialog } from '@headlessui/react'
 import ReactPlayer from "react-player";
@@ -62,7 +63,7 @@ const Trending = () => {
                 renderArrowsWhenDisabled={false}
                 renderButtonGroupOutside={false}
                 renderDotsOutside={false}
-                responsive={trending}
+                responsive={trendingSize}
                 rewind
                 rewindWithAnimation={true}
                 rtl={false}
