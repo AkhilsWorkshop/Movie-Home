@@ -1,18 +1,15 @@
 import axios from "axios";
-import React, { Suspense, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { AiTwotoneStar } from "react-icons/ai";
 import { FaExternalLinkAlt } from "react-icons/fa";
 import { useParams } from "react-router-dom";
+import CardSmall from "../components/Common/Cards/CardSmall";
 import LOverview from "../components/LazyLoading/LOverview";
 import LPersonAbout from "../components/LazyLoading/LPersonAbout";
 import LPicture from "../components/LazyLoading/LPicture";
-import LScrollCard from "../components/LazyLoading/LScrollCard";
 import LTitle from "../components/LazyLoading/LTitle";
 import Pictures from "../components/PageData/PersonDetails/Pictures";
 import { halfSizeImg } from "../config/config";
-const ScrollCard1 = React.lazy(() => import("../components/Cards/DetailedCard/ScrollCard1"));
-const ScrollCard2 = React.lazy(() => import("../components/Cards/DetailedCard/ScrollCard2"));
-
 
 const PersonDetails = () => {
 
@@ -20,6 +17,7 @@ const PersonDetails = () => {
     const mediaType = "person"
 
     const [content, setContent] = useState([])
+    const [credits, setCredits] = useState([])
     const [loading, setLoading] = useState(false)
 
     const fetchPerson = async () => {
@@ -27,15 +25,20 @@ const PersonDetails = () => {
         setContent(data)
     }
 
+    const fetchPersonWorks = async () => {
+        const { data } = await axios.get(`https://api.themoviedb.org/3/${mediaType}/${searchID}/combined_credits?api_key=${process.env.REACT_APP_API_KEY}`)
+        setCredits(data)
+    }
+
     useEffect(() => {
         setLoading(true)
         fetchPerson()
+        fetchPersonWorks()
         setTimeout(() => { setLoading(false) }, 500)
     }, [])
 
     return (
         <div className="flex flex-col md:flex-col pb-16">
-
 
             <div className="text-white bg-cover">
 
@@ -133,13 +136,8 @@ const PersonDetails = () => {
                         }
                     </div>
 
-                    <Suspense fallback={<LScrollCard />}>
-
-                        <ScrollCard1 mediaType={mediaType} searchID={searchID} />
-                        <ScrollCard2 mediaType={mediaType} searchID={searchID} />
-
-                    </Suspense>
-
+                    <CardSmall credits={credits?.cast} mediaType={mediaType} searchID={searchID} title="known for" />
+                    <CardSmall credits={credits?.crew} mediaType={mediaType} searchID={searchID} title="worked as" />
                     <Pictures searchID={searchID} />
 
 
