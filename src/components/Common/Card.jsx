@@ -46,7 +46,7 @@ const Card = ({ title, first, second, media_type }) => {
 
                             }
 
-                            <div className="flex w-[7rem] sm:w-[10rem] overflow-hidden rounded-md hover:cursor-pointer">
+                            <div className="flex w-[7rem] sm:w-[10rem] overflow-hidden rounded-md hover:cursor-pointer shadow-lg shadow-black border border-gray-800 hover:shadow-xl hover:shadow-black">
                                 <img className="object-fill shadow-lg shadow-black duration-300 sm:hover:scale-105 sm:hover:saturate-150 aspect-[2/3]"
                                     src={((eachItem.profile_path === null) || (eachItem.poster_path === null)) ? imgNotAvailable : `${halfSizeImg}${eachItem.poster_path || eachItem.profile_path}`}
                                     alt="Reload Page"

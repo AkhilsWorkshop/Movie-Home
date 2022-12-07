@@ -28,6 +28,7 @@ const PersonDetails = () => {
     const fetchPersonWorks = async () => {
         const { data } = await axios.get(`https://api.themoviedb.org/3/${mediaType}/${searchID}/combined_credits?api_key=${process.env.REACT_APP_API_KEY}`)
         setCredits(data)
+        console.log(data)
     }
 
     useEffect(() => {

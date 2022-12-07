@@ -1,6 +1,7 @@
 import { arrayUnion, doc, updateDoc } from 'firebase/firestore'
 import React from 'react'
 import { RiMenuAddLine } from 'react-icons/ri'
+import { useNavigate } from 'react-router-dom'
 import { db } from '../../../config/firebase'
 import { UserAuth } from '../../../context/AuthContext'
 
@@ -9,6 +10,8 @@ const WatchList = ({ data, mediaType }) => {
     const { user } = UserAuth()
 
     const movieShowID = doc(db, "users", `${user?.email}`)
+
+    const navigate = useNavigate()
 
     const saveWatchData = async () => {
         if (user?.email) {
@@ -34,7 +37,7 @@ const WatchList = ({ data, mediaType }) => {
 
         }
         else {
-            alert("Log In first")
+            navigate("/login")
         }
     }
 

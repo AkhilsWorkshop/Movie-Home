@@ -17,7 +17,7 @@ const Login = () => {
         try {
             await signInUser(email, password)
             await getUserData(email)
-            navigate("/myaccount")
+            navigate(-1)
         } catch (e) {
             console.log(e.message)
         }
