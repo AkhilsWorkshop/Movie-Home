@@ -29,7 +29,7 @@ const Dashboard = () => {
                 <SideMenu />
 
                 <Tab.Panels>
-                    <Tab.Panel><WatchList movies={movies} tvShows={tvShows} /></Tab.Panel>
+                    <Tab.Panel><WatchList movies={movies} tvShows={tvShows} user={user} /></Tab.Panel>
                 </Tab.Panels>
             </Tab.Group>
         </div>

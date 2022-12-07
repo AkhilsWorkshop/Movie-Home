@@ -1,15 +1,28 @@
 import React from 'react'
 import { halfSizeImg, imgNotAvailable } from '../../../config/config'
 import { Tab, Menu } from '@headlessui/react'
-import { useState } from 'react';
 import { Fragment } from 'react';
 import { BiDotsVertical } from "react-icons/bi"
 import { RiVideoAddFill } from "react-icons/ri"
 import { MdDeleteSweep } from "react-icons/md"
+import { doc, updateDoc } from 'firebase/firestore';
+import { db } from '../../../config/firebase';
 
-const WatchList = ({ movies, tvShows }) => {
+const WatchList = ({ movies, tvShows, user }) => {
 
     const tabList = ["Movies", "TV Shows"]
+
+    const movieRef = doc(db, "users", `${user?.email}`)
+    const deleteShow = async (showID) => {
+        try {
+            const result = movies.filter((item) => item.id !== showID)
+            await updateDoc(movieRef, {
+                savedMovies: result
+            })
+        } catch (e) {
+            console.log(e.message)
+        }
+    }
 
     return (
         <div className='px-10 py-5'>
@@ -40,17 +53,17 @@ const WatchList = ({ movies, tvShows }) => {
                                     <div className='text-white flex items-center justify-between relative'>
                                         <p className=" text-xs truncate">{eachItem.title}</p>
                                         <Menu>
-                                            <Menu.Button><BiDotsVertical size={20} className='f flex-shrink-0 cursor-pointer' /></Menu.Button>
-                                            <Menu.Items className="absolute bg-slate-700 text-xs p-2 rounded-sm bottom-0 right-0">
+                                            <Menu.Button><BiDotsVertical size={20} className='flex-shrink-0 cursor-pointer' /></Menu.Button>
+                                            <Menu.Items className="absolute bg-slate-700 text-xs rounded-md bottom-7 right-0">
                                                 <Menu.Item>
-                                                    <div className="flex gap-1 justify-center items-center cursor-pointer hover:text-[#EAB308]">
+                                                    <div className="flex gap-1 p-2 justify-center items-center cursor-pointer hover:text-[#EAB308] hover:bg-slate-800">
                                                         <RiVideoAddFill size={15} />
                                                         <p>Watched</p>
                                                     </div>
                                                 </Menu.Item>
 
                                                 <Menu.Item>
-                                                    <div className="flex gap-1 justify-center items-center cursor-pointer hover:text-[#EAB308]">
+                                                    <div onClick={() => deleteShow(eachItem.id)} className="flex gap-1 p-2 justify-center items-center cursor-pointer hover:text-[#EAB308] hover:bg-slate-800">
                                                         <MdDeleteSweep size={20} />
                                                         <p>Remove</p>
                                                     </div>

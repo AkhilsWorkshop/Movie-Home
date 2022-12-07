@@ -3,7 +3,7 @@ import { Tab } from '@headlessui/react'
 import { Fragment } from 'react'
 import { FiLogOut } from "react-icons/fi"
 import { MdPlaylistAdd } from "react-icons/md"
-import { RiSettings3Fill } from "react-icons/ri"
+import { AiFillEye } from "react-icons/ai"
 import { MdSupervisorAccount } from "react-icons/md"
 import { UserAuth } from '../../../context/AuthContext'
 
@@ -19,6 +19,11 @@ const SideMenu = () => {
         },
         {
             id: 2,
+            name: "Watched",
+            icon: AiFillEye,
+        },
+        {
+            id: 3,
             name: "Account",
             icon: MdSupervisorAccount,
         },
