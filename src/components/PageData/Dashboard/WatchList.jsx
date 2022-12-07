@@ -5,7 +5,7 @@ import { Fragment } from 'react';
 import { BiDotsVertical } from "react-icons/bi"
 import { RiVideoAddFill } from "react-icons/ri"
 import { MdDeleteSweep } from "react-icons/md"
-import { doc, updateDoc } from 'firebase/firestore';
+import { arrayUnion, doc, updateDoc } from 'firebase/firestore';
 import { db } from '../../../config/firebase';
 
 const WatchList = ({ movies, tvShows, user }) => {
@@ -23,6 +23,24 @@ const WatchList = ({ movies, tvShows, user }) => {
             console.log(e.message)
         }
     }
+    const watchedShow = async (show) => {
+        try {
+            await updateDoc(movieRef, {
+                watchedMovies: arrayUnion({
+                    id: show.id,
+                    title: show.title,
+                    img: show.img
+                })
+            })
+            const result = movies.filter((item) => item.id !== show.id)
+            await updateDoc(movieRef, {
+                savedMovies: result
+            })
+        } catch (e) {
+            console.log(e.message)
+        }
+    }
+
 
     return (
         <div className='px-10 py-5'>
@@ -56,7 +74,7 @@ const WatchList = ({ movies, tvShows, user }) => {
                                             <Menu.Button><BiDotsVertical size={20} className='flex-shrink-0 cursor-pointer' /></Menu.Button>
                                             <Menu.Items className="absolute bg-slate-700 text-xs rounded-md bottom-7 right-0">
                                                 <Menu.Item>
-                                                    <div className="flex gap-1 p-2 justify-center items-center cursor-pointer hover:text-[#EAB308] hover:bg-slate-800">
+                                                    <div onClick={() => watchedShow(eachItem)} className="flex gap-1 p-2 justify-center items-center cursor-pointer hover:text-[#EAB308] hover:bg-slate-800">
                                                         <RiVideoAddFill size={15} />
                                                         <p>Watched</p>
                                                     </div>

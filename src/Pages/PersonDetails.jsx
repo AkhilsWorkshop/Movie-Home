@@ -40,7 +40,7 @@ const PersonDetails = () => {
         <div className="flex flex-col md:flex-col pb-16">
 
 
-            <div className="text-white bg-cover" Style={`background-image: url()`} >
+            <div className="text-white bg-cover">
 
                 <div className="flex flex-col justify-center p-5 sm:px-20 xl:px-52 lg:px-32 backdrop-blur-md backdrop-brightness-50 bg-gradient-to-b via-transparent from-transparent to-gray-900 gap-5">
 

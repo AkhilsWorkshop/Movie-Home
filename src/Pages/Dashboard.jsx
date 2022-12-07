@@ -7,6 +7,7 @@ import SideMenu from '../components/PageData/Dashboard/SideMenu';
 import WatchList from '../components/PageData/Dashboard/WatchList';
 import { db } from '../config/firebase';
 import { UserAuth } from '../context/AuthContext'
+import Loading from '../layouts/Loading';
 
 const Dashboard = () => {
 
@@ -15,24 +16,40 @@ const Dashboard = () => {
     const [movies, setMovies] = useState([]);
     const [tvShows, setTvShows] = useState([]);
 
-    useEffect(() => {
+    const [loading, setLoading] = useState(false)
+
+    const getUserDetails = () => {
+        setLoading(true)
         onSnapshot(doc(db, "users", `${user?.email}`), (doc) => {
             setMovies(doc.data()?.savedMovies);
             setTvShows(doc.data()?.savedShows);
         })
-    }, [user?.email])
+    }
+
+    useEffect(() => {
+        getUserDetails()
+        setTimeout(() => { setLoading(false) }, 500)
+    }, [])
 
     return (
-        <div className="h-[calc(100vh_-_9rem)] flex">
-            <Tab.Group>
+        <>
+            {
+                loading ? (
+                    <Loading />
+                )
+                    :
+                    <div className="h-[calc(100vh_-_9rem)] flex">
+                        <Tab.Group>
 
-                <SideMenu />
+                            <SideMenu />
 
-                <Tab.Panels>
-                    <Tab.Panel><WatchList movies={movies} tvShows={tvShows} user={user} /></Tab.Panel>
-                </Tab.Panels>
-            </Tab.Group>
-        </div>
+                            <Tab.Panels>
+                                <Tab.Panel><WatchList movies={movies} tvShows={tvShows} user={user} /></Tab.Panel>
+                            </Tab.Panels>
+                        </Tab.Group>
+                    </div>
+            }
+        </>
     )
 }
 
