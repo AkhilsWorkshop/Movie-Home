@@ -5,7 +5,7 @@ import { youtubeURL } from "../../../config/config"
 import { useState } from "react"
 import { v4 as uuidv4 } from 'uuid';
 import { AiFillCaretDown } from "react-icons/ai"
-import MediumTitle from "../../Common/Title/MediumTitle"
+import MediumTitle from "../../Common/MediumTitle"
 
 const Videos = ({ data }) => {
 

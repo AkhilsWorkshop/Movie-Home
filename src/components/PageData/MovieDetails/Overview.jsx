@@ -1,4 +1,4 @@
-import MediumTitle from "../../Common/Title/MediumTitle"
+import MediumTitle from "../../Common/MediumTitle"
 
 const Overview = ({ data }) => {
     return (

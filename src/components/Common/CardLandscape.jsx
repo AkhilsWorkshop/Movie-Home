@@ -1,13 +1,13 @@
 import React from 'react'
 import ScrollContainer from 'react-indiana-drag-scroll'
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import Button from '../../Sub/Button';
+import Button from '../Sub/Button';
 import { useState } from 'react';
 import axios from 'axios';
 import { useEffect } from 'react';
 import CardCorner from './CardCorner';
-import { halfSizeImg } from '../../../config/config';
 import { v4 as uuidv4 } from 'uuid';
+import { halfSizeImg } from '../../config/config';
 
 const CardLandscape = ({ first, second, title, media_type }) => {
 

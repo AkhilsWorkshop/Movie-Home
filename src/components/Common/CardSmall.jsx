@@ -1,8 +1,8 @@
 import React from 'react'
 import ScrollContainer from 'react-indiana-drag-scroll'
-import { halfSizeImg, imgNotAvailable } from '../../../config/config'
+import { halfSizeImg, imgNotAvailable } from '../../config/config'
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import Button from '../../Sub/Button';
+import Button from '../Sub/Button';
 import { v4 as uuidv4 } from 'uuid';
 
 const CardSmall = ({ credits, title, mediaType, searchID }) => {

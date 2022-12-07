@@ -1,6 +1,6 @@
 import { halfSizeImg } from "../../../config/config"
 import { v4 as uuidv4 } from 'uuid';
-import MediumTitle from "../../Common/Title/MediumTitle";
+import MediumTitle from "../../Common/MediumTitle";
 
 
 const Production = ({ companies }) => {

@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import ScrollContainer from "react-indiana-drag-scroll";
 import { halfSizeImg, imgNotAvailable } from "../../../config/config";
-import MediumTitle from "../../Common/Title/MediumTitle";
+import MediumTitle from "../../Common/MediumTitle";
 import Button from "../../Sub/Button";
 import { v4 as uuidv4 } from 'uuid';
 

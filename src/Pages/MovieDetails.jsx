@@ -8,7 +8,7 @@ import Trailer from "../components/PageData/MovieDetails/Trailer";
 import Title from "../components/PageData/MovieDetails/Title";
 import Poster from "../components/PageData/MovieDetails/Poster";
 import About from "../components/PageData/MovieDetails/About";
-import CardSmall from "../components/Common/Cards/CardSmall";
+import CardSmall from "../components/Common/CardSmall";
 import Overview from "../components/PageData/MovieDetails/Overview";
 import Videos from "../components/PageData/MovieDetails/Videos";
 import Production from "../components/PageData/MovieDetails/Production";

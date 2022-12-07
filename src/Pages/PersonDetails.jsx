@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { AiTwotoneStar } from "react-icons/ai";
 import { FaExternalLinkAlt } from "react-icons/fa";
 import { useParams } from "react-router-dom";
-import CardSmall from "../components/Common/Cards/CardSmall";
+import CardSmall from "../components/Common/CardSmall";
 import LOverview from "../components/LazyLoading/LOverview";
 import LPersonAbout from "../components/LazyLoading/LPersonAbout";
 import LPicture from "../components/LazyLoading/LPicture";

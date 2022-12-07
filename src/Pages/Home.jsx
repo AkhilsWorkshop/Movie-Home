@@ -1,15 +1,14 @@
-import Footer from "../layouts/Footer"
-import Header from "../layouts/Header"
+
 import React, { Suspense } from "react";
 import Loading from "../layouts/Loading"
-import { DISCOVER_TV, navActive, NOW_PLAYING, POPULAR_PERSON, TOP_RATED, UPCOMING } from "../config/config";
+import { DISCOVER_TV, NOW_PLAYING, POPULAR_PERSON, TOP_RATED, UPCOMING } from "../config/config";
 import { useState } from "react";
 import { useEffect } from "react";
 import Trending from "../components/PageData/HomePage/Trending";
 
-const Card = React.lazy(() => import("../components/Common/Cards/Card"));
-const CardBig = React.lazy(() => import("../components/Common/Cards/CardBig"));
-const CardLandscape = React.lazy(() => import("../components/Common/Cards/CardLandscape"));
+const Card = React.lazy(() => import("../components/Common/Card"));
+const CardBig = React.lazy(() => import("../components/Common/CardBig"));
+const CardLandscape = React.lazy(() => import("../components/Common/CardLandscape"));
 
 const Home = () => {
 

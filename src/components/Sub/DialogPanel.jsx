@@ -5,7 +5,7 @@ import ReactPlayer from 'react-player'
 import { youtubeURL } from '../../config/config'
 
 
-const DialogPanel = (closingFunction, videoURL) => {
+const DialogPanel = (videoURL) => {
 
     const [isOpen, setIsOpen] = useState(false)
 

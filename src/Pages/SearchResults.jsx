@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import MediaCard from "../components/Common/Cards/MediaCard";
+import MediaCard from "../components/Common/MediaCard";
 import Footer from "../layouts/Footer";
 import Header from "../layouts/Header";
 import Loading from "../layouts/Loading";
