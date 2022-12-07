@@ -10,8 +10,6 @@ const WatchList = ({ data, mediaType }) => {
 
     const movieShowID = doc(db, "users", `${user?.email}`)
 
-    console.log(data)
-
     const saveWatchData = async () => {
         if (user?.email) {
             if (mediaType === "movie") {
@@ -42,7 +40,7 @@ const WatchList = ({ data, mediaType }) => {
 
     return (
         <div className=' w-full'>
-            <button onClick={saveWatchData} className="text-black font-bold bg-[#EAB308]/80 hover:bg-[#EAB308] rounded-sm px-5 py-2.5 text-center duration-300 flex w-full justify-center items-center gap-3">
+            <button onClick={saveWatchData} className="text-black font-bold bg-[#EAB308] hover:bg-[#EAB308]/80 rounded-sm px-5 py-2.5 text-center duration-300 flex w-full justify-center items-center gap-3">
                 <RiMenuAddLine size={20} />
                 <p>Add to watch list</p>
             </button>

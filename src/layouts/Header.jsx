@@ -6,23 +6,15 @@ import SearchBar from "../components/Sub/SearchBar"
 import SearchBarMobile from "../components/Sub/SearchBarMobile"
 import { Sling as Hamburger } from 'hamburger-react'
 import { UserAuth } from "../context/AuthContext"
-import { BiUserCircle } from "react-icons/bi"
 import { RiAccountCircleFill } from "react-icons/ri"
 
 const Header = () => {
 
-    const { user, signOutUser } = UserAuth();
+    const { user } = UserAuth();
 
     const [menu, setMenu] = useState(false);
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        try {
-            await signOutUser()
-        } catch (e) {
-            console.log(e.message)
-        }
-    }
+
 
     return (
         <>
@@ -53,7 +45,6 @@ const Header = () => {
                         </Link>
                         :
                         <>
-                            <button onClick={handleSubmit} className="bg-[#EAB308] hover:bg-[#EAB308]/80 duration-300 text-black font-bold py-2 px-4 rounded-full">Logout</button>
                             <Link to="/myaccount">
                                 <RiAccountCircleFill size={30} className="text-gray-300 cursor-pointer hover:text-white duration-300" />
                             </Link>

@@ -36,8 +36,7 @@ const Card = ({ title, first, second, media_type }) => {
                 {content?.map((eachItem) => (
 
                     <Button media_type={media_type} id={eachItem.id} key={uuidv4()}>
-                        <div
-                            className="flex flex-col gap-2 w-[7rem] sm:w-[10rem] relative">
+                        <div className="flex flex-col gap-2 w-[7rem] sm:w-[10rem] relative">
 
                             {eachItem.gender === undefined &&
 

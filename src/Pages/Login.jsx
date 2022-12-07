@@ -5,7 +5,7 @@ import { UserAuth } from '../context/AuthContext';
 
 const Login = () => {
 
-    const { signInUser } = UserAuth();
+    const { signInUser, getUserData } = UserAuth();
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -16,6 +16,7 @@ const Login = () => {
         e.preventDefault();
         try {
             await signInUser(email, password)
+            await getUserData(email)
             navigate("/myaccount")
         } catch (e) {
             console.log(e.message)
