@@ -1,5 +1,4 @@
 import React from 'react'
-import { halfSizeImg, imgNotAvailable } from '../../../config/config'
 import { Tab } from '@headlessui/react'
 import { Fragment } from 'react';
 import DashCard from './DashCard';
@@ -22,7 +21,7 @@ const WatchList = ({ movies, tvShows, user }) => {
                         </Tab>
                     ))}
                 </Tab.List>
-                <Tab.Panels className="pt-5">
+                <Tab.Panels className="pt-4">
                     <Tab.Panel>
                         <DashCard showData={movies} user={user} type="movies" />
                     </Tab.Panel>

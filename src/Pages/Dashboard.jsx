@@ -14,16 +14,25 @@ const Dashboard = () => {
 
     const { user } = UserAuth();
 
-    const [movies, setMovies] = useState([]);
-    const [tvShows, setTvShows] = useState([]);
+    const [userDataFromDB, setUserDataFromDB] = useState({
+        savedMovies: [],
+        savedShows: [],
+        watchedMovies: [],
+        watchedShows: []
+    })
 
     const [loading, setLoading] = useState(false)
 
     const getUserDetails = () => {
         setLoading(true)
         onSnapshot(doc(db, "users", `${user?.email}`), (doc) => {
-            setMovies(doc.data()?.savedMovies);
-            setTvShows(doc.data()?.savedShows);
+            setUserDataFromDB({
+                savedMovies: doc.data()?.savedMovies,
+                savedShows: doc.data()?.savedShows,
+                watchedMovies: doc.data()?.watchedMovies,
+                watchedShows: doc.data()?.watchedShows,
+            })
+
         })
     }
 
@@ -45,8 +54,8 @@ const Dashboard = () => {
                             <SideMenu />
 
                             <Tab.Panels>
-                                <Tab.Panel><WatchList movies={movies} tvShows={tvShows} user={user} /></Tab.Panel>
-                                <Tab.Panel><Watched movies={movies} tvShows={tvShows} user={user} /></Tab.Panel>
+                                <Tab.Panel><WatchList movies={userDataFromDB?.savedMovies} tvShows={userDataFromDB?.savedShows} user={user} /></Tab.Panel>
+                                <Tab.Panel><Watched movies={userDataFromDB?.watchedMovies} tvShows={userDataFromDB?.watchedShows} user={user} /></Tab.Panel>
                             </Tab.Panels>
                         </Tab.Group>
                     </div>

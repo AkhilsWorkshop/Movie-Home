@@ -44,7 +44,7 @@ const SideMenu = () => {
 
 
     return (
-        <Tab.List className={`text-gray-400  bg-[#121216] flex flex-col duration-300 justify-between flex-shrink-0 ${menu ? "w-[15%] p-5" : "w-[5%] p-3"}`}>
+        <Tab.List className={`text-gray-400 py-5 bg-[#121216] flex flex-col duration-300 transition-all justify-between flex-shrink-0 ${menu ? "w-[15%] px-5" : "w-[5%] px-3"}`}>
             <div className='flex flex-col'>
                 {sideMenu.map((eachItem) => (
                     <Tab as={Fragment} key={eachItem.id}>
@@ -57,7 +57,7 @@ const SideMenu = () => {
                 ))}
             </div>
             <button onClick={handleSubmit} className="bg-[#EAB308] hover:bg-[#EAB308]/80 duration-300 text-black font-bold py-2 px-4 rounded-xl flex justify-center items-center gap-2"><FiLogOut size={20} /> {menu && "Logout"}</button>
-            <button onClick={() => setMenu(!menu)} className="self-end">{menu ? <AiOutlineArrowLeft size={25} /> : <AiOutlineArrowRight size={25} />}</button>
+            <button onClick={() => setMenu(!menu)} className={menu ? "self-end" : "self-center"}>{menu ? <AiOutlineArrowLeft size={25} /> : <AiOutlineArrowRight size={25} />}</button>
 
         </Tab.List>
     )
