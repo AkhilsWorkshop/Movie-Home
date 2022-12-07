@@ -4,6 +4,7 @@ import React from 'react'
 import { useEffect } from 'react';
 import { useState } from 'react';
 import SideMenu from '../components/PageData/Dashboard/SideMenu';
+import Watched from '../components/PageData/Dashboard/Watched';
 import WatchList from '../components/PageData/Dashboard/WatchList';
 import { db } from '../config/firebase';
 import { UserAuth } from '../context/AuthContext'
@@ -45,6 +46,7 @@ const Dashboard = () => {
 
                             <Tab.Panels>
                                 <Tab.Panel><WatchList movies={movies} tvShows={tvShows} user={user} /></Tab.Panel>
+                                <Tab.Panel><Watched movies={movies} tvShows={tvShows} user={user} /></Tab.Panel>
                             </Tab.Panels>
                         </Tab.Group>
                     </div>

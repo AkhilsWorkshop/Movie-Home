@@ -3,7 +3,7 @@ import { baseURL } from "../config/config";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Loading from "../layouts/Loading";
-import ImageBg from '../components/Cards/ImageBg';
+import ImageBg from '../components/PageData/MovieDetails/ImageBg';
 import Trailer from "../components/PageData/MovieDetails/Trailer";
 import Title from "../components/PageData/MovieDetails/Title";
 import Poster from "../components/PageData/MovieDetails/Poster";

@@ -1,4 +1,4 @@
-import { fullSizeImg } from "../../config/config"
+import { fullSizeImg } from "../../../config/config"
 
 
 const ImageBg = ({ data }) => {

@@ -7,19 +7,23 @@ const AuthContext = createContext();
 
 export const AuthContextProvider = ({ children }) => {
     const [user, setUser] = useState(null);
-    const [userData, setUserData] = useState([]);
+    const [userData, setUserData] = useState(null);
 
     const signUpUser = (email, password) => {
         createUserWithEmailAndPassword(auth, email, password)
         setDoc(doc(db, "users", email), {
             savedMovies: [],
-            savedShows: []
+            savedShows: [],
+            watchedMovies: [],
+            watchedShows: [],
+            userData: []
         })
     }
 
     const getUserData = (email) => {
         onSnapshot(doc(db, "users", `${email}`), (doc) => {
             setUserData(doc.data())
+            console.log(doc.data())
         })
     }
 
@@ -35,10 +39,8 @@ export const AuthContextProvider = ({ children }) => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
             setUser(currentUser)
         })
-
-        getUserData(user?.email)
         return unsubscribe;
-    }, [user?.email])
+    }, [])
 
     return (
         <AuthContext.Provider value={{ signUpUser, signInUser, signOutUser, getUserData, user, userData }}>
