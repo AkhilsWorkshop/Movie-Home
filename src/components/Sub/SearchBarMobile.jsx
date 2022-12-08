@@ -1,4 +1,4 @@
-import { BiSearchAlt2 } from "react-icons/bi";
+
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { halfSizeImg, imgNotAvailable } from "../../config/config";
@@ -36,9 +36,9 @@ const SearchBarMobile = ({ search, setSearch, autocompleteData, setAutoCompleteD
     }, [query])
 
     return (
-        <div className={`absolute flex flex-col left-0 max-h-[60%] w-full duration-200 z-20 bg-black ${search ? "top-14" : "-top-20"}`}>
+        <div className={`absolute flex flex-col justify-center items-center left-0 max-h-[60%] w-full duration-200 z-20 bg-[#121216] ${search ? "top-14" : "-top-20"}`}>
 
-            <div className="flex items-center text-gray-600 focus-within:text-gray-400 p-2 w-full">
+            <div className="flex items-center text-gray-600 focus-within:text-gray-400 px-3 py-2 w-full">
 
                 <div className="relative text-gray-600 focus-within:text-gray-400 w-full">
                     <input
@@ -48,11 +48,14 @@ const SearchBarMobile = ({ search, setSearch, autocompleteData, setAutoCompleteD
                         onChange={changeHandler}
                         required
                     />
+                    {query.length > 2 &&
+                        <IoMdClose size={30} onClick={() => setQuery("")} className="absolute top-1 right-2" />
+                    }
                 </div>
 
             </div>
 
-            <div className="mt-2 flex flex-col max-h-[90%] overflow-auto overflow-x-hidden w-auto rounded-md z-50">
+            <div className="flex flex-col max-h-[90%] overflow-auto overflow-x-hidden w-full rounded-b-md z-50">
                 {autocompleteData?.results?.length > 0 ?
 
                     autocompleteData?.results.map((eachItem) => (
