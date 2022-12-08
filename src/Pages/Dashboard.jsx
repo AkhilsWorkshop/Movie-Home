@@ -3,6 +3,7 @@ import { doc, onSnapshot } from 'firebase/firestore';
 import React from 'react'
 import { useEffect } from 'react';
 import { useState } from 'react';
+import Account from '../components/PageData/Dashboard/Account';
 import SideMenu from '../components/PageData/Dashboard/SideMenu';
 import Watched from '../components/PageData/Dashboard/Watched';
 import WatchList from '../components/PageData/Dashboard/WatchList';
@@ -56,6 +57,7 @@ const Dashboard = () => {
                             <Tab.Panels>
                                 <Tab.Panel><WatchList movies={userDataFromDB?.savedMovies} tvShows={userDataFromDB?.savedShows} user={user} /></Tab.Panel>
                                 <Tab.Panel><Watched movies={userDataFromDB?.watchedMovies} tvShows={userDataFromDB?.watchedShows} user={user} /></Tab.Panel>
+                                <Tab.Panel><Account /></Tab.Panel>
                             </Tab.Panels>
                         </Tab.Group>
                     </div>

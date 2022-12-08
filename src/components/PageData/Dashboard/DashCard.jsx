@@ -7,6 +7,7 @@ import { MdDeleteSweep } from 'react-icons/md'
 import { RiVideoAddFill } from 'react-icons/ri'
 import { halfSizeImg, imgNotAvailable } from '../../../config/config'
 import { db } from '../../../config/firebase'
+import Button from '../../Sub/Button'
 
 const DashCard = ({ showData, user, type, name }) => {
 
@@ -14,7 +15,7 @@ const DashCard = ({ showData, user, type, name }) => {
     const deleteSaved = async (showID) => {
         try {
             const result = showData.filter((item) => item.id !== showID)
-            if (type === "movies") {
+            if (type === "movie") {
                 await updateDoc(movieRef, {
                     savedMovies: result
                 })
@@ -31,7 +32,7 @@ const DashCard = ({ showData, user, type, name }) => {
     const deleteWatched = async (showID) => {
         try {
             const result = showData.filter((item) => item.id !== showID)
-            if (type === "movies") {
+            if (type === "movie") {
                 await updateDoc(movieRef, {
                     watchedMovies: result
                 })
@@ -48,7 +49,7 @@ const DashCard = ({ showData, user, type, name }) => {
     const watchedShow = async (show) => {
         const result = showData.filter((item) => item.id !== show.id)
         try {
-            if (type === "movies") {
+            if (type === "movie") {
                 await updateDoc(movieRef, {
                     watchedMovies: arrayUnion({
                         id: show.id,
@@ -79,16 +80,19 @@ const DashCard = ({ showData, user, type, name }) => {
     }
 
     return (
-        <div className="flex gap-4 flex-wrap max-h-[calc(100vh_-_13rem)] overflow-y-auto overflow-x-hidden">
+        <div className="flex gap-4 flex-wrap justify-center w-full lg:justify-start max-h-[calc(100vh_-_16.5rem)] lg:max-h-[calc(100vh_-_13rem)] overflow-y-auto lg:overflow-x-hidden">
             {showData?.map((eachItem) => (
-                <div key={eachItem.id} className="flex flex-col gap-2 w-[7rem] sm:w-[9rem]">
-                    <div className="flex w-[7rem] sm:w-[9rem] overflow-hidden rounded-md hover:cursor-pointer shadow-lg shadow-black border border-gray-700 hover:shadow-xl hover:shadow-black">
-                        <img className="object-fill shadow-lg shadow-black duration-300 sm:hover:scale-105 sm:hover:saturate-150 aspect-[2/3]"
-                            src={eachItem.img === null ? imgNotAvailable : halfSizeImg + eachItem.img}
-                            alt="Reload Page"
-                            loading="lazy">
-                        </img>
-                    </div>
+
+                <div className="flex flex-col gap-2 w-[7rem] sm:w-[9rem]" key={eachItem.id}>
+                    <Button media_type={type} id={eachItem.id}>
+                        <div className="flex w-[7rem] sm:w-[9rem] overflow-hidden rounded-md hover:cursor-pointer shadow-lg shadow-black border border-gray-700 hover:shadow-xl hover:shadow-black">
+                            <img className="object-fill shadow-lg shadow-black duration-300 sm:hover:scale-105 sm:hover:saturate-150 aspect-[2/3]"
+                                src={eachItem.img === null ? imgNotAvailable : halfSizeImg + eachItem.img}
+                                alt="Reload Page"
+                                loading="lazy">
+                            </img>
+                        </div>
+                    </Button>
                     <div className='text-white flex items-center justify-between relative'>
                         <p className=" text-xs truncate">{eachItem.title}</p>
                         <Menu>
@@ -113,6 +117,7 @@ const DashCard = ({ showData, user, type, name }) => {
                         </Menu>
                     </div>
                 </div>
+
             ))}
         </div>
     )

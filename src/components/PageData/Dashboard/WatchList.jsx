@@ -8,7 +8,7 @@ const WatchList = ({ movies, tvShows, user }) => {
     const tabList = ["Movies", "TV Shows"]
 
     return (
-        <div className='px-10 py-5 flex flex-col items-center lg:items-start'>
+        <div className='lg:px-10 lg:py-5 flex flex-col items-center lg:items-start'>
             <Tab.Group>
                 <Tab.List className="text-gray-400">
                     {tabList.map((eachItem, index) => (
@@ -21,12 +21,12 @@ const WatchList = ({ movies, tvShows, user }) => {
                         </Tab>
                     ))}
                 </Tab.List>
-                <Tab.Panels className="pt-4">
+                <Tab.Panels className="pt-2 lg:pt-4">
                     <Tab.Panel>
-                        <DashCard showData={movies} user={user} type="movies" />
+                        <DashCard showData={movies} user={user} type="movie" />
                     </Tab.Panel>
                     <Tab.Panel>
-                        <DashCard showData={tvShows} user={user} type="tvshows" />
+                        <DashCard showData={tvShows} user={user} type="tv" />
                     </Tab.Panel>
                 </Tab.Panels>
             </Tab.Group>
