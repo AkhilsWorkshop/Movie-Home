@@ -7,11 +7,11 @@ import axios from "axios";
 import Button from "./Button";
 import { IoMdClose } from "react-icons/io"
 
-const SearchBar = () => {
+const SearchBarMobile = ({ search, setSearch, autocompleteData, setAutoCompleteData }) => {
 
     // useState Hooks
     const [query, setQuery] = useState("");
-    const [autocompleteData, setAutoCompleteData] = useState([])
+
 
     const navigate = useNavigate();
 
@@ -36,14 +36,14 @@ const SearchBar = () => {
     }, [query])
 
     return (
-        <div className="max-h-[50%] p-5">
+        <div className={`absolute flex flex-col left-0 max-h-[60%] w-full duration-200 z-20 bg-black ${search ? "top-14" : "-top-20"}`}>
 
-            <div className="flex items-center text-gray-600 focus-within:text-gray-400 w-full">
+            <div className="flex items-center text-gray-600 focus-within:text-gray-400 p-2 w-full">
 
                 <div className="relative text-gray-600 focus-within:text-gray-400 w-full">
                     <input
                         placeholder="Search movies & more"
-                        className={`py-2 pl-4 text-base text-black bg-white rounded-md focus:outline-none focus:bg-white focus:text-gray-900 w-full`}
+                        className={`py-2 pl-4 text-base text-black rounded-md focus:outline-none focus:text-gray-900 w-full`}
                         value={query}
                         onChange={changeHandler}
                         required
@@ -57,7 +57,7 @@ const SearchBar = () => {
 
                     autocompleteData?.results.map((eachItem) => (
 
-                        <div className="bg-[#26262c] odd:bg-[#17171b] text-white duraiton-200 transition-all hover:text-[#EAB308] cursor-pointer">
+                        <div key={eachItem.id} className="bg-[#26262c] odd:bg-[#17171b] text-white duraiton-200 transition-all hover:text-[#EAB308] cursor-pointer">
                             <Button media_type={eachItem.media_type} id={eachItem.id} >
                                 <div className="flex gap-2 w-64 h-auto p-2">
                                     {eachItem.media_type === "movie" || eachItem.media_type === "tv" ?
@@ -89,4 +89,4 @@ const SearchBar = () => {
     )
 }
 
-export default SearchBar
+export default SearchBarMobile

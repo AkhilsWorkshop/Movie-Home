@@ -79,7 +79,7 @@ const DashCard = ({ showData, user, type, name }) => {
     }
 
     return (
-        <div className="flex gap-4 flex-wrap h-[calc(100vh_-_15rem)] overflow-y-auto overflow-x-hidden">
+        <div className="flex gap-4 flex-wrap max-h-[calc(100vh_-_15rem)] overflow-y-auto overflow-x-hidden">
             {showData?.map((eachItem) => (
                 <div key={eachItem.id} className="flex flex-col gap-2 w-[7rem] sm:w-[9rem]">
                     <div className="flex w-[7rem] sm:w-[9rem] overflow-hidden rounded-md hover:cursor-pointer shadow-lg shadow-black border border-gray-700 hover:shadow-xl hover:shadow-black">
