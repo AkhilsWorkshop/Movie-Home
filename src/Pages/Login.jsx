@@ -22,7 +22,6 @@ const Login = () => {
             await getUserData(email)
             navigate(-1)
         } catch (e) {
-            console.log(e.code)
             switch (e.code) {
                 case "auth/user-not-found":
                     setError("No account found");
@@ -64,9 +63,7 @@ const Login = () => {
                                     <input type="email" id="email" className="bg-slate-700 rounded-md block w-full p-2.5 py-3 focus:outline-none" placeholder="Email Address" onChange={(e) => { setEmail(e.target.value); setError("") }} required />
 
                                     <input type="password" id="password" className="bg-slate-700 rounded-md block w-full p-2.5 py-3 focus:outline-none" placeholder="Password" onChange={(e) => { setPassword(e.target.value); setError("") }} required />
-                                    {error.length > 0 &&
-                                        <p className='border border-red-900 text-center text-sm py-1 rounded-md bg-red-700/70'>{error}</p>
-                                    }
+                                    <p className={`duration-300 transition-all text-center text-sm rounded-md bg-red-700/70 ${error.length > 0 ? "h-auto py-1 " : "h-0"}`}>{error}</p>
                                     <button type="submit" className="text-black font-bold bg-[#EAB308]/80 hover:bg-[#EAB308] rounded-md px-5 py-2.5 text-center duration-300">Login</button>
                                 </form>
                                 <div className="flex gap-2 justify-center items-center">

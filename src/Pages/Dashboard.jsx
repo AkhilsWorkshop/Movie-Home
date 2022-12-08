@@ -48,7 +48,7 @@ const Dashboard = () => {
                     <Loading />
                 )
                     :
-                    <div className="h-[calc(100vh_-_7.5rem)] flex">
+                    <div className="h-[calc(100vh_-_7.5rem)] flex flex-col lg:flex-row">
                         <Tab.Group>
 
                             <SideMenu />

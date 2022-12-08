@@ -44,20 +44,20 @@ const SideMenu = () => {
 
 
     return (
-        <Tab.List className={`text-gray-400 py-5 bg-[#121216] flex flex-col duration-300 transition-all justify-between flex-shrink-0 ${menu ? "w-[15%] px-5" : "w-[5%] px-3"}`}>
-            <div className='flex flex-col'>
+        <Tab.List className={`text-gray-400 lg:py-5 bg-[#121216] flex flex-col duration-300 transition-all justify-between flex-shrink-0 ${menu ? "lg:w-[15%] px-5" : "lg:w-[5rem] px-3"}`}>
+            <div className='flex lg:flex-col justify-center'>
                 {sideMenu.map((eachItem) => (
                     <Tab as={Fragment} key={eachItem.id}>
                         {({ selected }) => (
-                            <button className={`font-bold duration-150 px-2 py-1 my-2 flex gap-2 border-l-4 ${selected ? ' text-white border-[#EAB308]' : 'hover:text-white border-transparent'}`}>
+                            <button className={`font-bold duration-150 px-2 py-1 my-2 flex flex-col items-center lg:flex-row gap-2 lg:border-l-4 ${selected ? 'text-[#EAB308] lg:text-white border-[#EAB308]' : 'hover:text-white border-transparent'}`}>
                                 <eachItem.icon size={25} className={`font-bold ${selected ? ' text-[#EAB308]' : 'hover:text-white'}`} />{menu && eachItem.name}
                             </button>
                         )}
                     </Tab>
                 ))}
             </div>
-            <button onClick={handleSubmit} className="bg-[#EAB308] hover:bg-[#EAB308]/80 duration-300 text-black font-bold py-2 px-4 rounded-xl flex justify-center items-center gap-2"><FiLogOut size={20} /> {menu && "Logout"}</button>
-            <button onClick={() => setMenu(!menu)} className={menu ? "self-end" : "self-center"}>{menu ? <AiOutlineArrowLeft size={25} /> : <AiOutlineArrowRight size={25} />}</button>
+            <button onClick={handleSubmit} className="bg-[#EAB308] hover:bg-[#EAB308]/80 duration-300 text-black font-bold py-2 px-4 rounded-xl hidden lg:flex justify-center items-center gap-2"><FiLogOut size={20} /> {menu && "Logout"}</button>
+            <button onClick={() => setMenu(!menu)} className={`hidden lg:flex ${menu ? "self-end" : "self-center"}`}>{menu ? <AiOutlineArrowLeft size={25} /> : <AiOutlineArrowRight size={25} />}</button>
 
         </Tab.List>
     )

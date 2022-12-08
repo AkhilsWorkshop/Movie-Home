@@ -8,7 +8,7 @@ const WatchList = ({ movies, tvShows, user }) => {
     const tabList = ["Movies", "TV Shows"]
 
     return (
-        <div className='px-10 py-5'>
+        <div className='px-10 py-5 flex flex-col items-center lg:items-start'>
             <Tab.Group>
                 <Tab.List className="text-gray-400">
                     {tabList.map((eachItem, index) => (

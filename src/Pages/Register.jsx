@@ -1,7 +1,9 @@
+import { doc, setDoc } from 'firebase/firestore'
 import React, { useState } from 'react'
 import { useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import bgImg from "../assets/login/bg.jpg"
+import { db } from '../config/firebase'
 import { UserAuth } from '../context/AuthContext'
 import Loading from '../layouts/Loading'
 
@@ -19,6 +21,13 @@ const Register = () => {
         e.preventDefault();
         try {
             await signUpUser(email, password)
+            setDoc(doc(db, "users", email), {
+                savedMovies: [],
+                savedShows: [],
+                watchedMovies: [],
+                watchedShows: [],
+                userData: []
+            })
             navigate("/myaccount")
         } catch (e) {
             switch (e.code) {
@@ -57,11 +66,8 @@ const Register = () => {
 
                                 <form className="flex flex-col gap-7 text-white" onSubmit={handleSubmit}>
                                     <input type="email" id="email" className="bg-slate-700 rounded-md block w-full p-2.5 py-3 focus:outline-none" placeholder="Email Address" onChange={(e) => { setEmail(e.target.value); setError("") }} required />
-
                                     <input type="password" id="password" className="bg-slate-700 rounded-md block w-full p-2.5 py-3 focus:outline-none" placeholder="Password" onChange={(e) => { setPassword(e.target.value); setError("") }} required />
-                                    {error.length > 0 &&
-                                        <p className='border border-red-900 text-center text-sm py-1 rounded-md bg-red-700/70'>{error}</p>
-                                    }
+                                    <p className={`duration-300 transition-all text-center text-sm rounded-md bg-red-700/70 ${error.length > 0 ? "h-auto py-1 " : "h-0"}`}>{error}</p>
                                     <button type="submit" className="text-black font-bold bg-[#EAB308]/80 hover:bg-[#EAB308] rounded-md px-5 py-2.5 text-center duration-300">Register</button>
                                 </form>
                                 <div className="flex gap-2 justify-center items-center">

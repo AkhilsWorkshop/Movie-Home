@@ -5,12 +5,12 @@ import DesktopHeader from "../components/PageData/Header/DesktopHeader"
 
 const Header = () => {
 
-    const { user } = UserAuth();
+    const { user, signOutUser } = UserAuth();
 
     return (
         <>
             <DesktopHeader user={user} logo={logo} />
-            <MobileHeader user={user} logo={logo} />
+            <MobileHeader user={user} logo={logo} signOutUser={signOutUser} />
         </>
     )
 }
