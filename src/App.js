@@ -6,9 +6,6 @@ import { AuthContextProvider } from "./context/AuthContext";
 import AnimatedRoute from "./Routes/AnimatedRoute";
 
 const App = () => {
-
-
-
     return (
         <div className='relative min-h-screen'>
             <AuthContextProvider>

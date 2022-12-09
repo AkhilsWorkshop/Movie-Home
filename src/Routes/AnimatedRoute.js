@@ -30,6 +30,9 @@ const AnimatedRoute = () => {
                     </Route>
                     <Route path="login" element={<Login />} />
                     <Route path="register" element={<Register />} />
+                    <Route path="dashboard">
+                        <Route path="watchlist" element={<SearchResults />} />
+                    </Route>
                     <Route path="myaccount" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
                     <Route path="movies" element={<Movies />} />
                     <Route path="about" element={<About />} />
