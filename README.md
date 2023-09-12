@@ -1,6 +1,6 @@
 <h1>MOVIE HOME</h1>
 
-View live DEMO <a href="https://moviehome.akhilkumar.ga/">here</a>
+View live DEMO <a href="https://movie-home.akhilkumar.dev/">here</a>
 
 <h3>About</h3>
 
